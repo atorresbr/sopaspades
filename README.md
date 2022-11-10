@@ -80,7 +80,8 @@ Spoiler alert: You're on your own here.
 Please see the file named LICENSE.
 
 
-eSpecial Thanks to  @synSpades 
+## eSpecial Thanks to  @c-um, @torvalds, @yusufcardinal
+ 
 
 =============================================================================================================
 
