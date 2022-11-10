@@ -1,5 +1,6 @@
 # Sopa! Spades 🔱🐒
-# - A Beautiful OpenSpades Client to SOPA Servers 
+
+## - A Beautiful OpenSpades Client to SOPA Servers 
 
 [OpenSpades Website](https://openspades.yvt.jp) — [Community](https://buildandshoot.com)
 
