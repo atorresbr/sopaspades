@@ -1,18 +1,8 @@
-# SopaSpades 🔱🐒 (( SOPA ! 😋 ))
+# SopaSpades 🔱🐒
 
-## - A Beautiful OpenSpades Client to SOPA Servers 
+## - A Beautiful OpenSpades Client to SOPA Servers (( SOPA ! 😋 )) 
 
 [OpenSpades Website](https://openspades.yvt.jp) — [Community](https://buildandshoot.com)
-
-## Little warning
-I 75% of the time fuck up something, so please beware there might be errors here and there, just report them to me by opening an issue. I'll try to solve it.
-
-## What is this?
-synSpades is a modified version of OpenSpades, with changes by Doctor Dank, including a bigger color palette thanks to Liza & other smaller changes such as macros (Totally didn't steal the macros from [this dude](https://www.github.com/yusufcardinal/openspades)).
-
-## How do I use the macros?
-Write `/syn_macro_` in chat and it'll essentially explain itself to you. There's currently only a macro for the P key & the Mouse Button 4 & 5 keys.
-If someone can, please implement a macro menu where you can set macro keys yourself, as right now you have to add lines to the code to have another bind.
 
 ## How to Build/Install?
 
@@ -88,3 +78,18 @@ Spoiler alert: You're on your own here.
 
 ## Licensing
 Please see the file named LICENSE.
+
+
+eSpecial Thanks to  @synSpades 
+
+=============================================================================================================
+
+## Little warning
+I 75% of the time fuck up something, so please beware there might be errors here and there, just report them to me by opening an issue. I'll try to solve it.
+
+## What is this?
+synSpades is a modified version of OpenSpades, with changes by Doctor Dank, including a bigger color palette thanks to Liza & other smaller changes such as macros (Totally didn't steal the macros from [this dude](https://www.github.com/yusufcardinal/openspades)).
+
+## How do I use the macros?
+Write `/syn_macro_` in chat and it'll essentially explain itself to you. There's currently only a macro for the P key & the Mouse Button 4 & 5 keys.
+If someone can, please implement a macro menu where you can set macro keys yourself, as right now you have to add lines to the code to have another bind.
