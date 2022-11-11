@@ -7,6 +7,8 @@
 
 [OpenSpades Website](https://openspades.yvt.jp) — [Community](https://buildandshoot.com)
 
+[![IMAGE ALT TEXT](https://i3.ytimg.com/vi/HjPqX0XqJlE/maxresdefault.jpg)](https://youtu.be/HjPqX0XqJlE "SOPA!")
+
 ## How to Build/Install?
 
 ### On Linux
