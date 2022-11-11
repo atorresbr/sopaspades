@@ -1,6 +1,6 @@
 # 🔱🐒 SopaSpades ☭
 
-## - A Beautiful OpenSpades Client to SOPA Servers (( SOPA ! 😋 )) 
+## - A Beautiful OpenSpades Client to SOPA Servers (( SOPA‼️ 😋 )) 
 
 ![alt text](https://github.com/atorresbr/sopaspades/blob/main/sopa/sopaspades.png)
 
