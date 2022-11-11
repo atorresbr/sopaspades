@@ -35,10 +35,10 @@ GCC 4.9 / Clang 3.2 or later is recommended because OpenSpades relies on C++11 f
    *On other distributions*:
    Install corresponding packages from your repository (or compile from source).
 
-2. Clone the synSpades repository:
+2. Clone the sopaspades repository:
 
    ```bash
-   git clone https://github.com/c-um/synSpades.git && cd synSpades
+   git clone https://github.com/atorresbr/sopaspades.git && cd sopaspades
    ```
 
 3. Run the following one liner:
@@ -47,7 +47,7 @@ GCC 4.9 / Clang 3.2 or later is recommended because OpenSpades relies on C++11 f
    mkdir sopaspades.mk && cd sopaspades.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && make
    ```
 
-4. Install synSpades (optional but recommended):
+4. Install sopaspades (optional but recommended):
 
    `sudo make install`
 
