@@ -1,4 +1,4 @@
-# 🔱🐒SopaSpades ☭
+# 🔱🐒 SopaSpades ☭
 
 ## - A Beautiful OpenSpades Client to SOPA Servers (( SOPA ! 😋 )) 
 
