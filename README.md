@@ -2,6 +2,9 @@
 
 ## - A Beautiful OpenSpades Client to SOPA Servers (( SOPA ! 😋 )) 
 
+![alt text](https://github.com/atorresbr/sopaspades/blob/main/sopa/sopaspades.png)
+
+
 [OpenSpades Website](https://openspades.yvt.jp) — [Community](https://buildandshoot.com)
 
 ## How to Build/Install?
