@@ -7,7 +7,6 @@
 
 [OpenSpades Website](https://openspades.yvt.jp) — [Community](https://buildandshoot.com)
 
-[![IMAGE ALT TEXT](https://i3.ytimg.com/vi/HjPqX0XqJlE/maxresdefault.jpg)](https://youtu.be/HjPqX0XqJlE "SOPA!")
 
 ## How to Build/Install?
 
@@ -85,3 +84,8 @@ Spoiler alert: You're on your own here.
 Please see the file named LICENSE.
 
 =======================================
+
+##  Watch the game !
+
+[![IMAGE ALT TEXT](https://i3.ytimg.com/vi/HjPqX0XqJlE/maxresdefault.jpg)](https://youtu.be/HjPqX0XqJlE "SOPA!")
+
