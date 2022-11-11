@@ -77,7 +77,7 @@ In addition, vcpkg (sort of package manager only used for Windows and macOS buil
 
 
 ## Troubleshooting
-Spoiler alert: You're on your own here.
+U are welcome to be a Communist Troll ☭
 
 
 ## Licensing
