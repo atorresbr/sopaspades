@@ -44,7 +44,7 @@ GCC 4.9 / Clang 3.2 or later is recommended because OpenSpades relies on C++11 f
 3. Run the following one liner:
 
    ```
-   mkdir synspades.mk && cd synspades.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && make
+   mkdir sopaspades.mk && cd sopaspades.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && make
    ```
 
 4. Install synSpades (optional but recommended):
@@ -55,7 +55,7 @@ GCC 4.9 / Clang 3.2 or later is recommended because OpenSpades relies on C++11 f
 
 5. Launch:
 
-   `openspades` (if installed) or `cd $REPO_DIRECTORY/synspades.mk; bin/OpenSpades` and enjoy
+   `openspades` (if installed) or `cd $REPO_DIRECTORY/sopaspades.mk; bin/OpenSpades` and enjoy
 
 
 ### Windows
