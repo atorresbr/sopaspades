@@ -85,5 +85,5 @@ Please see the file named LICENSE.
 
 ##  Watch the game ! (( https://youtu.be/HjPqX0XqJlE ))
 
-[![IMAGE ALT TEXT](https://i3.ytimg.com/vi/HjPqX0XqJlE/maxresdefault.jpg)](https://youtu.be/HjPqX0XqJlE "SOPA!")
+[![IMAGE ALT TEXT](https://i.ytimg.com/vi/jW21aRnie3M/maxresdefault.jpg)]([https://youtu.be/jW21aRnie3M](https://youtu.be/jW21aRnie3M) "SOPA!")
 
