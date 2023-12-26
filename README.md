@@ -7,6 +7,7 @@
 
 [OpenSpades Website](https://openspades.yvt.jp) — [Community](https://buildandshoot.com)
 
+  **Important**: If you have previously installed OpenSpades or any modified version of OpenSpades, you have to uninstall it manually by `sudo rm -rf /usr/local/share/games/openspades` or `sudo rm -rf /usr/local/share/games/sopaspades` before installing a new one.
 
 ## How to Build/Install?
 
@@ -50,8 +51,6 @@ GCC 4.9 / Clang 3.2 or later is recommended because OpenSpades relies on C++11 f
 4. Install sopaspades (optional but recommended):
 
    `sudo make install`
-
-   **Important**: If you have previously installed OpenSpades or any modified version of OpenSpades, you have to uninstall it manually by `sudo rm -rf /usr/local/share/games/openspades` or `sudo rm -rf /usr/local/share/games/sopaspades` before installing a new one.
 
 5. Launch:
 
