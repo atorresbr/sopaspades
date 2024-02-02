@@ -1,8 +1,8 @@
-# 🐒 SOPASpades
+# 🍜 SOPASpades
 
-## - A Beautiful OpenSpades Client to SOPA Servers (( SOPA‼️ 😋  SOUP !!)) 
+## - A Beautiful OpenSpades Client to SOPA Servers (( SOPA‼️ 😋 SOUP !!)) 
 
-![alt text](https://github.com/atorresbr/sopaspades/blob/main/sopa/Splashimage.jpg)
+![SOPA!](https://repository-images.githubusercontent.com/564385628/bf3842ec-ccf9-44e5-ad6a-2b1a4272909a)
 
 
 [OpenSpades Website](https://openspades.yvt.jp) — [Community](https://buildandshoot.com)
