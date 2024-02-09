@@ -9,6 +9,16 @@
 
   **Important**: If you have previously installed OpenSpades or any modified version of OpenSpades, you have to uninstall it manually by `sudo rm -rf /usr/local/share/games/openspades` or `sudo rm -rf /usr/local/share/games/sopaspades` before installing a new one.
 
+
+**Importante**: Se você já tem uma instalação antiga no seu PC com Linux, você precisa remover, usando este comand. Copie e cole no seu terminal.
+
+```
+sudo rm -rf /usr/local/share/games/openspades && \
+sudo rm -rf /usr/local/share/games/sopaspades
+
+```
+
+
 ## How to Build/Install?
 
 ### On Linux
