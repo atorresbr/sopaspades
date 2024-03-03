@@ -2,19 +2,32 @@
 ## La Popa és Nuestra !
 ## informand sobre a instalação
 
-echo
-echo
-sleep 1
-echo -ne " 🇪🇸 Este script instalará Sopa Spades en tu PC 🍜"
-echo
-sleep 1
-echo -ne " 🇺🇸 This scrip will isntall Sopa Spades on you PC 🍜"
-echo
-sleep 1
-echo -ne " 🇧🇷 Este script irá instalar o Sopa Spades em seu PC 🍜"
-echo
 
+#this functio send the error mesage to user if his not use the sudo command
+if [ "$(whoami)" != "root" ]
+then
+  echo
+    echo -e " 🔴 use sudo to run this script "
+  echo
+  exit 1
+fi
+
+echo
+echo
 sleep 1
+
+echo -ne " 🇪🇸 Este script instalará Sopa Spades en tu PC 🍜 "
+echo
+sleep 1
+
+echo -ne " 🇺🇸 This scrip will isntall Sopa Spades on you PC 🍜 "
+echo
+sleep 1
+
+echo -ne " 🇧🇷 Este script irá instalar o Sopa Spades em seu PC 🍜 "
+echo
+sleep 1
+
 echo -ne " 🇪🇸 Eliminando el directorio antiguo para reinstalar el juego "
 echo
 sleep 1
@@ -34,13 +47,13 @@ sudo rm -rf /usr/local/share/games/sopaspades && \
 ## informando sobre as dependências
 
 sleep 1
-echo -ne " 🇪🇸 Instalando las dependencias"
+echo -ne " 🇪🇸 Instalando las dependencias "
 echo
 sleep 1
-echo -ne " 🇺🇸 Installing the dependencies"
+echo -ne " 🇺🇸 Installing the dependencies "
 echo
 sleep 1
-echo -ne " 🇧🇷 Instalando as dependências"
+echo -ne " 🇧🇷 Instalando as dependências "
 echo
 
 
@@ -128,4 +141,3 @@ sleep 1
   echo
   echo
 
-  exit
