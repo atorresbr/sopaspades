@@ -22,15 +22,13 @@
      libopusfile-dev cmake imagemagick \
      libjpeg-dev libxinerama-dev libxft-dev && \
 
-     sudo rm -Rf sopaspades && sudo rm -Rf openspades && \
+   sudo rm -Rf sopaspades && sudo rm -Rf openspades && \
+   git clone https://github.com/atorresbr/sopaspades.git && cd sopaspades && \
 
-        git clone https://github.com/atorresbr/sopaspades.git && cd sopaspades \
-        mkdir sopaspades.mk && cd sopaspades.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && make && \
-        
+   mkdir sopaspades.mk && cd sopaspades.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && \
+   make && sudo make install && \
 
-      sudo make install && \
-
-      openspades
+   openspades
 
 ```
 
