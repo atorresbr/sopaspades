@@ -1,6 +1,5 @@
-#bin/bash
+#!bin/bash
 ## La Popa és Nuestra !
-
 ## informand sobre a instalação
 
 echo
