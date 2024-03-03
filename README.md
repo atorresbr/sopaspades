@@ -16,6 +16,8 @@
 
 🇧🇷 Se você é iniciante com Linux, copie o comando nos pequenos quadrados na direita dos comandos. Depois de copiar, cole com botão direo no sue terminal e aperte ENTER.
 
+<!-->
+
 ```bash
 
 sudo apt install wget &&
@@ -23,7 +25,7 @@ wget https://github.com/atorresbr/sopaspades/blob/main/a-la-popa.sh && \
 sudo chmod +x a-la-popa.sh && \
 sudo ./a-la-popa.sh
 
-```
+``` -->
 
 <!--
 
