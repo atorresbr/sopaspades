@@ -1,6 +1,6 @@
-# 🍜 SOPA SPADES !
+# 🍜 SOPA SPADES 🇧🇷 !
 
-## - A Beautiful OpenSpades Client to SOPA Servers (( SOPA‼️ 😋 SOUP !!)) 
+## - A Beautiful OpenSpades Client to SOPA Servers ( 😋 sopa! / soup!)
 
 ![SOPA!](https://repository-images.githubusercontent.com/564385628/bf3842ec-ccf9-44e5-ad6a-2b1a4272909a)
 
@@ -17,6 +17,17 @@
 🇧🇷 Se você é iniciante com Linux, copie o comando nos pequenos quadrados na direita dos comandos. Depois de copiar, cole com botão direo no sue terminal e aperte ENTER.
 
 ```bash
+
+git clone https://github.com/atorresbr/sopaspades/blob/main/a-la-popa.sh &&
+sudo chmod +x a-la-popa.sh &&
+sudo ./a-la-popa.sh
+
+
+```
+
+<!--
+
+```bash
   sudo apt-get install pkg-config libglew-dev libcurl3-openssl-dev libsdl2-dev \
      libsdl2-image-dev libalut-dev xdg-utils libfreetype6-dev libopus-dev \
      libopusfile-dev cmake imagemagick \
@@ -31,7 +42,7 @@
    openspades
 
 ```
-
+-->
 
 
  ## Limpar e Instalar / Limpiar y instalar / Clean and Install 
