@@ -26,6 +26,7 @@
 
         git clone https://github.com/atorresbr/sopaspades.git && cd sopaspades \
         mkdir sopaspades.mk && cd sopaspades.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && make && \
+        
 
       sudo make install && \
 
