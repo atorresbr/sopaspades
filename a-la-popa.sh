@@ -96,3 +96,20 @@ sleep 1
  echo " openspades "
 
   openspades
+
+  echo
+  echo
+
+  echo " 😘 🇪🇸 Comparte este script Compartilhe este Script ! "
+  echo
+  sleep 1
+  echo " 😘 🇺🇸 Share this Script ! "
+  echo
+  sleep 1
+  echo " 😘 🇧🇷 Compartilhe este Script ! "
+  echo
+
+  echo
+  echo
+
+  exit
