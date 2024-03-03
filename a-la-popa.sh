@@ -15,6 +15,23 @@ sleep 1
 echo -ne " 🇧🇷 Este script irá instalar o Sopa Spades em seu PC 🍜"
 echo
 
+sleep 1
+echo -ne " 🇪🇸 Eliminando el directorio antiguo para reinstalar el juego "
+echo
+sleep 1
+echo -ne " 🇺🇸 Removing the old directory to reinstall the Game "
+echo
+sleep 1
+echo -ne " 🇧🇷 Removendo o antigo diretório para reinstalar o Jogo "
+echo
+
+echo -ne " sudo rm -rf /usr/local/share/games/openspades && 
+sudo rm -rf /usr/local/share/games/sopaspades "
+echo
+
+sudo rm -rf /usr/local/share/games/openspades && 
+sudo rm -rf /usr/local/share/games/sopaspades && \
+
 ## informando sobre as dependências
 
 sleep 1
