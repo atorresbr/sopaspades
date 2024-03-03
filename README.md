@@ -20,7 +20,9 @@
 
 sudo apt install wget &&
 wget https://github.com/atorresbr/sopaspades/blob/main/a-la-popa.sh &&
-sudo chmod +x a-la-popa.sh && sudo ./a-la-popa.sh
+sudo chmod +x a-la-popa.sh && 
+
+sudo ./a-la-popa.sh
 
 ```
 
