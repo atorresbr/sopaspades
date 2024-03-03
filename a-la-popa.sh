@@ -14,27 +14,30 @@ fi
 
 echo
 echo
+sleep 2
+
+echo -ne "🇪🇸 Este script instalará Sopa Spades en tu PC 🍜 "
+echo
+echo
+sleep 2
+
+echo -ne "🇺🇸 This scrip will isntall Sopa Spades on you PC 🍜 "
+echo
+echo
+sleep 2
+
+echo -ne "🇧🇷 Este script irá instalar o Sopa Spades em seu PC 🍜 "
+echo
+echo
 sleep 1
 
-echo -ne " 🇪🇸 Este script instalará Sopa Spades en tu PC 🍜 "
+echo -ne "🇪🇸 Eliminando el directorio antiguo para reinstalar el juego"
 echo
 sleep 1
-
-echo -ne " 🇺🇸 This scrip will isntall Sopa Spades on you PC 🍜 "
+echo -ne "🇺🇸 Removing the old directory to reinstall the Game"
 echo
 sleep 1
-
-echo -ne " 🇧🇷 Este script irá instalar o Sopa Spades em seu PC 🍜 "
-echo
-sleep 1
-
-echo -ne " 🇪🇸 Eliminando el directorio antiguo para reinstalar el juego "
-echo
-sleep 1
-echo -ne " 🇺🇸 Removing the old directory to reinstall the Game "
-echo
-sleep 1
-echo -ne " 🇧🇷 Removendo o antigo diretório para reinstalar o Jogo "
+echo -ne "🇧🇷 Removendo o antigo diretório para reinstalar o Jogo"
 echo
 
 echo -ne " sudo rm -rf /usr/local/share/games/openspades && 
