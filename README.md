@@ -10,7 +10,7 @@
 <!-- **Important**: If you have previously installed OpenSpades or any modified version of OpenSpades, you have to uninstall it manually by `sudo rm -rf /usr/local/share/games/openspades` or `sudo rm -rf /usr/local/share/games/sopaspades` before installing a new one. -->
 
 
-🇪🇸 principiante, copie el comando en dos cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
+🇪🇸 Eres principiante ?, copie el comando en los cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
 
 🇺🇸 If you are a extremelly benginer, just copy the command on two squares on right, and use the right click mouse to past in you terminal and press ENTER to install the game.
 
@@ -22,10 +22,10 @@
      libopusfile-dev cmake imagemagick \
      libjpeg-dev libxinerama-dev libxft-dev && \
 
-     sudo rm -Rf sopa-spades \
+     sudo rm -Rf sopaspades \
 
-        git clone https://github.com/atorresbr/sopa-spades.git && cd sopa-spades \
-        mkdir sopa-spades.mk && cd sopa-spades.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && make
+        git clone https://github.com/atorresbr/sopaspades.git && cd sopaspades \
+        mkdir sopaspades.mk && cd sopaspades.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && make
 
       sudo make install && \
 
@@ -120,13 +120,13 @@ or later is recommended because OpenSpades relies on C++11 features heavily.
 ### 2.  Clonar el repositorio 💠 Clonando o repositório 💠 Cloning the repository : 
 
    ```bash
-   git clone https://github.com/atorresbr/sopa-spades.git && cd sopa-spades
+   git clone https://github.com/atorresbr/sopaspades.git && cd sopaspades
    ```
 
 ### 3. Execute el comando abajo 💠 Execute o comando abaixo 💠 Run the commmand :
 
    ```
-   mkdir sopa-spades.mk && cd sopa-spades.mk && \
+   mkdir sopaspades.mk && cd sopaspades.mk && \
    cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && make
    ```
 
