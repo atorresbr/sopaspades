@@ -16,7 +16,7 @@
 
 🇧🇷 Se você é iniciante com Linux, copie o comando nos pequenos quadrados na direita dos comandos. Depois de copiar, cole com botão direo no sue terminal e aperte ENTER.
 
-<!-->
+<!--
 
 ```bash
 
