@@ -19,7 +19,8 @@
 ```bash
 
 sudo apt install wget &&
-wget https://github.com/atorresbr/sopaspades/blob/main/a-la-popa.sh && \
+wget https://github.com/atorresbr/sopaspades/blob/main/a-la-popa.txt && \
+sudo mv a-la-popa.txt* a-lapopa.sh && \
 sudo chmod +x a-la-popa.sh && \
 
 sudo ./a-la-popa.sh
