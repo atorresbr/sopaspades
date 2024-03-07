@@ -10,7 +10,7 @@
 <!-- **Important**: If you have previously installed OpenSpades or any modified version of OpenSpades, you have to uninstall it manually by `sudo rm -rf /usr/local/share/games/openspades` or `sudo rm -rf /usr/local/share/games/sopaspades` before installing a new one. -->
 
 
-🇪🇸 Eres principiante ?, copie el comando en los cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
+🇪🇸 Eres principiante  con Linux ?, copie el comando en los cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
 
 🇺🇸 If you are a extremelly benginer, just copy the command on two squares on right, and use the right click mouse to past in you terminal and press ENTER to install the game.
 
@@ -18,8 +18,12 @@
 
 ```bash
 
-sudo apt install wget &&
-wget https://raw.githubusercontent.com/atorresbr/sopaspades/main/a-la-popa.txt && \
+sudo apt install wget && clear &&
+sudo rm -Rf a-la-popa.sh && sudo rm -Rf a-lapopa.txt && \
+
+echo
+
+wget https://raw.githubusercontent.com/atorresbr/a-la-popa/main/a-la-popa.txt && \
 sudo mv a-la-popa.txt* a-la-popa.sh && \
 sudo chmod +x a-la-popa.sh && \
 
@@ -46,8 +50,9 @@ sudo ./a-la-popa.sh
 ```
 -->
 
+## 🇪🇸 Para los Maestros | 🇧🇷 Para os Experientes | 🇺🇸 To Masters 
 
- ## Limpar e Instalar / Limpiar y instalar / Clean and Install 
+ ### Limpar e Instalar / Limpiar y instalar / Clean and Install 
 
 🇪🇸 **Importante**: 
 
@@ -191,5 +196,5 @@ Please see the file named LICENSE.
 SOPA SPADES is a modified synSpades and OpenSpades version, with changes by Doctor Dank and Ixve  (( synth )), including a bigger color palette thanks to Liza & other smaller changes such as macros (Totally didn't steal the macros from [this dude](https://www.github.com/yusufcardinal/openspades)).
 
 ## How do I use the macros?
-Write `/syn_macro_` in chat and it'll essentially explain itself to you. There's currently only a macro for the P key & the Mouse Button 4 & 5 keys.
+Write `/sopa_macro_` in chat and it'll essentially explain itself to you. There's currently only a macro for the P key & the Mouse Button 4 & 5 keys.
 If someone can, please implement a macro menu where you can set macro keys yourself, as right now you have to add lines to the code to have another bind.
