@@ -335,8 +335,8 @@ echo
 sleep 1
 
 
-mkdir alapopa.mk && cd alapopa.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && \
-make && sudo make install && \
+mkdir sopaspades.mk && cd sopaspades.mk && \
+cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && make
 
 echo
 echo
