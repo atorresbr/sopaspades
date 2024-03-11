@@ -31,25 +31,6 @@ sudo ./a-la-popa.sh
 
 ```
 
-<!--
-
-```bash
-  sudo apt-get install pkg-config libglew-dev libcurl3-openssl-dev libsdl2-dev \
-     libsdl2-image-dev libalut-dev xdg-utils libfreetype6-dev libopus-dev \
-     libopusfile-dev cmake imagemagick \
-     libjpeg-dev libxinerama-dev libxft-dev && \
-
-   sudo rm -Rf sopaspades && sudo rm -Rf openspades && \
-   git clone https://github.com/atorresbr/sopaspades.git && cd sopaspades && \
-
-   mkdir sopaspades.mk && cd sopaspades.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && \
-   make && sudo make install && \
-
-   openspades
-
-```
--->
-
 ## 🇪🇸 Para los Maestros | 🇧🇷 Para os Experientes | 🇺🇸 To Masters 
 
  ### Limpar e Instalar / Limpiar y instalar / Clean and Install 
