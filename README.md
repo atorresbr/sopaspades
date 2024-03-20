@@ -9,27 +9,45 @@
 
 <!-- **Important**: If you have previously installed OpenSpades or any modified version of OpenSpades, you have to uninstall it manually by `sudo rm -rf /usr/local/share/games/openspades` or `sudo rm -rf /usr/local/share/games/sopaspades` before installing a new one. -->
 
+## 🍜 🇪🇸 Para los Principiantes | 🇧🇷 Para os iniciantes | 🇺🇸 To Benginners
 
-🇪🇸 Eres principiante  con Linux ?, copie el comando en los cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
+   🇪🇸 Eres principiante  con Linux ?, copie el comando en los cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
 
-🇺🇸 If you are a extremelly benginer, just copy the command on two squares on right, and use the right click mouse to past in you terminal and press ENTER to install the game.
+   🇺🇸 If you are a extremelly benginer, just copy the command on two squares on right, and use the right click mouse to past in you terminal and press ENTER to install the game.
 
-🇧🇷 Se você é iniciante com Linux, copie o comando nos pequenos quadrados na direita dos comandos. Depois de copiar, cole com botão direo no sue terminal e aperte ENTER.
+   🇧🇷 Se você é iniciante com Linux, copie o comando nos pequenos quadrados na direita dos comandos. Depois de copiar, cole com botão direo no sue terminal e aperte ENTER.
 
 ```bash
 
 sudo apt install wget && clear &&
-sudo rm -Rf a-la-popa.sh && sudo rm -Rf a-lapopa.txt && \
-
-echo
+sudo rm -rf a-la-popa && sudo rm -rf a-la-popa.sh &&
 
 wget https://raw.githubusercontent.com/atorresbr/a-la-popa/main/a-la-popa.txt && \
-sudo mv a-la-popa.txt* a-la-popa.sh && \
+sudo mv a-la-popa.txt a-la-popa.sh && \
 sudo chmod +x a-la-popa.sh && \
 
 sudo ./a-la-popa.sh
 
 ```
+
+<!--
+
+```bash
+  sudo apt-get install pkg-config libglew-dev libcurl3-openssl-dev libsdl2-dev \
+     libsdl2-image-dev libalut-dev xdg-utils libfreetype6-dev libopus-dev \
+     libopusfile-dev cmake imagemagick \
+     libjpeg-dev libxinerama-dev libxft-dev && \
+
+   sudo rm -Rf sopaspades && sudo rm -Rf openspades && \
+   git clone https://github.com/atorresbr/sopaspades.git && cd sopaspades && \
+
+   mkdir sopaspades.mk && cd sopaspades.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && \
+   make && sudo make install && \
+
+   openspades
+
+```
+-->
 
 ## 🇪🇸 Para los Maestros | 🇧🇷 Para os Experientes | 🇺🇸 To Masters 
 
@@ -174,7 +192,7 @@ Spoiler alert: You're on your own here.
 Please see the file named LICENSE.
 
 ## SOPA SPADES VERSION.
-SOPA SPADES is a modified synSpades and OpenSpades version, with changes by Doctor Dank and Ixve  (( synth )), including a bigger color palette thanks to Liza & other smaller changes such as macros (Totally didn't steal the macros from [this dude](https://www.github.com/yusufcardinal/openspades)).
+SOPA SPADES is a modified 😒 synSpades 🤫 and OpenSpades version, with changes by Doctor Dank and Ixve  (( synth )), including a bigger color palette thanks to Liza & other smaller changes such as macros (Totally didn't steal the macros from [this dude](https://www.github.com/yusufcardinal/openspades)).
 
 ## How do I use the macros?
 Write `/sopa_macro_` in chat and it'll essentially explain itself to you. There's currently only a macro for the P key & the Mouse Button 4 & 5 keys.
