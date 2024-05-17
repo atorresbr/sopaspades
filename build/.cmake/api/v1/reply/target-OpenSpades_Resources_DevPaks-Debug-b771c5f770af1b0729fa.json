@@ -1,0 +1,35 @@
+{
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target"
+		],
+		"files" : 
+		[
+			"Resources/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 7,
+				"parent" : 0
+			}
+		]
+	},
+	"id" : "OpenSpades_Resources_DevPaks::@839ef4797b7f9d4994a7",
+	"name" : "OpenSpades_Resources_DevPaks",
+	"paths" : 
+	{
+		"build" : "Resources",
+		"source" : "Resources"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

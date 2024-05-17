@@ -9,24 +9,44 @@
 
 <!-- **Important**: If you have previously installed OpenSpades or any modified version of OpenSpades, you have to uninstall it manually by `sudo rm -rf /usr/local/share/games/openspades` or `sudo rm -rf /usr/local/share/games/sopaspades` before installing a new one. -->
 
+https://github.com/atorresbr/a-la-popa/assets/13744483/1b71f093-dc32-4bd9-a0cf-2dfdc1c10408
+
 ## 🍜 🇪🇸 Para los Principiantes | 🇧🇷 Para os iniciantes | 🇺🇸 To Benginners
 
    🇪🇸 Eres principiante  con Linux ?, copie el comando en los cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
 
    🇺🇸 If you are a extremelly benginer, just copy the command on two squares on right, and use the right click mouse to past in you terminal and press ENTER to install the game.
 
-   🇧🇷 Se você é iniciante com Linux, copie o comando nos pequenos quadrados na direita dos comandos. Depois de copiar, cole com botão direo no sue terminal e aperte ENTER.
+   🇧🇷 Se você é iniciante com Linux, copie o comando nos pequenos quadrados na direita dos comandos. Depois de copiar, cole com botão direito no seu terminal e aperte ENTER.
 
 ```bash
 
-sudo apt install wget && clear &&
-sudo rm -rf a-la-popa && sudo rm -rf a-la-popa.sh &&
+## if you sytem don't have wget, this command will install it
+sudo apt install wget && clear && 
 
+## removing game folders from the old openspades version
+sudo rm -rf a-la-popa && rm a-la-popa.sh 2> /dev/null &&
+sudo rm -rf ~/.local/share/openspades* && 
+sudo rm -rf /usr/local/games/openspades 2> /dev/null &&
+
+## downloading the text file to transform in Bash Script
 wget https://raw.githubusercontent.com/atorresbr/a-la-popa/main/a-la-popa.txt && \
 sudo mv a-la-popa.txt a-la-popa.sh && \
-sudo chmod +x a-la-popa.sh && \
 
-sudo ./a-la-popa.sh
+## setting the permissions to you LINUX user and exec the Bash Script to install the game
+sudo chmod +x a-la-popa.sh && sudo ./a-la-popa.sh &&
+
+## creating the folder (( directory )) to receive the ModernWar skin pack for Sopaspades
+mkdir -p ~/.local/share/openspades/Resources && cd ~/.local/share/openspades/Resources &&
+
+## downloading the pack
+wget https://github.com/atorresbr/a-la-popa/raw/main/MODERN-PACK/modern_pack.zip && 
+
+## unzipping
+unzip -o modern_pack.zip && \
+
+## starting the game 
+openspades
 
 ```
 
@@ -67,10 +87,16 @@ Se você já tem uma instalação antiga no seu PC com Linux, você precisa remo
 
 
 El Comando / O Comando / The Command 👇
+
+```bash
+sudo rm -rf a-la-popa && rm a-la-popa.sh 2> /dev/null && 
+sudo rm -rf ~/.local/share/openspades* &&
+sudo rm -rf /usr/local/games/openspades &&
+sudo apt purge openspades -y && \
 ```
-sudo rm -rf /usr/local/share/games/openspades && \
-sudo rm -rf /usr/local/share/games/sopaspades
-```
+
+
+
 
 ## Cómo instalar | How to Install | Como instalar 
 
@@ -136,7 +162,7 @@ or later is recommended because OpenSpades relies on C++11 features heavily.
 ### 2.  Clonar el repositorio 💠 Clonando o repositório 💠 Cloning the repository : 
 
    ```bash
-   git clone https://github.com/atorresbr/sopaspades.git && cd sopaspades
+   git clone https://github.com/atorresbr/a-la-popa.git && cd a-la-popa
    ```
 
 ### 3. Execute el comando abajo 💠 Execute o comando abaixo 💠 Run the commmand :
@@ -175,25 +201,76 @@ Same goes for Windows. Although I've yet to meet anyone playing OpenSpades or B&
 
 
 ### Network usage during building
-
 OpenSpades' build process automatically downloads prebuilt game assets and libraries as needed. Specifically:
 
 - `pak000-Nonfree.pak` and `font-uniform.pak` from <https://github.com/yvt/openspades-paks>. Can be disabled by passing `-D OPENSPADES_NONFREE_RESOURCES=NO` to CMake.
+
 - The prebuilt binaries of YSRSpades (audio engine) from <https://github.com/yvt/openspades-media>. Can be disabled by passing `-D OPENSPADES_YSR=NO` to CMake.
 
 In addition, vcpkg (sort of package manager only used for Windows and macOS builds) [collects and sends telemetry data to Microsoft](https://vcpkg.readthedocs.io/en/latest/about/privacy/). You can opt out of this behavior by passing `-disableMetrics` option when running `vcpkg/bootstrap-vcpkg.sh` command.
 
 
 ## Troubleshooting
-Spoiler alert: You're on your own here.
+We will try to help you resolve any issues or resolve any concerns about installing the game on your Linux system.
 
 
 ## Licensing
 Please see the file named LICENSE.
 
-## SOPA SPADES VERSION.
-SOPA SPADES is a modified 😒 synSpades 🤫 and OpenSpades version, with changes by Doctor Dank and Ixve  (( synth )), including a bigger color palette thanks to Liza & other smaller changes such as macros (Totally didn't steal the macros from [this dude](https://www.github.com/yusufcardinal/openspades)).
+## 🍜 SOPA SPADES.
 
-## How do I use the macros?
-Write `/sopa_macro_` in chat and it'll essentially explain itself to you. There's currently only a macro for the P key & the Mouse Button 4 & 5 keys.
-If someone can, please implement a macro menu where you can set macro keys yourself, as right now you have to add lines to the code to have another bind.
+SOPA SPADES is a modified version from 😒synSpades and 🤫OpenSpades.
+
+ synSpades are a version from openspades with changes by Doctor Dank and Ixve  (( synth )), including a bigger color palette thanks to Liza & other smaller changes such as macros (Totally didn't steal the macros from [this dude](https://www.github.com/yusufcardinal/openspades)).
+
+## Instant messages ( /_sup_instant ).
+
+<!-- Write `/sopa_macro_` in chat and it'll essentially explain itself to you. There's currently only a macro for the P key & the Mouse Button 4 & 5 keys.
+If someone can, please implement a macro menu where you can set macro keys yourself, as right now you have to add lines to the code to have another bind. -->
+
+### 🇪🇸 Mensajes instantáneos
+
+Puedes configurar tus mensajes instantáneos como un eslogan para usar en el JUEGO, por ejemplo, como "¡SOPA!" o "¡SOMOS LOS CAMPEONES!".
+
+  el cual puede configurarse en el menú de su cliente SOPA SPADES, en la pestaña AVANZADO. Puedes usar tu frase clave usando la tecla P o las teclas 4 y 5 del mouse Gamer.
+
+Para ver tus mensajes instantáneas y usarlos en el juego, simplemente, presiona la tecla "T" y escribe `/_sup` en el chat del juego y elige tus mensajes instantáneas.
+
+Para usar en el juego, simplemente presione la tecla correspondiente: para usar el eslogan en "p", presione la tecla "p".
+
+
+### 🇺🇸 Instant messages 
+
+ You can configure your instant messages as a Catchphrase to use on the GAME, for example, as " SOPA ! " or " WE ARE THE CHAMPIONS ! ".
+
+ which can be configured in the menu of your SOPA SPADES client, in the ADVANCED tab. You can use you Catchphrase using the P key and or  the 4 & 5 Mouse Gamer Button Keys.
+
+To see you CatchPhrases and use on the game, just press " T " key and type `/_sup` on the game chat and choose you CatchPhrases.
+
+To use in the game, just press the Key corresponding Key: to use the Catchphrase on " p ", press " p " key.
+
+## 🧮 Requirements - Requisitos
+
+### Minimum - Mínimo
+
+ Linux, OS X, or Windows Vista or later.<br><br>
+
+1GHz dual-core processor<br>
+GPU: 512MB or more VRAM<br>
+GPU (Intel): Intel HD Graphics 3000 or better<br>
+GPU (NVIDIA): GeForce 9 Series or better<br>
+GPU (AMD): Radeon HD 7350<br>
+1GB RAM<br>
+800x600 display<br>
+Broadband network connection<br>
+Keyboard and pointing device<br>
+
+## Recommended - Recomendado
+
+3GHz quad-core processor<br>
+Stereo audio output<br>
+GPU: 1GB or more VRAM<br>
+GPU (NVIDIA): GeForce GTX 680<br>
+GPU (AMD): Radeon R9 280X<br>
+2GB RAM<br>
+Mouse input<br>

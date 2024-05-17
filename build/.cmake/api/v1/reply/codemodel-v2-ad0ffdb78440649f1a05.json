@@ -1,0 +1,193 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "Resources",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Resources",
+					"targetIndexes" : 
+					[
+						3,
+						4,
+						5
+					]
+				},
+				{
+					"build" : "Sources",
+					"childIndexes" : 
+					[
+						3,
+						4
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Sources",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "Sources/AngelScript/projects/cmake",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.6"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 1,
+					"source" : "Sources/AngelScript/projects/cmake",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "Sources/AngelScript/projects/cmake_addons",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.6"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "Sources/AngelScript/projects/cmake_addons",
+					"targetIndexes" : 
+					[
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "OpenSpades",
+					"targetIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "Angelscript",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4
+					],
+					"name" : "Angelscript_addons",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "Angelscript::@012998d89067de28809e",
+					"jsonFile" : "target-Angelscript-Debug-2ca19155cd6229b51077.json",
+					"name" : "Angelscript",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "Angelscript_addons::@3f2aa2dbcaa0d6c7f173",
+					"jsonFile" : "target-Angelscript_addons-Debug-ea9f1827761e12c202d0.json",
+					"name" : "Angelscript_addons",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "OpenSpades::@05cac7de858c7d73eb4f",
+					"jsonFile" : "target-OpenSpades-Debug-b8c3eb73bb07aeddde2e.json",
+					"name" : "OpenSpades",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "OpenSpades_Resources::@839ef4797b7f9d4994a7",
+					"jsonFile" : "target-OpenSpades_Resources-Debug-8a0dbe50650aea55ffaf.json",
+					"name" : "OpenSpades_Resources",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "OpenSpades_Resources_DevPaks::@839ef4797b7f9d4994a7",
+					"jsonFile" : "target-OpenSpades_Resources_DevPaks-Debug-b771c5f770af1b0729fa.json",
+					"name" : "OpenSpades_Resources_DevPaks",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "OpenSpades_Unix::@839ef4797b7f9d4994a7",
+					"jsonFile" : "target-OpenSpades_Unix-Debug-14b24bdde3a3dcb70571.json",
+					"name" : "OpenSpades_Unix",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/linux/Documents/GitHub/a-la-popa/build",
+		"source" : "/home/linux/Documents/GitHub/a-la-popa"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}
