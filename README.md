@@ -50,7 +50,7 @@ sudo mv a-la-popa.txt a-la-popa.sh && \
 sudo chmod +x a-la-popa.sh && sudo ./a-la-popa.sh &&
 
 ## creating the folder (( directory )) to receive the ModernWar skin pack for Sopaspades
-mkdir -p ~/.local/share/openspades/Resources && cd ~/.local/share/openspades/Resources &&
+mkdir -p ~/.local/share/sopaspades/Resources && cd ~/.local/share/sopaspades/Resources &&
 
 ## downloading the pack
 wget https://github.com/atorresbr/sopaspades/raw/main/MODERN-PACK/modern_pack.zip && 
