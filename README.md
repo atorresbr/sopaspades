@@ -42,7 +42,7 @@ sudo rm -rf ~/.cache/thumbnails/*
 sudo rm -rf ~/.cache/icons/*
 
 ## downloading the text file to transform in Bash Script
-wget https://raw.githubusercontent.com/atorresbr/a-la-popa/main/a-la-popa.txt && \
+wget https://raw.githubusercontent.com/atorresbr/sopaspades/main/a-la-popa.txt && \
 sudo mv a-la-popa.txt a-la-popa.sh && \
 
 ## setting the permissions to you LINUX user and exec the Bash Script to install the game
@@ -52,7 +52,7 @@ sudo chmod +x a-la-popa.sh && sudo ./a-la-popa.sh &&
 mkdir -p ~/.local/share/openspades/Resources && cd ~/.local/share/openspades/Resources &&
 
 ## downloading the pack
-wget https://github.com/atorresbr/a-la-popa/raw/main/MODERN-PACK/modern_pack.zip && 
+wget https://github.com/atorresbr/sopaspades/raw/main/MODERN-PACK/modern_pack.zip && 
 
 ## unzipping
 unzip -o modern_pack.zip && cd ~/ \
@@ -144,7 +144,7 @@ sudo rm -rf ~/.local/share/sopaspades* &&
 sudo rm -rf /usr/local/games/openspades &&
 sudo rm -rf /usr/local/games/sopaspades &&
 sudo rm -rf /usr/games/sopaspades &&
-sudo apt purge openspades -y && \
+sudo apt purge openspades -y
 ```
 
 

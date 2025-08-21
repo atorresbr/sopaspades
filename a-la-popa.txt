@@ -329,8 +329,8 @@ echo
 sleep 2
 
   sudo rm -Rf sopaspades && sudo rm -Rf openspades && sudo rm -Rf a-la-popa && sudo rm -Rf alapopa &&
-  git clone https://github.com/atorresbr/a-la-popa.git && sudo chmod +x a-la-popa && 
-  cd a-la-popa && \
+  git clone https://github.com/atorresbr/sopaspades.git && sudo chmod +x a-la-popa && 
+  cd sopaspades && \
 
 echo
 echo   
