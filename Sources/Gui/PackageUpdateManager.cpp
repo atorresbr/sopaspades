@@ -33,7 +33,7 @@
 #include <Core/Strings.h>
 #include <Core/TMPUtils.h>
 #include <Core/Thread.h>
-#include <OpenSpades.h>
+#include <SopaSpades.h>
 
 DEFINE_SPADES_SETTING(cl_checkForUpdates, "0");
 
@@ -141,7 +141,7 @@ namespace spades {
 						    return dataSize;
 						}));
 					curl_easy_setopt(curl.get(), CURLOPT_WRITEDATA, &responseBuffer);
-					curl_easy_setopt(curl.get(), CURLOPT_USERAGENT, OpenSpades_VER_STR);
+					curl_easy_setopt(curl.get(), CURLOPT_USERAGENT, SopaSpades_VER_STR);
 
 					m_parent.SetupCURLRequest(curl.get());
 

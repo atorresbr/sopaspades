@@ -1,9 +1,9 @@
-.TH "openspades" "6" "" "openspades" ""
+.TH "sopaspades" "6" "" "sopaspades" ""
 .SH "NAME"
-OpenSpades \- Open-source clone of Ace of Spades
+SopaSpades \- Open-source clone of Ace of Spades
 .SH "SYNOPSIS"
 .
-.B openspades
+.B sopaspades
 [\fIOPTIONS\fR]
 [SERVER URI]
 .

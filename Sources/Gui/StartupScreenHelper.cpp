@@ -35,7 +35,7 @@
 #include <Audio/YsrDevice.h>
 #include <Core/FileManager.h>
 #include <Core/Settings.h>
-#include <OpenSpades.h>
+#include <SopaSpades.h>
 #include <Core/ShellApi.h>
 #include <Gui/Main.h>
 #include <Gui/Icon.h>

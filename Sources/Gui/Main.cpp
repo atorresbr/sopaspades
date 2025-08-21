@@ -49,7 +49,7 @@
 #include <Core/ZipFileSystem.h>
 #include <Gui/PackageUpdateManager.h>
 #include <Gui/StartupScreen.h>
-#include <OpenSpades.h>
+#include <SopaSpades.h>
 
 #include <Core/VoxelModel.h>
 #include <Draw/GLOptimizedVoxelModel.h>
@@ -344,7 +344,7 @@ int main(int argc, char **argv) {
 		} else {
 			if (SUCCEEDED(SHGetFolderPathW(NULL, CSIDL_APPDATA, NULL, 0, buf))) {
 				std::wstring datadir = buf;
-				datadir += L"\\OpenSpades\\Resources";
+				datadir += L"\\SopaSpades\\Resources";
 
 				spades::g_userResourceDirectory = Utf8FromWString(datadir.c_str());
 
@@ -379,7 +379,7 @@ int main(int argc, char **argv) {
 		}
 
 		spades::g_userResourceDirectory =
-		  home + "/Library/Application Support/OpenSpades/Resources";
+		  home + "/Library/Application Support/SopaSpades/Resources";
 
 		spades::FileManager::AddFileSystem(
 		  new spades::DirectoryFileSystem(spades::g_userResourceDirectory, true));
@@ -420,7 +420,7 @@ int main(int argc, char **argv) {
 						  (home + "/.openspades/CONTENT_MOVED_TO_NEW_DIR").c_str(), "wb");
 						if (io != NULL) {
 							const char *text = ("Content of this directory moved to " +
-							                    xdg_data_home + "/openspades")
+							                    xdg_data_home + "/sopaspades")
 							                     .c_str();
 							io->write(io, text, strlen(text), 1);
 							io->close(io);
@@ -430,7 +430,7 @@ int main(int argc, char **argv) {
 			}
 		}
 
-		spades::g_userResourceDirectory = xdg_data_home + "/openspades/Resources";
+		spades::g_userResourceDirectory = xdg_data_home + "/sopaspades/Resources";
 
 		spades::FileManager::AddFileSystem(
 		  new spades::DirectoryFileSystem(spades::g_userResourceDirectory, true));
@@ -444,9 +444,9 @@ int main(int argc, char **argv) {
 			SDL_InitSubSystem(SDL_INIT_VIDEO);
 			auto msg = spades::Format(
 			  "Failed to start recording log because of the following error:\n{0}\n\n"
-			  "OpenSpades will continue to run, but any critical events are not logged.",
+			  "SopaSpades will continue to run, but any critical events are not logged.",
 			  ex.what());
-			if (SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "OpenSpades Log System Failure",
+			if (SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "SopaSpades Log System Failure",
 			                             msg.c_str(), splashWindow->GetWindow())) {
 				// showing dialog failed.
 			}

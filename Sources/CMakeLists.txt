@@ -29,18 +29,18 @@ include_directories(BEFORE "ENet/include")
 
 if(WIN32)
 	if(MINGW)	# = gcc, can someone confirm that this works?
-		add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/OpenSpades_rc.o COMMAND windres.exe -I${CMAKE_CURRENT_BINARY_DIR}
-			-i${CMAKE_CURRENT_BINARY_DIR}/OpenSpades.rc -o ${CMAKE_CURRENT_BINARY_DIR}/OpenSpades_rc.o)
-		SET(RESOURCE_FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenSpades_rc.o)
+		add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/SopaSpades_rc.o COMMAND windres.exe -I${CMAKE_CURRENT_BINARY_DIR}
+			-i${CMAKE_CURRENT_BINARY_DIR}/SopaSpades.rc -o ${CMAKE_CURRENT_BINARY_DIR}/SopaSpades_rc.o)
+		SET(RESOURCE_FILES ${CMAKE_CURRENT_BINARY_DIR}/SopaSpades_rc.o)
 	else()
-		set(RESOURCE_FILES ${PROJECT_BINARY_DIR}/OpenSpades.rc)	# msvc
+		set(RESOURCE_FILES ${PROJECT_BINARY_DIR}/SopaSpades.rc)	# msvc
 	endif()
 endif()
 
 add_executable(OpenSpades ${AUDIO_FILES} ${AUDIO_AL_FILES} ${BINPACK_FILES} ${CLIENT_FILES} ${CORE_FILES} ${DRAW_FILES} ${ENET_FILES} ${ENET_INCLUDE} ${GUI_FILES}
 	${IMPORTS_FILES} ${KISS_FILES} ${JSON_FILES} ${JSON_INCLUDE} ${UNZIP_FILES} ${SCRIPTBINDING_FILES} ${RESOURCE_FILES})
 set_target_properties(OpenSpades PROPERTIES LINKER_LANGUAGE CXX)
-set_target_properties(OpenSpades PROPERTIES OUTPUT_NAME openspades)
+set_target_properties(OpenSpades PROPERTIES OUTPUT_NAME sopaspades)
 set_target_properties(OpenSpades PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set_target_properties(OpenSpades PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set_target_properties(OpenSpades PROPERTIES ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)

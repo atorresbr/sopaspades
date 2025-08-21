@@ -1,4 +1,4 @@
-name: openspades
+name: sopaspades
 version: 'master'
 summary: Sandbox building and FPS videogame
 description: |
@@ -11,8 +11,8 @@ grade: stable
 confinement: strict
 
 apps:
-  openspades:
-    command: launch_openspades
+  sopaspades:
+    command: launch_sopaspades
     plugs:
       - network
       - network-bind
@@ -25,8 +25,8 @@ parts:
     plugin: dump
     source: snap/scripts
     organize:
-      'launch_openspades': bin/
-  openspades:
+      'launch_sopaspades': bin/
+  sopaspades:
     plugin: cmake
     configflags: [-DCMAKE_BUILD_TYPE=RelWithDebInfo]
     source: .

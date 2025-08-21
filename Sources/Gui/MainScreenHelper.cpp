@@ -35,7 +35,7 @@
 #include <Core/Settings.h>
 #include <Core/Thread.h>
 #include <Gui/PackageUpdateManager.h>
-#include <OpenSpades.h>
+#include <SopaSpades.h>
 
 DEFINE_SPADES_SETTING(cl_serverListUrl, "http://services.buildandshoot.com/serverlist.json");
 
@@ -151,7 +151,7 @@ namespace spades {
 							self->buffer.append(reinterpret_cast<char *>(ptr), numBytes);
 							return numBytes;
 						};
-						curl_easy_setopt(cHandle.get(), CURLOPT_USERAGENT, OpenSpades_VER_STR);
+						curl_easy_setopt(cHandle.get(), CURLOPT_USERAGENT, SopaSpades_VER_STR);
 						curl_easy_setopt(cHandle.get(), CURLOPT_URL, cl_serverListUrl.CString());
 						curl_easy_setopt(cHandle.get(), CURLOPT_WRITEFUNCTION, curlWriteCallback);
 						curl_easy_setopt(cHandle.get(), CURLOPT_WRITEDATA, this);

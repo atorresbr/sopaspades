@@ -1,13 +1,13 @@
 # 🍜 SOPA SPADES 🇧🇷 !
 
-## - A Beautiful OpenSpades Client to SOPA Servers ( 😋 sopa! / soup!)
+## - A Beautiful Spades Client for SOPA Servers ( 😋 sopa! / soup!)
 
 ![SOPA!](https://repository-images.githubusercontent.com/564385628/bf3842ec-ccf9-44e5-ad6a-2b1a4272909a)
 
 
-[OpenSpades Website](https://openspades.yvt.jp) — [Community](https://buildandshoot.com)
+[Original OpenSpades Website](https://openspades.yvt.jp) — [Community](https://buildandshoot.com)
 
-<!-- **Important**: If you have previously installed OpenSpades or any modified version of OpenSpades, you have to uninstall it manually by `sudo rm -rf /usr/local/share/games/openspades` or `sudo rm -rf /usr/local/share/games/sopaspades` before installing a new one. -->
+<!-- **Important**: If you have previously installed OpenSpades or any modified version of SopaSpades, you have to uninstall it manually by `sudo rm -rf /usr/local/share/games/openspades` or `sudo rm -rf /usr/local/share/games/sopaspades` before installing a new one. -->
 
 https://github.com/atorresbr/a-la-popa/assets/13744483/1b71f093-dc32-4bd9-a0cf-2dfdc1c10408
 
@@ -20,7 +20,51 @@ https://github.com/atorresbr/a-la-popa/assets/13744483/1b71f093-dc32-4bd9-a0cf-2
    🇧🇷 Se você é iniciante com Linux, copie o comando nos pequenos quadrados na direita dos comandos. Depois de copiar, cole com botão direito no seu terminal e aperte ENTER.
 
 ```bash
+## if you sytem don't have wget, this command will install it
+sudo apt install wget -y && clear && \
 
+## removing game folders from the old openspades and sopaspades version
+sudo rm -rf a-la-popa && rm a-la-popa.sh 2> /dev/null && \
+sudo rm -rf ~/.local/share/openspades* 2> /dev/null && \
+sudo rm -rf ~/.local/share/sopaspades* 2> /dev/null && \
+sudo rm -rf /usr/local/games/openspades 2> /dev/null && \
+sudo rm -rf /usr/local/games/sopaspades 2> /dev/null && \
+
+## 🧮 sudo rm -rf ~/.cache/icon-cache.kcache 
+
+## is a cache file used by some Linux desktop environments (especially KDE Plasma) to store icon images for faster access.
+## vWhen you open applications, the system loads icons from this cache instead of reading each icon file individually.
+## If you change an application’s icon, the cache may still show the old icon until it’s cleared.
+## Deleting this file forces the desktop environment to rebuild the icon cache, so new or updated icons appear correctly.
+## It’s safe to delete; your system will recreate it automatically.
+sudo rm -rf ~/.cache/icon-cache.kcache
+sudo rm -rf ~/.cache/thumbnails/*
+sudo rm -rf ~/.cache/icons/*
+
+## downloading the text file to transform in Bash Script
+wget https://raw.githubusercontent.com/atorresbr/a-la-popa/main/a-la-popa.txt && \
+sudo mv a-la-popa.txt a-la-popa.sh && \
+
+## setting the permissions to you LINUX user and exec the Bash Script to install the game
+sudo chmod +x a-la-popa.sh && sudo ./a-la-popa.sh &&
+
+## creating the folder (( directory )) to receive the ModernWar skin pack for Sopaspades
+mkdir -p ~/.local/share/openspades/Resources && cd ~/.local/share/openspades/Resources &&
+
+## downloading the pack
+wget https://github.com/atorresbr/a-la-popa/raw/main/MODERN-PACK/modern_pack.zip && 
+
+## unzipping
+unzip -o modern_pack.zip && cd ~/ \
+
+## starting the game 
+openspades
+
+```
+
+<!-- 
+
+```
 ## if you sytem don't have wget, this command will install it
 sudo apt install wget && clear && 
 
@@ -46,9 +90,14 @@ wget https://github.com/atorresbr/a-la-popa/raw/main/MODERN-PACK/modern_pack.zip
 unzip -o modern_pack.zip && \
 
 ## starting the game 
-openspades
+sopaspades
 
 ```
+
+
+
+
+-->
 
 <!--
 
@@ -91,7 +140,10 @@ El Comando / O Comando / The Command 👇
 ```bash
 sudo rm -rf a-la-popa && rm a-la-popa.sh 2> /dev/null && 
 sudo rm -rf ~/.local/share/openspades* &&
+sudo rm -rf ~/.local/share/sopaspades* &&
 sudo rm -rf /usr/local/games/openspades &&
+sudo rm -rf /usr/local/games/sopaspades &&
+sudo rm -rf /usr/games/sopaspades &&
 sudo apt purge openspades -y && \
 ```
 
@@ -186,10 +238,10 @@ or later is recommended because OpenSpades relies on C++11 features heavily.
 
 
    ``` bash
-   openspades
+   sopaspades
   ``` 
 
-   or `cd $REPO_DIRECTORY/sopaspades.mk; bin/OpenSpades` and enjoy
+   or `cd $REPO_DIRECTORY/sopaspades.mk; bin/sopaspades` and enjoy
 
 
 ### Windows
