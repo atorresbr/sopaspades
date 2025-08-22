@@ -18,6 +18,10 @@ then
   exit 1
 fi
 
+# Set error handling to prevent unexpected exits
+set -e
+trap 'echo "Error occurred at line $LINENO. Command: $BASH_COMMAND"; exit 1' ERR
+
 echo
 echo
 
@@ -152,18 +156,18 @@ echo -ne ${nc}
 
 sleep 2
 
-# Clean up old installations
-rm -rf /usr/local/games/openspades 2>/dev/null
-rm -rf /usr/local/games/sopaspades 2>/dev/null
-rm -rf /usr/local/share/games/openspades 2>/dev/null
-rm -rf /usr/local/share/games/sopaspades 2>/dev/null
-rm -rf /usr/share/applications/openspades.desktop 2>/dev/null
-rm -rf /usr/share/applications/sopaspades.desktop 2>/dev/null
-rm -rf /usr/share/pixmaps/openspades.xpm 2>/dev/null
-rm -rf /usr/share/pixmaps/sopaspades.xpm 2>/dev/null
-rm -rf /usr/games/openspades 2>/dev/null
-rm -rf /usr/games/sopaspades 2>/dev/null
-apt purge openspades -y
+# Clean up old installations (with error handling)
+rm -rf /usr/local/games/openspades 2>/dev/null || true
+rm -rf /usr/local/games/sopaspades 2>/dev/null || true
+rm -rf /usr/local/share/games/openspades 2>/dev/null || true
+rm -rf /usr/local/share/games/sopaspades 2>/dev/null || true
+rm -rf /usr/share/applications/openspades.desktop 2>/dev/null || true
+rm -rf /usr/share/applications/sopaspades.desktop 2>/dev/null || true
+rm -rf /usr/share/pixmaps/openspades.xpm 2>/dev/null || true
+rm -rf /usr/share/pixmaps/sopaspades.xpm 2>/dev/null || true
+rm -rf /usr/games/openspades 2>/dev/null || true
+rm -rf /usr/games/sopaspades 2>/dev/null || true
+apt purge openspades -y || true
 
 echo
 echo
@@ -259,13 +263,18 @@ echo
 
 sleep 1
 
-# Install dependencies
+# Install dependencies (with error handling)
 echo -ne ${b_yellow}
 
-apt-get install -y pkg-config libglew-dev libcurl3-openssl-dev libsdl2-dev \
+# Try using apt-get, but if it fails, try with apt
+(apt-get install -y pkg-config libglew-dev libcurl3-openssl-dev libsdl2-dev \
   libsdl2-image-dev libalut-dev xdg-utils libfreetype6-dev libopus-dev \
   libopusfile-dev cmake imagemagick \
-  libjpeg-dev libxinerama-dev libxft-dev
+  libjpeg-dev libxinerama-dev libxft-dev) || \
+(apt install -y pkg-config libglew-dev libcurl3-openssl-dev libsdl2-dev \
+  libsdl2-image-dev libalut-dev xdg-utils libfreetype6-dev libopus-dev \
+  libopusfile-dev cmake imagemagick \
+  libjpeg-dev libxinerama-dev libxft-dev)
 
 echo
 echo
@@ -321,10 +330,18 @@ echo
 
 sleep 2
 
-# Clone to home directory for consistency
-cd ~
-git clone https://github.com/atorresbr/sopaspades.git
-cd sopaspades
+# Get username for home directory path
+USERNAME=$(logname || echo $SUDO_USER || whoami)
+USER_HOME=$(eval echo ~$USERNAME)
+
+# Clean up old directories and clone repository
+rm -rf "$USER_HOME/sopaspades" 2>/dev/null || true
+rm -rf "$USER_HOME/openspades" 2>/dev/null || true
+
+# Clone to user's home directory
+cd "$USER_HOME" || { echo "Could not navigate to home directory"; exit 1; }
+git clone https://github.com/atorresbr/sopaspades.git || { echo "Failed to clone repository"; exit 1; }
+cd sopaspades || { echo "Failed to enter sopaspades directory"; exit 1; }
 
 echo
 echo   
@@ -354,7 +371,7 @@ echo -e " mkdir sopaspades.mk && cd sopaspades.mk && "
 sleep 1
 echo -e " cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && "
 sleep 1
-echo -e " make && sudo make install "
+echo -e " make -j$(nproc) && sudo make install "
 sleep 1
 
 echo
@@ -378,11 +395,19 @@ echo
 sleep 1
 
 # Create build directory and build SopaSpades
-mkdir -p sopaspades.mk
-cd sopaspades.mk
-cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo
-make -j$(nproc)
-make install
+mkdir -p sopaspades.mk || { echo "Failed to create build directory"; exit 1; }
+cd sopaspades.mk || { echo "Failed to enter build directory"; exit 1; }
+cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo || { echo "CMake configuration failed"; exit 1; }
+
+# Use all available CPU cores for faster build
+CORES=$(nproc 2>/dev/null || echo 2)
+echo "Building with $CORES CPU cores"
+make -j${CORES} || { echo "Make build failed"; exit 1; }
+make install || { echo "Make install failed"; exit 1; }
+
+# Ensure correct permissions for user resources
+mkdir -p "$USER_HOME/.local/share/sopaspades/Resources" 2>/dev/null || true
+chown -R $USERNAME:$USERNAME "$USER_HOME/.local/share/sopaspades" 2>/dev/null || true
 
 # Clean up build files to save disk space
 cd ..
@@ -429,9 +454,22 @@ echo
 echo
 echo
 
+# Make sure sopaspades is executable and in PATH
+chmod +x /usr/games/sopaspades 2>/dev/null || true
+chmod +x /usr/local/games/sopaspades 2>/dev/null || true
+
 # Start the game using the correct command
-echo " sopaspades 🔫 " 
-sopaspades
+echo " sopaspades 🔫 "
+# Check if we can run it directly
+if command -v sopaspades >/dev/null 2>&1; then
+  sopaspades
+elif [ -x "/usr/games/sopaspades" ]; then
+  /usr/games/sopaspades
+elif [ -x "/usr/local/games/sopaspades" ]; then
+  /usr/local/games/sopaspades
+else
+  echo "SopaSpades executable not found in PATH. Please run it manually."
+fi
 
 echo
 echo
