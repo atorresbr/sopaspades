@@ -3,7 +3,7 @@
 ## La Popa és Nuestra !
 ## Script developed for atorresbr (( atorresbr@gmail.com ))
 
-# This function sends an error message to user if they don't use sudo
+#this functio send the error mesage to user if his not use the sudo command
 if [ "$(whoami)" != "root" ]
 then
   echo
@@ -18,14 +18,9 @@ then
   exit 1
 fi
 
-# Set error handling to prevent unexpected exits
-set -e
-trap 'echo "Error occurred at line $LINENO. Command: $BASH_COMMAND"; exit 1' ERR
-
 echo
 echo
 
-# Define color codes
 on_yellow='\033[43m'  # Yellow
 on_green='\033[42m'   # Green
 b_yellow='\033[1;33m' # Bold Yellow
@@ -76,7 +71,7 @@ echo -e "
 echo
 echo
 
-## Providing installation information
+## informando sobre a instalação
 
 echo -ne ${b_green}
 
@@ -89,7 +84,7 @@ echo -e "
 sleep 2
 echo -e "
    * * * =============================================== * * * 
- *     🇺🇸 This script will install Sopa Spades on your PC 🍜   *
+ *     🇺🇸 This scrip will isntall Sopa Spades on you PC 🍜     *
    * * * =============================================== * * *
 "
 
@@ -103,7 +98,19 @@ echo -e "
 echo
 echo
 
-# Clean up any previous build or installation
+## sleep 2
+## echo -e " 🇪🇸 Este script instalará Sopa Spades en tu PC 🍜 "
+
+## echo
+## sleep 2
+## echo -e  " 🇺🇸 This scrip will isntall Sopa Spades on you PC 🍜 "
+
+## echo
+## sleep 2
+## echo -e " 🇧🇷 Este script irá instalar o Sopa Spades em seu PC 🍜 "
+
+## echo
+
 echo
 sleep 2
 echo -e " 🇪🇸 Eliminando el directorio antiguo para reinstalar el juego ✅"
@@ -156,18 +163,11 @@ echo -ne ${nc}
 
 sleep 2
 
-# Clean up old installations (with error handling)
-rm -rf /usr/local/games/openspades 2>/dev/null || true
-rm -rf /usr/local/games/sopaspades 2>/dev/null || true
-rm -rf /usr/local/share/games/openspades 2>/dev/null || true
-rm -rf /usr/local/share/games/sopaspades 2>/dev/null || true
-rm -rf /usr/share/applications/openspades.desktop 2>/dev/null || true
-rm -rf /usr/share/applications/sopaspades.desktop 2>/dev/null || true
-rm -rf /usr/share/pixmaps/openspades.xpm 2>/dev/null || true
-rm -rf /usr/share/pixmaps/sopaspades.xpm 2>/dev/null || true
-rm -rf /usr/games/openspades 2>/dev/null || true
-rm -rf /usr/games/sopaspades 2>/dev/null || true
-apt purge openspades -y || true
+## sudo rm -rf /usr/local/share/games/openspades &&
+## sudo rm -rf /usr/local/games/openspades &&
+sudo apt purge openspades -y && \
+
+## sudo rm -rf ~/.local/share/openspades &&
 
 echo
 echo
@@ -177,7 +177,8 @@ echo -e " it's not a error 🙌 👆 "
 echo
 echo
 
-# Install dependencies
+## informando sobre as dependências
+
 echo
 sleep 2
 
@@ -263,25 +264,22 @@ echo
 
 sleep 1
 
-# Install dependencies (with error handling)
+## dependencias 
+
 echo -ne ${b_yellow}
 
-# Try using apt-get, but if it fails, try with apt
-(apt-get install -y pkg-config libglew-dev libcurl3-openssl-dev libsdl2-dev \
+sudo apt-get install pkg-config libglew-dev libcurl3-openssl-dev libsdl2-dev \
   libsdl2-image-dev libalut-dev xdg-utils libfreetype6-dev libopus-dev \
   libopusfile-dev cmake imagemagick \
-  libjpeg-dev libxinerama-dev libxft-dev) || \
-(apt install -y pkg-config libglew-dev libcurl3-openssl-dev libsdl2-dev \
-  libsdl2-image-dev libalut-dev xdg-utils libfreetype6-dev libopus-dev \
-  libopusfile-dev cmake imagemagick \
-  libjpeg-dev libxinerama-dev libxft-dev)
+  libjpeg-dev libxinerama-dev libxft-dev
 
 echo
 echo
 
 echo -ne ${b_green}
 
-# Clone repository
+## informando e Clonando os repositórios
+
 sleep 2
 echo -e " 🇪🇸 Clonando el repositorio y instalando "
 
@@ -330,18 +328,9 @@ echo
 
 sleep 2
 
-# Get username for home directory path
-USERNAME=$(logname || echo $SUDO_USER || whoami)
-USER_HOME=$(eval echo ~$USERNAME)
-
-# Clean up old directories and clone repository
-rm -rf "$USER_HOME/sopaspades" 2>/dev/null || true
-rm -rf "$USER_HOME/openspades" 2>/dev/null || true
-
-# Clone to user's home directory
-cd "$USER_HOME" || { echo "Could not navigate to home directory"; exit 1; }
-git clone https://github.com/atorresbr/sopaspades.git || { echo "Failed to clone repository"; exit 1; }
-cd sopaspades || { echo "Failed to enter sopaspades directory"; exit 1; }
+  sudo rm -Rf sopaspades && sudo rm -Rf openspades && sudo rm -Rf a-la-popa && sudo rm -Rf alapopa &&
+  git clone https://github.com/atorresbr/sopaspades.git && 
+  cd sopaspades && \
 
 echo
 echo   
@@ -371,7 +360,7 @@ echo -e " mkdir sopaspades.mk && cd sopaspades.mk && "
 sleep 1
 echo -e " cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && "
 sleep 1
-echo -e " make -j$(nproc) && sudo make install "
+echo -e " make && sudo make install "
 sleep 1
 
 echo
@@ -394,25 +383,9 @@ echo
 
 sleep 1
 
-# Create build directory and build SopaSpades
-mkdir -p sopaspades.mk || { echo "Failed to create build directory"; exit 1; }
-cd sopaspades.mk || { echo "Failed to enter build directory"; exit 1; }
-cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo || { echo "CMake configuration failed"; exit 1; }
-
-# Use all available CPU cores for faster build
-CORES=$(nproc 2>/dev/null || echo 2)
-echo "Building with $CORES CPU cores"
-make -j${CORES} || { echo "Make build failed"; exit 1; }
-make install || { echo "Make install failed"; exit 1; }
-
-# Ensure correct permissions for user resources
-mkdir -p "$USER_HOME/.local/share/sopaspades/Resources" 2>/dev/null || true
-chown -R $USERNAME:$USERNAME "$USER_HOME/.local/share/sopaspades" 2>/dev/null || true
-
-# Clean up build files to save disk space
-cd ..
-# Uncomment if you want to remove build files after installation
-# rm -rf sopaspades.mk
+   mkdir sopaspades.mk && sudo chmod +x sopaspades.mk &&
+   cd sopaspades.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && make -j${CORES} &&
+   sudo make install
    
 echo
 echo
@@ -434,42 +407,32 @@ echo -e " 🇧🇷 iniciando o Jogo "
 echo
 sleep 1
 
-echo
-echo
+  echo
+  echo
 
-echo -e " 😘 🇪🇸 Comparte este script ! "
+  echo -e " 😘 🇪🇸 Comparte este script ! "
 
-echo
-sleep 1
+  echo
+  sleep 1
 
-echo -e " 😘 🇺🇸 Share this Script ! "
+  echo -e " 😘 🇺🇸 Share this Script ! "
 
-echo
-sleep 1
+  echo
+  sleep 1
 
-echo -e " 😘 🇧🇷 Compartilhe este Script ! "
+  echo -e " 😘 🇧🇷 Compartilhe este Script ! "
 
-echo
+  echo
 
-echo
-echo
+  echo
+  echo
 
-# Make sure sopaspades is executable and in PATH
-chmod +x /usr/games/sopaspades 2>/dev/null || true
-chmod +x /usr/local/games/sopaspades 2>/dev/null || true
+echo " sopaspades 🔫 " 
 
-# Start the game using the correct command
-echo " sopaspades 🔫 "
-# Check if we can run it directly
-if command -v sopaspades >/dev/null 2>&1; then
-  sopaspades
-elif [ -x "/usr/games/sopaspades" ]; then
-  /usr/games/sopaspades
-elif [ -x "/usr/local/games/sopaspades" ]; then
-  /usr/local/games/sopaspades
-else
-  echo "SopaSpades executable not found in PATH. Please run it manually."
-fi
+## cd $REPO_DIRECTORY a-la-popa/sopaspades.mk; bin/openspades
+## cd ~/a-la-popa/sopaspades.mk; bin/sopaspades
 
 echo
-echo
+echo 
+
+
