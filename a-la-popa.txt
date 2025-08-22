@@ -153,10 +153,16 @@ echo -ne ${nc}
 sleep 2
 
 # Clean up old installations
-rm -rf /usr/local/share/games/openspades 2>/dev/null
-rm -rf /usr/local/share/games/sopaspades 2>/dev/null
 rm -rf /usr/local/games/openspades 2>/dev/null
 rm -rf /usr/local/games/sopaspades 2>/dev/null
+rm -rf /usr/local/share/games/openspades 2>/dev/null
+rm -rf /usr/local/share/games/sopaspades 2>/dev/null
+rm -rf /usr/share/applications/openspades.desktop 2>/dev/null
+rm -rf /usr/share/applications/sopaspades.desktop 2>/dev/null
+rm -rf /usr/share/pixmaps/openspades.xpm 2>/dev/null
+rm -rf /usr/share/pixmaps/sopaspades.xpm 2>/dev/null
+rm -rf /usr/games/openspades 2>/dev/null
+rm -rf /usr/games/sopaspades 2>/dev/null
 apt purge openspades -y
 
 echo
@@ -314,12 +320,6 @@ echo -e " Êxito !"
 echo
 
 sleep 2
-
-# Clean up old directories and clone repository
-rm -rf ~/sopaspades 2>/dev/null
-rm -rf ~/openspades 2>/dev/null
-rm -rf ~/a-la-popa 2>/dev/null
-rm -rf ~/alapopa 2>/dev/null
 
 # Clone to home directory for consistency
 cd ~

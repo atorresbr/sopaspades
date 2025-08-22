@@ -1,34 +1,27 @@
 #!/bin/bash
-if [ ! -f $SNAP_USER_DATA/.local/share/sopaspades/Resources ];
+if [ ! -d $SNAP_USER_DATA/.local/share/sopaspades/Resources ];
 then
   mkdir -p $SNAP_USER_DATA/.local/share/sopaspades/Resources
-        cp $SNAP/share/games/sopaspades/Resources/* $SNAP_USER_DATA/.local/share/sopaspades/Resources
-        echo cl_checkForUpdates: 1 > $SNAP_USER_DATA/.local/share/sopaspades/Resources/SPConfig.cfg
-        echo s_eax: 1 >> $SNAP_USER_DATA/.local/share/sopaspades/Resources/SPConfig.cfg$SNAP_ARCH" in
-	"amd64") ARCH='x86_64-linux-gnu'
-	;;
-	"i386") ARCH='i386-linux-gnu'
-	;;
-	*)
-		echo "Unsupported architecture for this app build"
-		exit 1
-	;;
-esac
-
-if [ ! -f $SNAP_USER_DATA/.local/share/openspades/Resources ];
-then
-  mkdir -p $SNAP_USER_DATA/.local/share/openspades/Resources
-	cp $SNAP/share/games/openspades/Resources/* $SNAP_USER_DATA/.local/share/openspades/Resources
-	echo cl_checkForUpdates: 1 > $SNAP_USER_DATA/.local/share/openspades/Resources/SPConfig.cfg
-	echo s_eax: 1 >> $SNAP_USER_DATA/.local/share/openspades/Resources/SPConfig.cfg
+  cp $SNAP/share/games/sopaspades/Resources/* $SNAP_USER_DATA/.local/share/sopaspades/Resources
+  echo cl_checkForUpdates: 1 > $SNAP_USER_DATA/.local/share/sopaspades/Resources/SPConfig.cfg
+  echo s_eax: 1 >> $SNAP_USER_DATA/.local/share/sopaspades/Resources/SPConfig.cfg
 fi
 
-
-export LD_LIBRARY_PATH=$SNAP/usr/lib/$ARCH:$LD_LIBRARY_PATH
+case "$SNAP_ARCH" in
+    "amd64") ARCH='x86_64-linux-gnu'
+    ;;
+    "i386") ARCH='i386-linux-gnu'
+    ;;
+    *)
+        echo "Unsupported architecture for this app build"
+        exit 1
+    ;;
+esac
 
 # XKB config
 export XKB_CONFIG_ROOT=$SNAP/usr/share/X11/xkb
 
+export LD_LIBRARY_PATH=$SNAP/usr/lib/$ARCH:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$SNAP/usr/lib/$ARCH/pulseaudio:$LD_LIBRARY_PATH
 
 # Mesa Libs

@@ -25,22 +25,16 @@ sudo apt install wget -y && rm a-la-popa.sh && \
 
 ## removing game folders from the old openspades and sopaspades version
 sudo rm -rf a-la-popa && 2> /dev/null && \
-sudo rm -rf a-la-popa && rm a-la-popa.sh 2> /dev/null && \
-sudo rm -rf ~/.local/share/openspades* 2> /dev/null && \
-sudo rm -rf ~/.local/share/sopaspades* 2> /dev/null && \
-sudo rm -rf /usr/local/games/openspades 2> /dev/null && \
-sudo rm -rf /usr/local/games/sopaspades 2> /dev/null && \
-
-## 🧮 sudo rm -rf ~/.cache/icon-cache.kcache 
-
-## is a cache file used by some Linux desktop environments (especially KDE Plasma) to store icon images for faster access.
-## vWhen you open applications, the system loads icons from this cache instead of reading each icon file individually.
-## If you change an application’s icon, the cache may still show the old icon until it’s cleared.
-## Deleting this file forces the desktop environment to rebuild the icon cache, so new or updated icons appear correctly.
-## It’s safe to delete; your system will recreate it automatically.
-sudo rm -rf ~/.cache/icon-cache.kcache
-sudo rm -rf ~/.cache/thumbnails/*
-sudo rm -rf ~/.cache/icons/*
+rm -rf /usr/local/games/openspades 2>/dev/null
+rm -rf /usr/local/games/sopaspades 2>/dev/null
+rm -rf /usr/local/share/games/openspades 2>/dev/null
+rm -rf /usr/local/share/games/sopaspades 2>/dev/null
+rm -rf /usr/share/applications/openspades.desktop 2>/dev/null
+rm -rf /usr/share/applications/sopaspades.desktop 2>/dev/null
+rm -rf /usr/share/pixmaps/openspades.xpm 2>/dev/null
+rm -rf /usr/share/pixmaps/sopaspades.xpm 2>/dev/null
+rm -rf /usr/games/openspades 2>/dev/null
+rm -rf /usr/games/sopaspades 2>/dev/null
 
 ## downloading the text file to transform in Bash Script
 wget https://raw.githubusercontent.com/atorresbr/sopaspades/main/a-la-popa.txt && \
