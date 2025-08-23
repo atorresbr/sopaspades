@@ -15,7 +15,7 @@ https://github.com/atorresbr/a-la-popa/assets/13744483/1b71f093-dc32-4bd9-a0cf-2
 
 
 
-## 🧲 wget 
+## 🧲⚡ wget 
 
 
    🇪🇸 Primero, verifique si wget está instalado en su PC, simplemente copie el comando haciendo clic en los dos pequeños cuadrados en el lado derecho del comando.
