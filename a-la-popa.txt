@@ -162,7 +162,16 @@ echo
 echo -ne ${nc}
 
 sleep 2
+# Replace line 165:
 sudo apt purge openspades -y && \
+
+# With this:
+if dpkg -l | grep -q openspades; then
+  echo " OPENSPADES was installed, removing it 🗑️ "
+  sudo apt purge openspades -y
+else
+  echo " OPENSPADES are not here 😬 "
+fi && \
 
 echo
 echo
@@ -325,7 +334,7 @@ sleep 2
 
   sudo rm -Rf sopaspades && sudo rm -Rf openspades && sudo rm -Rf a-la-popa &&
   git clone https://github.com/atorresbr/sopaspades.git &&
-  cd a-la-popa && \
+  cd sopaspades && \
 
 echo
 echo   

@@ -43,16 +43,17 @@ command -v wget >/dev/null 2>&1 || sudo apt install wget -y
 ```bash
 ## removing game folders from the old openspades and sopaspades version
 sudo rm -rf a-la-popa && rm a-la-popa.sh 2> /dev/null
-rm -rf /usr/local/games/openspades 2>/dev/null
-rm -rf /usr/local/games/sopaspades 2>/dev/null
-rm -rf /usr/local/share/games/openspades 2>/dev/null
-rm -rf /usr/local/share/games/sopaspades 2>/dev/null
-rm -rf /usr/share/applications/openspades.desktop 2>/dev/null
-rm -rf /usr/share/applications/sopaspades.desktop 2>/dev/null
-rm -rf /usr/share/pixmaps/openspades.xpm 2>/dev/null
-rm -rf /usr/share/pixmaps/sopaspades.xpm 2>/dev/null
-rm -rf /usr/games/openspades 2>/dev/null
-rm -rf /usr/games/sopaspades 2>/dev/null
+# Clean up old installations (with error handling)
+rm -rf /usr/local/games/openspades 2>/dev/null || true
+rm -rf /usr/local/games/sopaspades 2>/dev/null || true
+rm -rf /usr/local/share/games/openspades 2>/dev/null || true
+rm -rf /usr/local/share/games/sopaspades 2>/dev/null || true
+rm -rf /usr/share/applications/openspades.desktop 2>/dev/null || true
+rm -rf /usr/share/applications/sopaspades.desktop 2>/dev/null || true
+rm -rf /usr/share/pixmaps/openspades.xpm 2>/dev/null || true
+rm -rf /usr/share/pixmaps/sopaspades.xpm 2>/dev/null || true
+rm -rf /usr/games/openspades 2>/dev/null || true
+rm -rf /usr/games/sopaspades 2>/dev/null || true
 
 ## downloading the text file to transform in Bash Script
 wget https://raw.githubusercontent.com/atorresbr/sopaspades/main/a-la-popa.txt && \
