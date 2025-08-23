@@ -1,6 +1,6 @@
-# 🍜 SOPA SPADES 🔫🇧🇷✨ ❕
+# 🍜 SOPA SPADES 🔫🇧🇷✨
 
-## - A Beautiful Spades Client for SOPA Servers 🍜😋 sopa!✨ soupy✨!
+## - A Beautiful Spades Client for SOPA Servers🍜 - 😋 sopa!✨ soupy✨!
 
 ![SOPA!](https://repository-images.githubusercontent.com/564385628/bf3842ec-ccf9-44e5-ad6a-2b1a4272909a)
 
