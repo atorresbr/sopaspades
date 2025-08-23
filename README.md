@@ -287,7 +287,7 @@ SOPA SPADES is a modified version from 😒synSpades and 🤫OpenSpades.
 
  synSpades are a version from openspades with changes by Doctor Dank and Ixve  (( synth )), including a bigger color palette thanks to Liza & other smaller changes such as macros (Totally didn't steal the macros from [this dude](https://www.github.com/yusufcardinal/openspades)).
 
-## Instant messages ( /_sup_instant ).
+## Automatic mensages * mensajes automáticas *  Mensagens automáticas ( /_sup_instant ).
 
 <!-- Write `/sopa_macro_` in chat and it'll essentially explain itself to you. There's currently only a macro for the P key & the Mouse Button 4 & 5 keys.
 If someone can, please implement a macro menu where you can set macro keys yourself, as right now you have to add lines to the code to have another bind. -->
