@@ -13,16 +13,34 @@ https://github.com/atorresbr/a-la-popa/assets/13744483/1b71f093-dc32-4bd9-a0cf-2
 
 ## 🍜 🇪🇸 Para los Principiantes | 🇧🇷 Para os iniciantes | 🇺🇸 To Benginners
 
-   🇪🇸 Eres principiante  con Linux ?, copie el comando en los cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
+
+
+## wget 
+
+
+   🇪🇸 Primero, verifique si wget está instalado en su PC, simplemente copie el comando haciendo clic en los dos pequeños cuadrados en el lado derecho del comando.
+
+   🇺🇸 Firs, verify if wget alread installed on your machine, just click on two lil squares on the right side from the command.
+
+   🇧🇷 primeiro, veja se o wget está instalado no seu pc, basta copiar o comando, clicando nos dois pequenos quadrados no lado direito do comando.
+
+```bash
+## If your system doesn't have wget, this command will install it
+command -v wget >/dev/null 2>&1 || sudo apt install wget -y
+```
+
+
+   
+## install * instalando * instalando el juego
+
+🇪🇸 Eres principiante  con Linux ?, copie el comando en los cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
 
    🇺🇸 If you are a extremelly benginer, just copy the command on two squares on right, and use the right click mouse to past in you terminal and press ENTER to install the game.
 
    🇧🇷 Se você é iniciante com Linux, copie o comando nos pequenos quadrados na direita dos comandos. Depois de copiar, cole com botão direito no seu terminal e aperte ENTER.
 
-```bash
-## if you sytem don't have wget, this command will install it
-sudo apt install wget -y
 
+```bash
 ## removing game folders from the old openspades and sopaspades version
 sudo rm -rf a-la-popa && rm a-la-popa.sh 2> /dev/null
 rm -rf /usr/local/games/openspades 2>/dev/null
@@ -53,8 +71,7 @@ wget https://github.com/atorresbr/sopaspades/raw/main/MODERN-PACK/modern_pack.zi
 unzip -o modern_pack.zip && cd ~/ \
 
 ## starting the game 
-openspades
-
+sopaspades
 ```
 
 <!-- 
@@ -209,7 +226,7 @@ or later is recommended because OpenSpades relies on C++11 features heavily.
 ### 2.  Clonar el repositorio 💠 Clonando o repositório 💠 Cloning the repository : 
 
    ```bash
-   git clone https://github.com/atorresbr/a-la-popa.git && cd a-la-popa
+   git clone https://github.com/atorresbr/sopaspades.git && cd sopaspades
    ```
 
 ### 3. Execute el comando abajo 💠 Execute o comando abaixo 💠 Run the commmand :
