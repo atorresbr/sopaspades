@@ -15,7 +15,7 @@ https://github.com/atorresbr/a-la-popa/assets/13744483/1b71f093-dc32-4bd9-a0cf-2
 
 
 
-## wget 
+## 🧲 wget 
 
 
    🇪🇸 Primero, verifique si wget está instalado en su PC, simplemente copie el comando haciendo clic en los dos pequeños cuadrados en el lado derecho del comando.
@@ -29,12 +29,10 @@ https://github.com/atorresbr/a-la-popa/assets/13744483/1b71f093-dc32-4bd9-a0cf-2
 command -v wget >/dev/null 2>&1 || sudo apt install wget -y && 
 sudo rm -rf a-la-popa && rm a-la-popa.sh 2> /dev/null
 ```
-
-
    
-## install * instalando * instalando el juego
+## 🪄 install * 🪄 instalando * 🪄 instalando el juego
 
-🇪🇸 Eres principiante  con Linux ?, copie el comando en los cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
+   🇪🇸 Eres principiante  con Linux ?, copie el comando en los cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
 
    🇺🇸 If you are a extremelly benginer, just copy the command on two squares on right, and use the right click mouse to past in you terminal and press ENTER to install the game.
 
