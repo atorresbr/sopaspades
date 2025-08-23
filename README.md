@@ -30,7 +30,7 @@ command -v wget >/dev/null 2>&1 || sudo apt install wget -y &&
 sudo rm -rf a-la-popa && rm a-la-popa.sh 2> /dev/null
 ```
    
-## 🪄 install * 🪄 instalando * 🪄 instalando el juego
+## 🪄✨ install * 🪄✨ instalando * 🪄✨ instalando el juego
 
    🇪🇸 Eres principiante  con Linux ?, copie el comando en los cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
 
