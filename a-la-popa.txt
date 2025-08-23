@@ -162,12 +162,7 @@ echo
 echo -ne ${nc}
 
 sleep 2
-
-## sudo rm -rf /usr/local/share/games/openspades &&
-## sudo rm -rf /usr/local/games/openspades &&
 sudo apt purge openspades -y && \
-
-## sudo rm -rf ~/.local/share/openspades &&
 
 echo
 echo
@@ -328,8 +323,8 @@ echo
 
 sleep 2
 
-  sudo rm -Rf sopaspades && sudo rm -Rf openspades && sudo rm -Rf a-la-popa && sudo rm -Rf alapopa &&
-  git clone https://github.com/atorresbr/a-la-popa.git && sudo chmod +x a-la-popa && 
+  sudo rm -Rf sopaspades && sudo rm -Rf openspades && sudo rm -Rf a-la-popa &&
+  git clone https://github.com/atorresbr/sopaspades.git &&
   cd a-la-popa && \
 
 echo
@@ -430,7 +425,7 @@ sleep 1
 echo " sopaspades 🔫 " 
 
 ## cd $REPO_DIRECTORY a-la-popa/sopaspades.mk; bin/openspades
-## cd ~/a-la-popa/sopaspades.mk; bin/openspades
+## cd ~/sopaspades/sopaspades.mk; bin/sopaspades
 
 echo
 echo 
