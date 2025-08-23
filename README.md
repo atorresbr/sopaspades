@@ -1,4 +1,4 @@
-# 🍜 SOPA SPADES 🇧🇷 !
+# 🍜 SOPA SPADES 🔫🇧🇷✨ ❕
 
 ## - A Beautiful Spades Client for SOPA Servers ( 😋 sopa! / soup!)
 
