@@ -163,7 +163,6 @@ echo -ne ${nc}
 
 sleep 2
 # Replace line 165:
-sudo apt purge openspades -y && \
 
 # With this:
 if dpkg -l | grep -q openspades; then
@@ -176,7 +175,7 @@ fi && \
 echo
 echo
 
-echo -e " it's not a error 🙌 👆 "
+#echo -e " it's not a error 🙌 👆 "
 
 echo
 echo
