@@ -169,7 +169,7 @@ if dpkg -l | grep -q openspades; then
   echo " OPENSPADES was installed, removing it 🗑️ "
   sudo apt purge openspades -y
 else
-  echo " OpenSpades or SynSpades are not here 😬 "
+  echo " OPENSPADES are not here 😬 "
 fi && \
 
 echo
@@ -387,7 +387,7 @@ echo
 sleep 1
 
    mkdir sopaspades.mk && sudo chmod +x sopaspades.mk &&
-   cd sopaspades.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && make -j$(nproc) &&
+   cd sopaspades.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && make &&
    sudo make install
    
 echo
