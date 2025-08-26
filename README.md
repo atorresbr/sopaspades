@@ -52,18 +52,18 @@ rm -rf /usr/share/applications/sopaspades.desktop 2>/dev/null || true
 rm -rf /usr/share/pixmaps/openspades.xpm 2>/dev/null || true
 rm -rf /usr/share/pixmaps/sopaspades.xpm 2>/dev/null || true
 rm -rf /usr/games/openspades 2>/dev/null || true
-rm -rf /usr/games/sopaspades 2>/dev/null || true
+rm -rf /usr/games/sopaspades 2>/dev/null || true && \
 
 ## Additional commands to add to your cleanup section:
 rm -rf ~/.local/share/applications/openspades.desktop 2>/dev/null || true
 rm -rf ~/.local/share/applications/sopaspades.desktop 2>/dev/null || true
 rm -rf ~/.local/share/icons/openspades* 2>/dev/null || true
-rm -rf ~/.local/share/icons/sopaspades* 2>/dev/null || true
+rm -rf ~/.local/share/icons/sopaspades* 2>/dev/null || true && \
 
 rm -rf $USER_HOME/.local/share/openspades* 2>/dev/null || true
 rm -rf $USER_HOME/.local/share/sopaspades* 2>/dev/null || true
 rm -rf $USER_HOME/a-la-popa 2>/dev/null || true
-rm -rf $USER_HOME/a-la-popa.sh 2>/dev/null || true
+rm -rf $USER_HOME/a-la-popa.sh 2>/dev/null || true && \
 
 ## Clean cache files
 rm -rf /home/*/.cache/icon-cache.kcache 2>/dev/null || true && \
