@@ -26,9 +26,7 @@ https://github.com/atorresbr/a-la-popa/assets/13744483/1b71f093-dc32-4bd9-a0cf-2
 
 ```bash
 ## If your system doesn't have wget, this command will install it
-command -v wget >/dev/null 2>&1 || sudo apt install wget -y
-sudo rm -rf a-la-popa 2>/dev/null || true
-rm -f a-la-popa.sh 2>/dev/null || true
+command -v wget >/dev/null 2>&1 || sudo apt install wget -y && sudo rm -rf a-la-popa 2>/dev/null || true && rm -f a-la-popa.sh 2>/dev/null || true
 ```
    
 ## 🪄✨ install * 🪄✨ instalando * 🪄✨ instalando el juego
@@ -45,38 +43,42 @@ rm -f a-la-popa.sh 2>/dev/null || true
 ## removing game folders from the old openspades and sopaspades version
 ## Clean up old installations (with error handling)
 # System locations (need sudo)
-sudo rm -rf /usr/local/games/openspades 2>/dev/null || true && \
-sudo rm -rf /usr/local/games/sopaspades 2>/dev/null || true && \
-sudo rm -rf /usr/local/share/games/openspades 2>/dev/null || true && \
-sudo rm -rf /usr/local/share/games/sopaspades 2>/dev/null || true && \
+sudo rm -rf /usr/local/games/openspades 2>/dev/null || true
+sudo rm -rf /usr/local/games/sopaspades 2>/dev/null || true 
+sudo rm -rf /usr/local/share/games/openspades 2>/dev/null || true
+sudo rm -rf /usr/local/share/games/sopaspades 2>/dev/null || true
 sudo rm -rf /usr/share/applications/openspades.desktop 2>/dev/null || true
 sudo rm -rf /usr/share/applications/sopaspades.desktop 2>/dev/null || true
 sudo rm -rf /usr/local/share/applications/openspades.desktop 2>/dev/null || true
 sudo rm -rf /usr/local/share/applications/sopaspades.desktop 2>/dev/null || true
 rm -rf ~/.local/share/applications/openspades.desktop 2>/dev/null || true
 rm -rf ~/.local/share/applications/sopaspades.desktop 2>/dev/null || true
-sudo rm -rf /usr/share/pixmaps/openspades.xpm 2>/dev/null || true && \
-sudo rm -rf /usr/share/pixmaps/sopaspades.xpm 2>/dev/null || true && \
-sudo rm -rf /usr/games/openspades 2>/dev/null || true && \
-sudo rm -rf /usr/games/sopaspades 2>/dev/null || true && \
+sudo rm -rf /usr/share/pixmaps/openspades.xpm 2>/dev/null || true
+sudo rm -rf /usr/share/pixmaps/sopaspades.xpm 2>/dev/null || true
+sudo rm -rf /usr/games/openspades 2>/dev/null || true
+sudo rm -rf /usr/games/sopaspades 2>/dev/null || true
 
 ## Additional commands to add to your cleanup section:
 # User locations (no sudo needed)
-rm -rf ~/.local/share/applications/openspades.desktop 2>/dev/null || true && \
-rm -rf ~/.local/share/applications/sopaspades.desktop 2>/dev/null || true && \
-rm -rf ~/.local/share/icons/openspades* 2>/dev/null || true && \
-rm -rf ~/.local/share/icons/sopaspades* 2>/dev/null || true && \
+rm -rf ~/.local/share/applications/openspades.desktop 2>/dev/null || true
+rm -rf ~/.local/share/applications/sopaspades.desktop 2>/dev/null || true
+rm -rf ~/.local/share/icons/openspades* 2>/dev/null || true
+rm -rf ~/.local/share/icons/sopaspades* 2>/dev/null || true
 
 # Fix USER_HOME variable - use ~ instead
-rm -rf ~/.local/share/openspades* 2>/dev/null || true && \
-rm -rf ~/.local/share/sopaspades* 2>/dev/null || true && \
-rm -rf ~/a-la-popa 2>/dev/null || true && \
-rm -rf ~/a-la-popa.sh 2>/dev/null || true && \
+rm -rf ~/.local/share/openspades* 2>/dev/null || true
+rm -rf ~/.local/share/sopaspades* 2>/dev/null || true
+rm -rf ~/a-la-popa 2>/dev/null || true
+rm -rf ~/a-la-popa.sh 2>/dev/null || true
 
 ## Clean cache files
-sudo rm -rf /home/*/.cache/icon-cache.kcache 2>/dev/null || true && \
-sudo rm -rf /home/*/.cache/thumbnails/* 2>/dev/null || true && \
-sudo rm -rf /home/*/.cache/icons/* 2>/dev/null || true && \
+sudo rm -rf /home/*/.cache/icon-cache.kcache 2>/dev/null || true
+sudo rm -rf /home/*/.cache/thumbnails/* 2>/dev/null || true
+sudo rm -rf /home/*/.cache/icons/* 2>/dev/null || true
+
+sudo update-desktop-database /usr/share/applications 2>/dev/null || true
+sudo update-desktop-database /usr/local/share/applications 2>/dev/null || true
+update-desktop-database ~/.local/share/applications 2>/dev/null || true
 
 ## downloading the text file to transform in Bash Script
 wget https://raw.githubusercontent.com/atorresbr/sopaspades/main/a-la-popa.txt && \
