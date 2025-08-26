@@ -27,6 +27,7 @@ https://github.com/atorresbr/a-la-popa/assets/13744483/1b71f093-dc32-4bd9-a0cf-2
 ```bash
 ## If your system doesn't have wget, this command will install it
 command -v wget >/dev/null 2>&1 || sudo apt install wget -y &&
+sudo rm -rf sopaspades 2>/dev/null || true &&
 sudo rm -rf a-la-popa 2>/dev/null || true &&
 rm -f a-la-popa.sh 2>/dev/null || true
 ```
