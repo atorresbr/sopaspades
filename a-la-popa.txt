@@ -403,30 +403,6 @@ echo
 echo -e " Êxito !"
 echo
 
-# Fix the icon after installation - much simpler approach
-echo -ne ${b_green}
-echo -e " 🇧🇷 Corrigindo o ícone do jogo"
-echo -e " 🇺🇸 Fixing game icon"
-echo -e " 🇪🇸 Arreglando el icono del juego"
-echo -ne ${b_yellow}
-
-# Use direct path to icon since we're already in sopaspades directory
-if [ -f "snap/gui/sopaspades.png" ]; then
-  # Copy custom icon to system locations
-  sudo cp snap/gui/sopaspades.png /usr/share/pixmaps/sopaspades.xpm
-  sudo mkdir -p /usr/local/share/games/sopaspades/Resources/Icons/hicolor/256x256/apps/
-  sudo cp snap/gui/sopaspades.png /usr/local/share/games/sopaspades/Resources/Icons/hicolor/256x256/apps/sopaspades.png
-  
-  # Fix desktop file
-  sudo sed -i 's/Icon=.*/Icon=sopaspades/' /usr/share/applications/sopaspades.desktop
-  
-  # Update icon cache
-  sudo update-desktop-database /usr/share/applications
-  sudo gtk-update-icon-cache -f -t /usr/share/icons/hicolor
-fi
-
-echo -e " Êxito !"
-
 sleep 1
 
    mkdir sopaspades.mk && sudo chmod +x sopaspades.mk &&
