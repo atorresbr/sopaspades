@@ -240,13 +240,16 @@ if(UNIX AND NOT APPLE)
 	# Package info (used for automatic update check)
 	INSTALL(FILES Resources/PackageInfo.json DESTINATION ${OPENSPADES_INSTALL_RESOURCES})
 
-	# install icons
-	INSTALL(
-		DIRECTORY ${CMAKE_BINARY_DIR}/Resources/Icons/hicolor/
-		DESTINATION ${OPENSPADES_INSTALL_ICONS}
-		FILES_MATCHING PATTERN "*.png")
+	# Install icons
+	foreach(SIZE 16 32 48 64 128 256)
+	install(FILES ${CMAKE_SOURCE_DIR}/Resources/Icons/hicolor/${SIZE}x${SIZE}/apps/sopaspades.png
+			DESTINATION ${OPENSPADES_INSTALL_ICONS}/${SIZE}x${SIZE}/apps/)
+	endforeach()
 
-    INSTALL(FILES Resources/Icons/sopaspades.xpm DESTINATION ${OPENSPADES_INSTALL_PIXMAP}/)	# binary file
+	# Also install to pixmaps for compatibility
+	install(FILES ${CMAKE_SOURCE_DIR}/Resources/Icons/hicolor/48x48/apps/sopaspades.png
+			DESTINATION ${OPENSPADES_INSTALL_PIXMAP}
+			RENAME sopaspades.xpm)	# binary file
 	INSTALL(PROGRAMS ${CMAKE_BINARY_DIR}/bin/sopaspades DESTINATION ${OPENSPADES_INSTALL_BINARY})
 
     # desktop file

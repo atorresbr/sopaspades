@@ -1,0 +1,1 @@
+# Icon installation is handled in the main CMakeLists.txt

@@ -47,11 +47,10 @@ if(OPENSPADES_RESOURCES)
 			WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 	endif()
 
-	file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/PackageInfo.json
-		DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-endif()
+	# Add this line if it's not already there
+	add_subdirectory(Icons)
 
-if(UNIX AND NOT APPLE)
+	if(UNIX AND NOT APPLE)
 	add_custom_target(SopaSpades_Unix ALL COMMENT "Process unix stuff")
 
 	file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/Icons)
