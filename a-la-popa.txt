@@ -403,6 +403,28 @@ echo
 echo -e " Êxito !"
 echo
 
+# Setup custom SopaSpades icon
+
+# Create icon directories if they don't exist
+mkdir -p Resources/Icons/hicolor/16x16/apps
+mkdir -p Resources/Icons/hicolor/32x32/apps
+mkdir -p Resources/Icons/hicolor/48x48/apps
+mkdir -p Resources/Icons/hicolor/64x64/apps
+mkdir -p Resources/Icons/hicolor/128x128/apps
+mkdir -p Resources/Icons/hicolor/256x256/apps
+
+# Convert your custom icon to different sizes
+for size in 16 32 48 64 128 256; do
+  convert snap/gui/sopaspades.png -resize ${size}x${size} Resources/Icons/hicolor/${size}x${size}/apps/sopaspades.png
+done
+
+# Create pixmap version
+convert snap/gui/sopaspades.png -resize 48x48 Resources/Icons/sopaspades.xpm
+
+# Update desktop file with emojis
+sed -i 's/Name=.*/Name=🔫🍜SopaSpades/' Resources/Unix/Desktop/sopaspades.desktop
+
+
 sleep 1
 
    mkdir sopaspades.mk && sudo chmod +x sopaspades.mk &&
