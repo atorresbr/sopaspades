@@ -417,9 +417,7 @@ echo -ne ${b_green}
 echo -e " 🇧🇷 Criando arquivo de log da compilação"
 echo -e " 🇺🇸 Creating build log file"
 echo -e " 🇪🇸 Creando archivo de registro de compilación"
-echo -ne ${b_yellow}
-
-echo -ne ${b_yellow}
+echo -ne ${nc}
 
    BUILD_LOG="../sopaspades_build.log"
    make -j$(nproc) VERBOSE=1 2>&1 | tee "$BUILD_LOG"
@@ -430,7 +428,6 @@ if [ $? -ne 0 ]; then
   echo -e " 🇧🇷 Erro na compilação! Log salvo em $BUILD_LOG"
   echo -e " 🇺🇸 Build error! Log saved to $BUILD_LOG"
   echo -e " 🇪🇸 ¡Error en la compilación! Registro guardado en $BUILD_LOG"
-  echo -ne ${b_yellow}
   exit 1
 fi
 
