@@ -3,10 +3,10 @@ Version=1.0
 Type=Application
 Terminal=false
 Exec=sopaspades %U
-Name=🍜SopaSpades🔫
+Name=🔫🍜SopaSpades
 GenericName=Sandbox building and FPS videogame
 Comment=Open-source clone of Ace of Spades
 Keywords=game;fps;sandbox;voxel;aos;
-Icon=sopaspades
+Icon=Icon=${SNAP}/meta/gui/openspades.png
 Categories=Game;ActionGame;
 MimeType=x-scheme-handler/aos;
