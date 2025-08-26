@@ -406,7 +406,30 @@ echo
 sleep 1
 
    mkdir sopaspades.mk && sudo chmod +x sopaspades.mk &&
-   cd sopaspades.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && make -j$(nproc) &&
+   cd sopaspades.mk && 
+   cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo &&
+
+# Create build log in the git repo folder
+echo -ne ${b_green}
+echo -e " 🇧🇷 Criando arquivo de log da compilação"
+echo -e " 🇺🇸 Creating build log file"
+echo -e " 🇪🇸 Creando archivo de registro de compilación"
+echo -ne ${b_yellow}
+
+   BUILD_LOG="../sopaspades_build.log"
+   make -j$(nproc) VERBOSE=1 2>&1 | tee "$BUILD_LOG"
+
+# Check if build failed
+if [ $? -ne 0 ]; then
+  echo -ne ${b_red}
+  echo -e " 🇧🇷 Erro na compilação! Log salvo em $BUILD_LOG"
+  echo -e " 🇺🇸 Build error! Log saved to $BUILD_LOG"
+  echo -e " 🇪🇸 ¡Error en la compilación! Registro guardado en $BUILD_LOG"
+  echo -ne ${b_yellow}
+  exit 1
+fi
+
+# Continue with installation
    sudo make install
    
 echo
