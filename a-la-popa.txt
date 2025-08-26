@@ -403,26 +403,29 @@ echo
 echo -e " Êxito !"
 echo
 
-# Setup custom SopaSpades icon
 
-# Create icon directories if they don't exist
-mkdir -p Resources/Icons/hicolor/16x16/apps
-mkdir -p Resources/Icons/hicolor/32x32/apps
-mkdir -p Resources/Icons/hicolor/48x48/apps
-mkdir -p Resources/Icons/hicolor/64x64/apps
-mkdir -p Resources/Icons/hicolor/128x128/apps
-mkdir -p Resources/Icons/hicolor/256x256/apps
+# Fix the icon after installation
+echo -ne ${b_green}
+echo -e " 🇧🇷 Corrigindo o ícone do jogo"
+echo -e " 🇺🇸 Fixing game icon"
+echo -e " 🇪🇸 Arreglando el icono del juego"
+echo -ne ${b_yellow}
 
-# Convert your custom icon to different sizes
-for size in 16 32 48 64 128 256; do
-  convert snap/gui/sopaspades.png -resize ${size}x${size} Resources/Icons/hicolor/${size}x${size}/apps/sopaspades.png
-done
+# Copy custom icon to system locations
+sudo cp ../snap/gui/sopaspades.png /usr/share/pixmaps/sopaspades.xpm
+sudo mkdir -p /usr/local/share/games/sopaspades/Resources/Icons/hicolor/256x256/apps/
+sudo cp ../snap/gui/sopaspades.png /usr/local/share/games/sopaspades/Resources/Icons/hicolor/256x256/apps/sopaspades.png
+sudo mkdir -p /usr/local/share/games/sopaspades/Resources/Icons/hicolor/48x48/apps/
+sudo cp ../snap/gui/sopaspades.png /usr/local/share/games/sopaspades/Resources/Icons/hicolor/48x48/apps/sopaspades.png
 
-# Create pixmap version
-convert snap/gui/sopaspades.png -resize 48x48 Resources/Icons/sopaspades.xpm
+# Fix desktop file
+sudo sed -i 's/Icon=.*/Icon=sopaspades/' /usr/share/applications/sopaspades.desktop
 
-# Update desktop file with emojis
-sed -i 's/Name=.*/Name=🔫🍜SopaSpades/' Resources/Unix/Desktop/sopaspades.desktop
+# Update icon cache
+sudo update-desktop-database /usr/share/applications
+sudo gtk-update-icon-cache -f -t /usr/share/icons/hicolor
+
+echo -e " Êxito !"
 
 
 sleep 1
