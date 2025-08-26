@@ -161,6 +161,23 @@ echo
 
 echo -ne ${nc}
 
+# These commands run as sudo (root)
+rm -rf /usr/local/games/openspades 2>/dev/null
+rm -rf /usr/local/games/sopaspades 2>/dev/null
+rm -rf /usr/local/share/games/openspades 2>/dev/null
+rm -rf /usr/local/share/games/sopaspades 2>/dev/null
+rm -rf /usr/share/applications/openspades.desktop 2>/dev/null
+rm -rf /usr/share/applications/sopaspades.desktop 2>/dev/null
+rm -rf /usr/share/pixmaps/openspades.xpm 2>/dev/null
+rm -rf /usr/share/pixmaps/sopaspades.xpm 2>/dev/null
+rm -rf /usr/games/openspades 2>/dev/null
+rm -rf /usr/games/sopaspades 2>/dev/null
+
+  # Clean cache files
+  rm -rf /home/*/.cache/icon-cache.kcache && \
+  rm -rf /home/*/.cache/thumbnails/* && \
+  rm -rf /home/*/.cache/icons/* && \
+
 sleep 2
 # Replace line 165:
 
@@ -271,10 +288,12 @@ sleep 1
 
 echo -ne ${b_yellow}
 
-sudo apt-get install pkg-config libglew-dev libcurl3-openssl-dev libsdl2-dev \
+sudo apt-get install build-essential pkg-config libglew-dev libcurl4-openssl-dev libsdl2-dev \
   libsdl2-image-dev libalut-dev xdg-utils libfreetype6-dev libopus-dev \
-  libopusfile-dev cmake imagemagick \
-  libjpeg-dev libxinerama-dev libxft-dev
+   imagemagick zip unzip libopusfile-dev cmake\
+  libjpeg-dev libxinerama-dev libxft-dev && \
+
+
 
 echo
 echo

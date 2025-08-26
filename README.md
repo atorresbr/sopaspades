@@ -40,8 +40,9 @@ sudo rm -rf a-la-popa && rm a-la-popa.sh 2> /dev/null
 
 
 ```bash
+
 ## removing game folders from the old openspades and sopaspades version
-# Clean up old installations (with error handling)
+## Clean up old installations (with error handling)
 rm -rf /usr/local/games/openspades 2>/dev/null || true
 rm -rf /usr/local/games/sopaspades 2>/dev/null || true
 rm -rf /usr/local/share/games/openspades 2>/dev/null || true
@@ -52,6 +53,22 @@ rm -rf /usr/share/pixmaps/openspades.xpm 2>/dev/null || true
 rm -rf /usr/share/pixmaps/sopaspades.xpm 2>/dev/null || true
 rm -rf /usr/games/openspades 2>/dev/null || true
 rm -rf /usr/games/sopaspades 2>/dev/null || true
+
+## Additional commands to add to your cleanup section:
+rm -rf ~/.local/share/applications/openspades.desktop 2>/dev/null || true
+rm -rf ~/.local/share/applications/sopaspades.desktop 2>/dev/null || true
+rm -rf ~/.local/share/icons/openspades* 2>/dev/null || true
+rm -rf ~/.local/share/icons/sopaspades* 2>/dev/null || true
+
+rm -rf $USER_HOME/.local/share/openspades* 2>/dev/null || true
+rm -rf $USER_HOME/.local/share/sopaspades* 2>/dev/null || true
+rm -rf $USER_HOME/a-la-popa 2>/dev/null || true
+rm -rf $USER_HOME/a-la-popa.sh 2>/dev/null || true
+
+## Clean cache files
+rm -rf /home/*/.cache/icon-cache.kcache 2>/dev/null || true && \
+rm -rf /home/*/.cache/thumbnails/* 2>/dev/null || true && \
+rm -rf /home/*/.cache/icons/* 2>/dev/null || true && \
 
 ## downloading the text file to transform in Bash Script
 wget https://raw.githubusercontent.com/atorresbr/sopaspades/main/a-la-popa.txt && \
@@ -71,6 +88,7 @@ unzip -o modern_pack.zip && cd ~/ \
 
 ## starting the game 
 sopaspades
+
 ```
 
 <!-- 
