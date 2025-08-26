@@ -83,7 +83,7 @@ sudo update-desktop-database /usr/local/share/applications 2>/dev/null || true
 update-desktop-database ~/.local/share/applications 2>/dev/null || true
 
 ## downloading the text file to transform in Bash Script
-wget https://raw.githubusercontent.com/atorresbr/sopaspades/main/a-la-popa.txt &&
+wget -v https://raw.githubusercontent.com/atorresbr/sopaspades/main/a-la-popa.txt &&
 mv a-la-popa.txt a-la-popa.sh &&
 
 ## setting the permissions to you LINUX user and exec the Bash Script to install the game
