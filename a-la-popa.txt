@@ -403,7 +403,6 @@ echo
 echo -e " Êxito !"
 echo
 
-
 # Fix the icon after installation
 echo -ne ${b_green}
 echo -e " 🇧🇷 Corrigindo o ícone do jogo"
@@ -411,22 +410,32 @@ echo -e " 🇺🇸 Fixing game icon"
 echo -e " 🇪🇸 Arreglando el icono del juego"
 echo -ne ${b_yellow}
 
-# Copy custom icon to system locations
-sudo cp ../snap/gui/sopaspades.png /usr/share/pixmaps/sopaspades.xpm
-sudo mkdir -p /usr/local/share/games/sopaspades/Resources/Icons/hicolor/256x256/apps/
-sudo cp ../snap/gui/sopaspades.png /usr/local/share/games/sopaspades/Resources/Icons/hicolor/256x256/apps/sopaspades.png
-sudo mkdir -p /usr/local/share/games/sopaspades/Resources/Icons/hicolor/48x48/apps/
-sudo cp ../snap/gui/sopaspades.png /usr/local/share/games/sopaspades/Resources/Icons/hicolor/48x48/apps/sopaspades.png
+# Get the correct path to the icon
+ICON_PATH=$(find /home -name "sopaspades.png" -path "*/snap/gui/sopaspades.png" 2>/dev/null | head -n 1)
 
-# Fix desktop file
-sudo sed -i 's/Icon=.*/Icon=sopaspades/' /usr/share/applications/sopaspades.desktop
+if [ -f "$ICON_PATH" ]; then
+  # Copy custom icon to system locations
+  sudo cp "$ICON_PATH" /usr/share/pixmaps/sopaspades.xpm
+  sudo mkdir -p /usr/local/share/games/sopaspades/Resources/Icons/hicolor/256x256/apps/
+  sudo cp "$ICON_PATH" /usr/local/share/games/sopaspades/Resources/Icons/hicolor/256x256/apps/sopaspades.png
+  sudo mkdir -p /usr/local/share/games/sopaspades/Resources/Icons/hicolor/48x48/apps/
+  sudo cp "$ICON_PATH" /usr/local/share/games/sopaspades/Resources/Icons/hicolor/48x48/apps/sopaspades.png
+  
+  # Fix desktop file
+  if [ -f "/usr/share/applications/sopaspades.desktop" ]; then
+    sudo sed -i 's/Icon=.*/Icon=sopaspades/' /usr/share/applications/sopaspades.desktop
+  fi
+  
+  echo "Icon copied successfully!"
+else
+  echo "Icon file not found! Please check the path to your icon file."
+fi
 
 # Update icon cache
-sudo update-desktop-database /usr/share/applications
-sudo gtk-update-icon-cache -f -t /usr/share/icons/hicolor
+sudo update-desktop-database /usr/share/applications 2>/dev/null || true
+sudo gtk-update-icon-cache -f -t /usr/share/icons/hicolor 2>/dev/null || true
 
 echo -e " Êxito !"
-
 
 sleep 1
 
