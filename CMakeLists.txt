@@ -261,8 +261,23 @@ endif(UNIX AND NOT APPLE)
 
 
 #see http://www.cmake.org/cmake/help/v2.8.11/cpack.html
-set(CPACK_PACKAGE_NAME "SopaSpades")
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "SopaSpades - A clone of Ace of Spades")
+# Create emoji-enhanced desktop file
+configure_file(
+    ${CMAKE_SOURCE_DIR}/Resources/Unix/Desktop/sopaspades.desktop
+    ${CMAKE_BINARY_DIR}/Resources/Unix/Desktop/sopaspades.desktop
+    @ONLY
+)
+
+# Add emoji to name and ensure icon path is correct
+file(READ ${CMAKE_BINARY_DIR}/Resources/Unix/Desktop/sopaspades.desktop DESKTOP_CONTENT)
+string(REPLACE "Name=SopaSpades" "Name=🍜SopaSpades🔫" DESKTOP_CONTENT "${DESKTOP_CONTENT}")
+string(REPLACE "Name=Sopa Spades" "Name=🍜SopaSpades🔫" DESKTOP_CONTENT "${DESKTOP_CONTENT}")
+string(REPLACE "Icon=" "Icon=sopaspades" DESKTOP_CONTENT "${DESKTOP_CONTENT}")
+file(WRITE ${CMAKE_BINARY_DIR}/Resources/Unix/Desktop/sopaspades.desktop "${DESKTOP_CONTENT}")
+
+# Install modified desktop file
+INSTALL(FILES ${CMAKE_BINARY_DIR}/Resources/Unix/Desktop/sopaspades.desktop 
+        DESTINATION ${OPENSPADES_INSTALL_DESKTOP}/)
 set(CPACK_PACKAGE_DESCRIPTION "SopaSpades - A clone of Ace of Spades - free FPS sandbox game")
 set(CPACK_PACKAGE_VENDOR "yvt, assorted")
 set(CPACK_PACKAGE_CONTACT "yvt <i@yvt.jp>")
@@ -285,7 +300,7 @@ if(WIN32 AND NOT UNIX)
 	# sure there is at least one set of four (4) backlasshes.
 	set(CPACK_NSIS_INSTALLED_ICON_NAME "bin\\\\sopaspades.exe")
 	# TODO: set(CPACK_PACKAGE_ICON  "")
-	    set(CPACK_NSIS_HELP_LINK "https://sites.google.com/a/yvt.jp/openspades/")
+	set(CPACK_NSIS_HELP_LINK "https://sites.google.com/a/yvt.jp/openspades/")
 	set(CPACK_NSIS_URL_INFO_ABOUT "http://buildandshoot.com/viewforum.php?f=57")
 	SET(CPACK_NSIS_CONTACT "i@yvt.jp")
 	# TODO: SET(CPACK_NSIS_CREATE_ICONS_EXTRA "")
