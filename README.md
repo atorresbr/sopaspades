@@ -26,8 +26,9 @@ https://github.com/atorresbr/a-la-popa/assets/13744483/1b71f093-dc32-4bd9-a0cf-2
 
 ```bash
 ## If your system doesn't have wget, this command will install it
-command -v wget >/dev/null 2>&1 || sudo apt install wget -y && 
-sudo rm -rf a-la-popa && rm a-la-popa.sh 2> /dev/null
+command -v wget >/dev/null 2>&1 || sudo apt install wget -y
+sudo rm -rf a-la-popa 2>/dev/null || true
+rm -f a-la-popa.sh 2>/dev/null || true
 ```
    
 ## 🪄✨ install * 🪄✨ instalando * 🪄✨ instalando el juego
@@ -48,8 +49,12 @@ sudo rm -rf /usr/local/games/openspades 2>/dev/null || true && \
 sudo rm -rf /usr/local/games/sopaspades 2>/dev/null || true && \
 sudo rm -rf /usr/local/share/games/openspades 2>/dev/null || true && \
 sudo rm -rf /usr/local/share/games/sopaspades 2>/dev/null || true && \
-sudo rm -rf /usr/share/applications/openspades.desktop 2>/dev/null || true && \
-sudo rm -rf /usr/share/applications/sopaspades.desktop 2>/dev/null || true && \
+sudo rm -rf /usr/share/applications/openspades.desktop 2>/dev/null || true
+sudo rm -rf /usr/share/applications/sopaspades.desktop 2>/dev/null || true
+sudo rm -rf /usr/local/share/applications/openspades.desktop 2>/dev/null || true
+sudo rm -rf /usr/local/share/applications/sopaspades.desktop 2>/dev/null || true
+rm -rf ~/.local/share/applications/openspades.desktop 2>/dev/null || true
+rm -rf ~/.local/share/applications/sopaspades.desktop 2>/dev/null || true
 sudo rm -rf /usr/share/pixmaps/openspades.xpm 2>/dev/null || true && \
 sudo rm -rf /usr/share/pixmaps/sopaspades.xpm 2>/dev/null || true && \
 sudo rm -rf /usr/games/openspades 2>/dev/null || true && \
