@@ -1,20 +1,20 @@
 /*
  Copyright (c) 2013 yvt
 
- This file is part of SopaSpades.
+ This file is part of OpenSpades.
 
- SopaSpades is free software: you can redistribute it and/or modify
+ OpenSpades is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation, either version 3 of the License, or
  (at your option) any later version.
 
- SopaSpades is distributed in the hope that it will be useful,
+ OpenSpades is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
 
  You should have received a copy of the GNU General Public License
- along with SopaSpades.  If not, see <http://www.gnu.org/licenses/>.
+ along with OpenSpades.  If not, see <http://www.gnu.org/licenses/>.
 
  */
 
@@ -98,7 +98,7 @@ namespace spades {
 				if (s->Read(buf, 16) < 16) {
 					SPRaise("Reading %s: file truncated", path.c_str());
 				}
-				if (std::strcmp(buf, "SopaSpadesFontFl")) {
+				if (std::strcmp(buf, "OpenSpadesFontFl")) {
 					SPRaise("Reading %s: font file corrupted", path.c_str());
 				}
 

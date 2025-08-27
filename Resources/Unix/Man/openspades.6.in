@@ -1,14 +1,14 @@
-.TH "sopaspades" "6" "" "sopaspades" ""
+.TH "openspades" "6" "" "openspades" ""
 .SH "NAME"
-SopaSpades \- Open-source clone of Ace of Spades
+OpenSpades \- Open-source clone of Ace of Spades
 .SH "SYNOPSIS"
 .
-.B sopaspades
+.B openspades
 [\fIOPTIONS\fR]
 [SERVER URI]
 .
 .SH "DESCRIPTION"
-SopaSpades is a clone of Voxlap Ace of Spades 0.75, which is a free multiplayer game created by Ben Aksoy. 
+OpenSpades is a clone of Voxlap Ace of Spades 0.75, which is a free multiplayer game created by Ben Aksoy. 
 
 Here are some features:	
 
