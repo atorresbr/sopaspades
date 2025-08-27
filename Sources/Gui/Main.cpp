@@ -1,20 +1,20 @@
 /*
  Copyright (c) 2013 yvt
 
- This file is part of OpenSpades.
+ This file is part of SopaSpades.
 
- OpenSpades is free software: you can redistribute it and/or modify
+ SopaSpades is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation, either version 3 of the License, or
  (at your option) any later version.
 
- OpenSpades is distributed in the hope that it will be useful,
+ SopaSpades is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
 
  You should have received a copy of the GNU General Public License
- along with OpenSpades.  If not, see <http://www.gnu.org/licenses/>.
+ along with SopaSpades.  If not, see <http://www.gnu.org/licenses/>.
 
  */
 
@@ -137,7 +137,7 @@ namespace {
 			} else {
 				buf[0] = 0; // empty it, the file will now end up in the working directory :(
 			}
-			sprintf(fullBuf, "%sOpenSpadesCrash%d.dmp", buf,
+			sprintf(fullBuf, "%sSopaSpadesCrash%d.dmp", buf,
 			        GetTickCount()); // some sort of randomization.
 			HANDLE hFile = CreateFile(fullBuf, GENERIC_READ | GENERIC_WRITE, 0, NULL, CREATE_ALWAYS,
 			                          FILE_ATTRIBUTE_NORMAL, NULL);
@@ -402,22 +402,22 @@ int main(int argc, char **argv) {
 
 		struct stat info;
 
-		if (stat((xdg_data_home + "/openspades").c_str(), &info) != 0) {
-			if (stat((home + "/.openspades").c_str(), &info) != 0) {
+		if (stat((xdg_data_home + "/sopaspades").c_str(), &info) != 0) {
+			if (stat((home + "/.sopaspades").c_str(), &info) != 0) {
 			} else if (info.st_mode & S_IFDIR) {
 				SPLog("Openspades directory in XDG_DATA_HOME not found, though old directory "
 				      "exists. Trying to resolve compatibility problem.");
 
-				if (rename((home + "/.openspades").c_str(),
-				           (xdg_data_home + "/openspades").c_str()) != 0) {
+				if (rename((home + "/.sopaspades").c_str(),
+				           (xdg_data_home + "/sopaspades").c_str()) != 0) {
 					SPLog("Failed to move old directory to new.");
 				} else {
 					SPLog("Successfully moved old directory.");
 
-					if (mkdir((home + "/.openspades").c_str(),
+					if (mkdir((home + "/.sopaspades").c_str(),
 					          S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) == 0) {
 						SDL_RWops *io = SDL_RWFromFile(
-						  (home + "/.openspades/CONTENT_MOVED_TO_NEW_DIR").c_str(), "wb");
+						  (home + "/.sopaspades/CONTENT_MOVED_TO_NEW_DIR").c_str(), "wb");
 						if (io != NULL) {
 							const char *text = ("Content of this directory moved to " +
 							                    xdg_data_home + "/sopaspades")
@@ -630,7 +630,7 @@ int main(int argc, char **argv) {
 		}
 
 		std::string msg = ex.what();
-		msg = _Tr("Main", "A serious error caused OpenSpades to stop working:\n\n{0}\n\nSee "
+		msg = _Tr("Main", "A serious error caused SopaSpades to stop working:\n\n{0}\n\nSee "
 		                  "SystemMessages.log for more details.",
 		          msg);
 
@@ -638,7 +638,7 @@ int main(int argc, char **argv) {
 
 		SDL_InitSubSystem(SDL_INIT_VIDEO);
 		if (SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR,
-		                             _Tr("Main", "OpenSpades Fatal Error").c_str(), msg.c_str(),
+		                             _Tr("Main", "SopaSpades Fatal Error").c_str(), msg.c_str(),
 		                             nullptr)) {
 			// showing dialog failed.
 			// TODO: do appropriate action

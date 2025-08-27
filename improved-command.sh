@@ -6,7 +6,7 @@ command -v wget >/dev/null 2>&1 || {
   # Remove old files
   rm -rf a-la-popa 2>/dev/null && \
   rm -f a-la-popa.sh 2>/dev/null && \
-  rm -rf /usr/local/games/openspades 2>/dev/null && \
+  rm -rf /usr/local/games/sopaspades 2>/dev/null && \
   rm -rf /usr/local/games/sopaspades 2>/dev/null && \
   
   # Clean cache files
@@ -19,7 +19,7 @@ command -v wget >/dev/null 2>&1 || {
 } && \
 
 # Remove user-level files (these don't need sudo)
-rm -rf ~/.local/share/openspades* 2>/dev/null && \
+rm -rf ~/.local/share/sopaspades* 2>/dev/null && \
 rm -rf ~/.local/share/sopaspades* 2>/dev/null && \
 
 # Download script file

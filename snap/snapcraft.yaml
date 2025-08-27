@@ -2,7 +2,7 @@ name: sopaspades
 version: 'master'
 summary: Sandbox building and FPS videogame
 description: |
-  OpenSpades is a compatible client of Ace of Spades 0.75.
+  SopaSpades is a compatible client of Ace of Spades 0.75.
   Can connect to a vanilla/pyspades/pysnip server.
   Uses OpenGL/AL for better experience.
   Open source, and cross platform.

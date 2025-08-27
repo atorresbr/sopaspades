@@ -18,15 +18,15 @@ fi
 
 echo "Removing old installations..."
 # These commands run as sudo (root)
-rm -rf /usr/local/games/openspades 2>/dev/null
 rm -rf /usr/local/games/sopaspades 2>/dev/null
-rm -rf /usr/local/share/games/openspades 2>/dev/null
+rm -rf /usr/local/games/sopaspades 2>/dev/null
 rm -rf /usr/local/share/games/sopaspades 2>/dev/null
-rm -rf /usr/share/applications/openspades.desktop 2>/dev/null
+rm -rf /usr/local/share/games/sopaspades 2>/dev/null
 rm -rf /usr/share/applications/sopaspades.desktop 2>/dev/null
-rm -rf /usr/share/pixmaps/openspades.xpm 2>/dev/null
+rm -rf /usr/share/applications/sopaspades.desktop 2>/dev/null
 rm -rf /usr/share/pixmaps/sopaspades.xpm 2>/dev/null
-rm -rf /usr/games/openspades 2>/dev/null
+rm -rf /usr/share/pixmaps/sopaspades.xpm 2>/dev/null
+rm -rf /usr/games/sopaspades 2>/dev/null
 rm -rf /usr/games/sopaspades 2>/dev/null
 
 # Create temporary script to run as the actual user
@@ -39,7 +39,7 @@ USERNAME=$(logname || echo $SUDO_USER)
 USER_HOME=$(getent passwd $USERNAME | cut -d: -f6)
 
 echo "Cleaning user directories..."
-rm -rf $USER_HOME/.local/share/openspades* 2>/dev/null
+rm -rf $USER_HOME/.local/share/sopaspades* 2>/dev/null
 rm -rf $USER_HOME/.local/share/sopaspades* 2>/dev/null
 rm -rf $USER_HOME/a-la-popa 2>/dev/null
 rm -rf $USER_HOME/a-la-popa.sh 2>/dev/null
