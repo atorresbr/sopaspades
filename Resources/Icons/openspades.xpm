@@ -1,5 +1,5 @@
 /* XPM */
-static char * sopaspades_xpm[] = {
+static char * openspades_xpm[] = {
 "16 16 5 1",
 " 	c None",
 ".	c #E0CC93",
