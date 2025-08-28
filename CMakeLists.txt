@@ -164,6 +164,26 @@ set(OPENSPADES_INSTALL_BINARY    "games"                CACHE STRING "Directory 
 set(OPENSPADES_INSTALL_DESKTOP   "share/applications"   CACHE STRING "Directory for installing .desktop file. ")
 set(OPENSPADES_INSTALL_LIBS      "lib/openspades"       CACHE STRING "Directory for installing various non-media stuff. Currently not used")
 
+# ...existing code...
+    # install icons
+    INSTALL(
+        DIRECTORY ${CMAKE_BINARY_DIR}/Resources/Icons/hicolor/
+        DESTINATION ${OPENSPADES_INSTALL_ICONS}
+        FILES_MATCHING PATTERN "*.png")
+
+    INSTALL(FILES Resources/Icons/openspades.xpm DESTINATION ${OPENSPADES_INSTALL_PIXMAP}/)
+
+# install project-provided icon (use the same PNG for all sizes so desktop will pick it)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png DESTINATION share/icons/hicolor/16x16/apps)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png DESTINATION share/icons/hicolor/24x24/apps)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png DESTINATION share/icons/hicolor/32x32/apps)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png DESTINATION share/icons/hicolor/48x48/apps)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png DESTINATION share/icons/hicolor/64x64/apps)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png DESTINATION share/icons/hicolor/96x96/apps)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png DESTINATION share/icons/hicolor/128x128/apps)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png DESTINATION share/icons/hicolor/256x256/apps)
+# ...existing code...
+
 set(OPENSPADES_RESDIR "" CACHE STRING "Resource dir to use while developing")
 set(OPENSPADES_EXTRATITLE "" CACHE STRING "Extra info to add to the package name")
 if(OPENSPADES_RESDIR)
