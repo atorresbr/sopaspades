@@ -179,6 +179,29 @@ if(UNIX)
 	mark_as_advanced(CMAKE_CURRENT_YEAR)
 endif(UNIX)
 
+# ...existing code...
+    # install icons
+    INSTALL(
+        DIRECTORY ${CMAKE_BINARY_DIR}/Resources/Icons/hicolor/
+        DESTINATION ${OPENSPADES_INSTALL_ICONS}
+        FILES_MATCHING PATTERN "*.png")
+
+    INSTALL(FILES Resources/Icons/openspades.xpm DESTINATION ${OPENSPADES_INSTALL_PIXMAP}/)
+
+# Add your new icon install lines here:
+    INSTALL(FILES snap/gui/sopaspades.png DESTINATION share/icons/hicolor/16x16/apps)
+    INSTALL(FILES snap/gui/sopaspades.png DESTINATION share/icons/hicolor/24x24/apps)
+    INSTALL(FILES snap/gui/sopaspades.png DESTINATION share/icons/hicolor/32x32/apps)
+    INSTALL(FILES snap/gui/sopaspades.png DESTINATION share/icons/hicolor/48x48/apps)
+    INSTALL(FILES snap/gui/sopaspades.png DESTINATION share/icons/hicolor/64x64/apps)
+    INSTALL(FILES snap/gui/sopaspades.png DESTINATION share/icons/hicolor/96x96/apps)
+    INSTALL(FILES snap/gui/sopaspades.png DESTINATION share/icons/hicolor/128x128/apps)
+    INSTALL(FILES snap/gui/sopaspades.png DESTINATION share/icons/hicolor/256x256/apps)
+# ...existing code...
+
+
+
+
 if(CMAKE_CXX_COMPILER_ID)
 	if(CMAKE_CXX_COMPILER_VERSION)
 		set(_version " ${CMAKE_CXX_COMPILER_VERSION}")
