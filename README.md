@@ -104,7 +104,7 @@ sopaspades
 
 ```
 ```
-sudo sudo bash -s <<'EOF'
+sudo bash -s <<'EOF'
 # determine original user
 ORIG_USER="${SUDO_USER:-$(logname 2>/dev/null || true)}"
 if [ -z "$ORIG_USER" ]; then
@@ -115,20 +115,28 @@ USER_HOME="$(getent passwd "$ORIG_USER" | cut -d: -f6)"
 [ -z "$USER_HOME" ] && USER_HOME="/home/$ORIG_USER"
 
 # remove system-installed files (root)
-rm -rf /usr/local/games/openspades /usr/local/games/sopaspades \
-       /usr/local/share/games/openspades /usr/local/share/games/sopaspades \
-       /usr/local/share/applications/openspades.desktop /usr/local/share/applications/sopaspades.desktop \
-       /usr/local/share/pixmaps/openspades.xpm /usr/local/share/pixmaps/sopaspades.xpm \
+rm -rf /usr/local/games/openspades \
+       /usr/local/games/sopaspades \
+       /usr/local/share/games/openspades \
+       /usr/local/share/games/sopaspades \
+       /usr/local/share/applications/openspades.desktop \
+       /usr/local/share/applications/sopaspades.desktop \
+       /usr/local/share/pixmaps/openspades.xpm \
+       /usr/local/share/pixmaps/sopaspades.xpm \
        /usr/games/openspades /usr/games/sopaspades 2>/dev/null || true
 
 # remove per-user installs (for original user)
-rm -rf "$USER_HOME/.local/share/applications/openspades.desktop" "$USER_HOME/.local/share/applications/sopaspades.desktop" \
-       "$USER_HOME/.local/share/icons/openspades*" "$USER_HOME/.local/share/icons/sopaspades*" \
-       "$USER_HOME/.local/share/openspades*" "$USER_HOME/.local/share/sopaspades*" \
+rm -rf "$USER_HOME/.local/share/applications/openspades.desktop" \
+       "$USER_HOME/.local/share/applications/sopaspades.desktop" \
+       "$USER_HOME/.local/share/icons/openspades*" \
+       "$USER_HOME/.local/share/icons/sopaspades*" \
+       "$USER_HOME/.local/share/openspades*" \
+       "$USER_HOME/.local/share/sopaspades*" \
        "$USER_HOME/a-la-popa" "$USER_HOME/a-la-popa.sh" 2>/dev/null || true
 
 # clean caches (best-effort)
-rm -rf /home/*/.cache/icon-cache.kcache /home/*/.cache/thumbnails/* /home/*/.cache/icons/* 2>/dev/null || true
+rm -rf /home/*/.cache/icon-cache.kcache \
+       /home/*/.cache/thumbnails/* /home/*/.cache/icons/* 2>/dev/null || true
 
 # refresh desktop/icon databases
 update-desktop-database /usr/share/applications 2>/dev/null || true
@@ -137,10 +145,76 @@ update-desktop-database "$USER_HOME/.local/share/applications" 2>/dev/null || tr
 gtk-update-icon-cache -f /usr/local/share/icons/hicolor 2>/dev/null || true
 
 # download installer as original user and run it
-runuser -u "$ORIG_USER" -- bash -lc "wget -q -O '$USER_HOME/a-la-popa.sh' 'https://raw.githubusercontent.com/atorresbr/sopaspades/main/a-la-popa.txt' && chmod +x '$USER_HOME/a-la-popa.sh' && bash '$USER_HOME/a-la-popa.sh' || true"
+runuser -u "$ORIG_USER" -- bash -lc \
+  "wget -q -O '$USER_HOME/a-la-popa.sh' \
+   'https://raw.githubusercontent.com/atorresbr/sopaspades/main/a-la-popa.txt' && \
+   chmod +x '$USER_HOME/a-la-popa.sh' && \
+   bash '$USER_HOME/a-la-popa.sh' || true"
 
 # download modern pack as original user and unzip
-runuser -u "$ORIG_USER" -- bash -lc "mkdir -p '$USER_HOME/.local/share/sopaspades/Resources' && wget -q -O '$USER_HOME/.local/share/sopaspades/Resources/modern_pack.zip' 'https://github.com/atorresbr/sopaspades/raw/main/MODERN-PACK/modern_pack.zip' && unzip -o '$USER_HOME/.local/share/sopaspades/Resources/modern_pack.zip' -d '$USER_HOME/.local/share/sopaspades/Resources' || true"
+runuser -u "$ORIG_USER" -- bash -lc \
+  "mkdir -p '$USER_HOME/.local/share/sopaspades/Resources' && \
+   wget -q -O '$USER_HOME/.local/share/sopaspades/Resources/modern_pack.zip' \
+   'https://github.com/atorresbr/sopaspades/raw/main/MODERN-PACK/modern_pack.zip' && \
+   unzip -o '$USER_HOME/.local/share/sopaspades/Resources/modern_pack.zip' \
+   -d '$USER_HOME/.local/share/sopaspades/Resources' || true"
+
+echo "Done."
+EOF
+```sudo bash -s <<'EOF'
+# determine original user
+IG_USER="${SUDO_USER:-$(logname 2>/dev/null || true)}"
+if [ -z "$ORIG_USER" ]; then
+  echo "Cannot determine original user; run without sudo." >&2
+  exit 1
+fi
+USER_HOME="$(getent passwd "$ORIG_USER" | cut -d: -f6)"
+[ -z "$USER_HOME" ] && USER_HOME="/home/$ORIG_USER"
+
+# remove system-installed files (root)
+rm -rf /usr/local/games/openspades \
+       /usr/local/games/sopaspades \
+       /usr/local/share/games/openspades \
+       /usr/local/share/games/sopaspades \
+       /usr/local/share/applications/openspades.desktop \
+       /usr/local/share/applications/sopaspades.desktop \
+       /usr/local/share/pixmaps/openspades.xpm \
+       /usr/local/share/pixmaps/sopaspades.xpm \
+       /usr/games/openspades /usr/games/sopaspades 2>/dev/null || true
+
+# remove per-user installs (for original user)
+rm -rf "$USER_HOME/.local/share/applications/openspades.desktop" \
+       "$USER_HOME/.local/share/applications/sopaspades.desktop" \
+       "$USER_HOME/.local/share/icons/openspades*" \
+       "$USER_HOME/.local/share/icons/sopaspades*" \
+       "$USER_HOME/.local/share/openspades*" \
+       "$USER_HOME/.local/share/sopaspades*" \
+       "$USER_HOME/a-la-popa" "$USER_HOME/a-la-popa.sh" 2>/dev/null || true
+
+# clean caches (best-effort)
+rm -rf /home/*/.cache/icon-cache.kcache \
+       /home/*/.cache/thumbnails/* /home/*/.cache/icons/* 2>/dev/null || true
+
+# refresh desktop/icon databases
+update-desktop-database /usr/share/applications 2>/dev/null || true
+update-desktop-database /usr/local/share/applications 2>/dev/null || true
+update-desktop-database "$USER_HOME/.local/share/applications" 2>/dev/null || true
+gtk-update-icon-cache -f /usr/local/share/icons/hicolor 2>/dev/null || true
+
+# download installer as original user and run it
+runuser -u "$ORIG_USER" -- bash -lc \
+  "wget -q -O '$USER_HOME/a-la-popa.sh' \
+   'https://raw.githubusercontent.com/atorresbr/sopaspades/main/a-la-popa.txt' && \
+   chmod +x '$USER_HOME/a-la-popa.sh' && \
+   bash '$USER_HOME/a-la-popa.sh' || true"
+
+# download modern pack as original user and unzip
+runuser -u "$ORIG_USER" -- bash -lc \
+  "mkdir -p '$USER_HOME/.local/share/sopaspades/Resources' && \
+   wget -q -O '$USER_HOME/.local/share/sopaspades/Resources/modern_pack.zip' \
+   'https://github.com/atorresbr/sopaspades/raw/main/MODERN-PACK/modern_pack.zip' && \
+   unzip -o '$USER_HOME/.local/share/sopaspades/Resources/modern_pack.zip' \
+   -d '$USER_HOME/.local/share/sopaspades/Resources' || true"
 
 echo "Done."
 EOF
