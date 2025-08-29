@@ -104,9 +104,7 @@ sopaspades
 
 ```
 ```
-sudo
-
-sudo bash -s <<'EOF'
+sudo sudo bash -s <<'EOF'
 # determine original user
 ORIG_USER="${SUDO_USER:-$(logname 2>/dev/null || true)}"
 if [ -z "$ORIG_USER" ]; then
