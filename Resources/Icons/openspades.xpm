@@ -22,3 +22,32 @@ static char * openspades_xpm[] = {
 "        #......#",
 "        #......#",
 "        ########"};
+// ...existing code...
+    INSTALL(FILES Resources/Icons/openspades.xpm DESTINATION ${OPENSPADES_INSTALL_PIXMAP}/)
+
+# install repo-provided sopaspades.png into the icon theme (use INSTALL vars)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png
+        DESTINATION ${OPENSPADES_INSTALL_ICONS}/16x16/apps RENAME sopaspades.png)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png
+        DESTINATION ${OPENSPADES_INSTALL_ICONS}/24x24/apps RENAME sopaspades.png)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png
+        DESTINATION ${OPENSPADES_INSTALL_ICONS}/32x32/apps RENAME sopaspades.png)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png
+        DESTINATION ${OPENSPADES_INSTALL_ICONS}/48x48/apps RENAME sopaspades.png)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png
+        DESTINATION ${OPENSPADES_INSTALL_ICONS}/64x64/apps RENAME sopaspades.png)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png
+        DESTINATION ${OPENSPADES_INSTALL_ICONS}/96x96/apps RENAME sopaspades.png)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png
+        DESTINATION ${OPENSPADES_INSTALL_ICONS}/128x128/apps RENAME sopaspades.png)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png
+        DESTINATION ${OPENSPADES_INSTALL_ICONS}/256x256/apps RENAME sopaspades.png)
+
+# compatibility: also install copies named openspades.png so existing desktop files work
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png
+        DESTINATION ${OPENSPADES_INSTALL_ICONS}/32x32/apps RENAME openspades.png)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png
+        DESTINATION ${OPENSPADES_INSTALL_ICONS}/48x48/apps RENAME openspades.png)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/snap/gui/sopaspades.png
+        DESTINATION ${OPENSPADES_INSTALL_PIXMAP} RENAME openspades.png)
+# ...existing code...
