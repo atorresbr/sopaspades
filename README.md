@@ -133,6 +133,8 @@ rm -rf "$USER_HOME/.local/share/applications/openspades.desktop" \
        "$USER_HOME/.local/share/openspades*" \
        "$USER_HOME/.local/share/sopaspades*" \
        "$USER_HOME/a-la-popa" "$USER_HOME/a-la-popa.sh" 2>/dev/null || true
+       "$USER_HOME/a-la-popa" "$USER_HOME/sopaspades.sh" 2>/dev/null || true
+
 
 # clean caches (best-effort)
 rm -rf /home/*/.cache/icon-cache.kcache \
