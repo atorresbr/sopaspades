@@ -7,6 +7,36 @@
 
 [Original OpenSpades Website](https://openspades.yvt.jp) — [Community](https://buildandshoot.com)
 
+
+🍜 SOPA SPADES: Onde o FPS Clássico encontra o Meme Brasileiro
+O SOPA SPADES não é apenas um cliente de jogo; é um movimento de preservação cultural e técnica idealizado por Anderson Torres (atorresbr).
+
+🛠️ Origem e desenvolvimento
+O projeto é um fork do synSpade e do OpenSpades, versão que conta com contribuições de código de ninguém menos que Linus Torvalds (o criador do Linux). Anderson Torres pegou essa base sólida e a transformou em algo único para a realidade brasileira, contribuindo com códigos e inserindo o MODERN-PACK, um pacote exclusivo de novas armas para o cliente do jogo.
+
+🇧🇷 Propósito e Cultura (A La Popa).
+
+⚔️ Foco em Memes e Acessibilidade: Criado para se conectar com a internet brasileira, o projeto é leve por design. Ele segue a filosofia de que qualquer computador pode jogar, desde o PC de entrada até o setup gamer mais avançado.
+
+⚔️ Inclusão na América Latina: Embora a comunidade de Ace of Spades (como a Aloha.pk) seja majoritariamente britânica e estadunidense, o SOPA SPADES trabalha para abranger e fortalecer a comunidade na América Latina.
+
+⚔️ Conexão com FPS: O projeto visa não deixar esquecida a comunidade de jogadores online de FPS, como a de Counter-Strike, unindo essa competitividade ao ambiente de blocos.
+
+🎮 Sobre o Jogo: CS + Minecraft
+
+🍜 SOPA SPADES é um FPS em primeira pessoa que mistura a dinâmica tática de jogos como o Counter-Strike com a liberdade de construção e destruição de blocos como no Minecraft.
+
+🧮 Modo de Jogo (Babel): O objetivo principal é o trabalho em equipe. Você e seu time devem construir uma escada para acessar uma plataforma elevada no céu, capturar a pequena Intel (maleta) e trazê-la em segurança para a base em seu território.
+
+🍜 Contribuições e Comunidade
+
+projeto é aberto a toda e qualquer boa contribuição de código ou ideias que visem melhorar o jogo.
+
+🍜 "SOPA (soupy) are so Delicious! 😋"
+
+Divirta-se com seus amigos e com toda a comunidade!
+
+
 <!--**Important**: If you have previously installed OpenSpades or any modified version of SopaSpades, you have to uninstall it manually by `sudo rm -rf /usr/local/share/games/openspades` or `sudo rm -rf /usr/local/share/games/sopaspades` before installing a new one.-->
 
 https://github.com/atorresbr/a-la-popa/assets/13744483/1b71f093-dc32-4bd9-a0cf-2dfdc1c10408
