@@ -8,11 +8,11 @@
 [Original OpenSpades Website](https://openspades.yvt.jp) — [Community](https://buildandshoot.com)
 
 
-🍜 SOPA SPADES: Onde o FPS Clássico encontra o Meme Brasileiro
-O SOPA SPADES não é apenas um cliente de jogo; é um movimento de preservação cultural e técnica idealizado por Anderson Torres (atorresbr).
+🍜 SOPA SPADES ⚔️: Onde o FPS Clássico encontra o Meme Brasileiro . 🍜 SOPA SPADES ⚔️ não é apenas um cliente de jogo; é um movimento de preservação cultural e técnica idealizado por Anderson Torres (atorresbr).
 
-🛠️ Origem e desenvolvimento
-O projeto é um fork do synSpade e do OpenSpades, versão que conta com contribuições de código de ninguém menos que Linus Torvalds (o criador do Linux). Anderson Torres pegou essa base sólida e a transformou em algo único para a realidade brasileira, contribuindo com códigos e inserindo o MODERN-PACK, um pacote exclusivo de novas armas para o cliente do jogo.
+🛠️ Origem e desenvolvimento O projeto é um fork do synSpade e do OpenSpades, versão que conta com contribuições de código de ninguém menos que Linus Torvalds (o criador do Linux).
+
+⚔️ Anderson Torres pegou essa base sólida e a transformou em algo único para a realidade brasileira, contribuindo com códigos e inserindo o MODERN-PACK, um pacote exclusivo de novas armas para o cliente do jogo.
 
 🇧🇷 Propósito e Cultura (A La Popa).
 
@@ -32,7 +32,7 @@ O projeto é um fork do synSpade e do OpenSpades, versão que conta com contribu
 
 projeto é aberto a toda e qualquer boa contribuição de código ou ideias que visem melhorar o jogo.
 
-🍜 "SOPA (soupy) are so Delicious! 😋"
+🍜 SOPA (soupy) are so Delicious! 😋
 
 Divirta-se com seus amigos e com toda a comunidade!
 
