@@ -184,8 +184,26 @@ runuser -u "$ORIG_USER" -- bash -lc \
    bash '$USER_HOME/a-la-popa.sh' || true"
 
 # download modern pack with correct user home detection
-ACTUAL_USER="${SUDO_USER:-$(whoami)}"
-ACTUAL_HOME="$(eval echo ~$ACTUAL_USER)"
+# Use SUDO_UID for nested sudo contexts, fallback to other methods
+if [ -n "$SUDO_UID" ] && [ "$SUDO_UID" != "0" ]; then
+  ACTUAL_USER="$(getent passwd "$SUDO_UID" | cut -d: -f1)"
+  ACTUAL_HOME="$(getent passwd "$SUDO_UID" | cut -d: -f6)"
+elif [ -n "$SUDO_USER" ] && [ "$SUDO_USER" != "root" ]; then
+  ACTUAL_USER="$SUDO_USER"
+  ACTUAL_HOME="$(eval echo ~$ACTUAL_USER)"
+else
+  # Last resort: try logname or who command
+  ACTUAL_USER="$(logname 2>/dev/null || who -m 2>/dev/null | awk '{print $1}' || echo "$USER")"
+  ACTUAL_HOME="$(eval echo ~$ACTUAL_USER)"
+fi
+
+# Verify we got a valid non-root user
+if [ -z "$ACTUAL_USER" ] || [ "$ACTUAL_USER" = "root" ]; then
+  echo "Warning: Could not detect non-root user. Defaulting to current user."
+  ACTUAL_USER="${USER:-$(whoami)}"
+  ACTUAL_HOME="$HOME"
+fi
+
 mkdir -p "$ACTUAL_HOME/.local/share/sopaspades/Resources"
 wget -q -O "$ACTUAL_HOME/.local/share/sopaspades/Resources/modern_pack.zip" \
   'https://github.com/atorresbr/sopaspades/raw/main/MODERN-PACK/modern_pack.zip' && \
