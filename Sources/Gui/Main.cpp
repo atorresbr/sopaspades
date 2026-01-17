@@ -137,7 +137,7 @@ namespace {
 			} else {
 				buf[0] = 0; // empty it, the file will now end up in the working directory :(
 			}
-			sprintf(fullBuf, "%sOpenSpadesCrash%d.dmp", buf,
+			sprintf(fullBuf, "%sSopaSpadesCrash%d.dmp", buf,
 			        GetTickCount()); // some sort of randomization.
 			HANDLE hFile = CreateFile(fullBuf, GENERIC_READ | GENERIC_WRITE, 0, NULL, CREATE_ALWAYS,
 			                          FILE_ATTRIBUTE_NORMAL, NULL);
@@ -344,7 +344,7 @@ int main(int argc, char **argv) {
 		} else {
 			if (SUCCEEDED(SHGetFolderPathW(NULL, CSIDL_APPDATA, NULL, 0, buf))) {
 				std::wstring datadir = buf;
-				datadir += L"\\OpenSpades\\Resources";
+				datadir += L"\\SopaSpades\\Resources";
 
 				spades::g_userResourceDirectory = Utf8FromWString(datadir.c_str());
 
@@ -379,7 +379,7 @@ int main(int argc, char **argv) {
 		}
 
 		spades::g_userResourceDirectory =
-		  home + "/Library/Application Support/OpenSpades/Resources";
+		  home + "/Library/Application Support/SopaSpades/Resources";
 
 		spades::FileManager::AddFileSystem(
 		  new spades::DirectoryFileSystem(spades::g_userResourceDirectory, true));
@@ -402,25 +402,25 @@ int main(int argc, char **argv) {
 
 		struct stat info;
 
-		if (stat((xdg_data_home + "/openspades").c_str(), &info) != 0) {
-			if (stat((home + "/.openspades").c_str(), &info) != 0) {
+		if (stat((xdg_data_home + "/sopaspades").c_str(), &info) != 0) {
+			if (stat((home + "/.sopaspades").c_str(), &info) != 0) {
 			} else if (info.st_mode & S_IFDIR) {
-				SPLog("Openspades directory in XDG_DATA_HOME not found, though old directory "
+				SPLog("SopaSpades directory in XDG_DATA_HOME not found, though old directory "
 				      "exists. Trying to resolve compatibility problem.");
 
-				if (rename((home + "/.openspades").c_str(),
-				           (xdg_data_home + "/openspades").c_str()) != 0) {
+				if (rename((home + "/.sopaspades").c_str(),
+				           (xdg_data_home + "/sopaspades").c_str()) != 0) {
 					SPLog("Failed to move old directory to new.");
 				} else {
 					SPLog("Successfully moved old directory.");
 
-					if (mkdir((home + "/.openspades").c_str(),
+					if (mkdir((home + "/.sopaspades").c_str(),
 					          S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) == 0) {
 						SDL_RWops *io = SDL_RWFromFile(
-						  (home + "/.openspades/CONTENT_MOVED_TO_NEW_DIR").c_str(), "wb");
+						  (home + "/.sopaspades/CONTENT_MOVED_TO_NEW_DIR").c_str(), "wb");
 						if (io != NULL) {
 							const char *text = ("Content of this directory moved to " +
-							                    xdg_data_home + "/openspades")
+							                    xdg_data_home + "/sopaspades")
 							                     .c_str();
 							io->write(io, text, strlen(text), 1);
 							io->close(io);
@@ -430,7 +430,7 @@ int main(int argc, char **argv) {
 			}
 		}
 
-		spades::g_userResourceDirectory = xdg_data_home + "/openspades/Resources";
+		spades::g_userResourceDirectory = xdg_data_home + "/sopaspades/Resources";
 
 		spades::FileManager::AddFileSystem(
 		  new spades::DirectoryFileSystem(spades::g_userResourceDirectory, true));

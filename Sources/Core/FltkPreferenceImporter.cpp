@@ -58,7 +58,7 @@ namespace spades {
 
 	static std::string GetFltkPreferencePath() {
 #if defined(WIN32)
-		std::string path = SdlReceiveString(SDL_GetPrefPath("yvt.jp", "OpenSpades.prefs"));
+		std::string path = SdlReceiveString(SDL_GetPrefPath("yvt.jp", "SopaSpades.prefs"));
 		if (path.back() == '\\')
 			path.resize(path.size() - 1);
 		return path;
