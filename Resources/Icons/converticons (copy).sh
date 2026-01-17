@@ -11,15 +11,12 @@ echo "Generating FHS icons"
 
 mkdir tmp/
 
-# Instead of using OpenSpades.ico, copy the sopaspades.png from snap/gui
-cp "$SRC_DIR/../../snap/gui/sopaspades.png" tmp/256x256.png
+convert "$SRC_DIR/OpenSpades.ico" \
+	-set filename:res '%wx%h' \
+	'tmp/%[filename:res].png'
 
-# Generate different sizes
 convert tmp/256x256.png -resize 128x128 tmp/128x128.png
-convert tmp/256x256.png -resize 64x64 tmp/64x64.png
-convert tmp/256x256.png -resize 48x48 tmp/48x48.png
-convert tmp/256x256.png -resize 32x32 tmp/32x32.png
-convert tmp/256x256.png -resize 16x16 tmp/16x16.png
+rm tmp/40x40.png # nobody uses icons with such res
 
 for fn in tmp/*.png; do
 	RES=$( basename $fn | sed 's/.png//' )
