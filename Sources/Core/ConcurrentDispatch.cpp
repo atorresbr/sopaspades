@@ -46,7 +46,7 @@
 #include "Mutex.h"
 #include "Settings.h"
 #include "Thread.h"
-#include <OpenSpades.h>
+#include <SopaSpades.h>
 #include "ThreadLocalStorage.h"
 
 DEFINE_SPADES_SETTING(core_numDispatchQueueThreads, "auto");

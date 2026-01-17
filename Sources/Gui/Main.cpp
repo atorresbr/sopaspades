@@ -49,7 +49,7 @@
 #include <Core/ZipFileSystem.h>
 #include <Gui/PackageUpdateManager.h>
 #include <Gui/StartupScreen.h>
-#include <OpenSpades.h>
+#include <SopaSpades.h>
 
 #include <Core/VoxelModel.h>
 #include <Draw/GLOptimizedVoxelModel.h>

@@ -35,7 +35,7 @@
 #include <Core/Settings.h>
 #include <Core/Thread.h>
 #include <Gui/PackageUpdateManager.h>
-#include <OpenSpades.h>
+#include <SopaSpades.h>
 
 DEFINE_SPADES_SETTING(cl_serverListUrl, "http://services.buildandshoot.com/serverlist.json");
 

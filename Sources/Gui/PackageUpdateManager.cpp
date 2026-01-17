@@ -33,7 +33,7 @@
 #include <Core/Strings.h>
 #include <Core/TMPUtils.h>
 #include <Core/Thread.h>
-#include <OpenSpades.h>
+#include <SopaSpades.h>
 
 DEFINE_SPADES_SETTING(cl_checkForUpdates, "0");
 

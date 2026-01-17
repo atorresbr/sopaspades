@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+5c4aaaa95122f4b4edebb4716b75c257 Resources/CMakeFiles/OpenSpades_Resources
