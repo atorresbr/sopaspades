@@ -451,7 +451,13 @@ sleep 1
 
 echo " sopaspades 🔫 " 
 
-sopaspades
+# Run as the actual user (not root)
+ACTUAL_USER="${SUDO_USER:-$(whoami)}"
+if [ "$ACTUAL_USER" != "root" ]; then
+  runuser -u "$ACTUAL_USER" -- /usr/games/sopaspades 2>/dev/null || su - "$ACTUAL_USER" -c "/usr/games/sopaspades" 2>/dev/null || true
+else
+  echo "Run as regular user with: /usr/games/sopaspades"
+fi
 
 ## cd $REPO_DIRECTORY a-la-popa/sopaspades.mk; bin/openspades
 ## cd ~/sopaspades/sopaspades.mk; bin/sopaspades
