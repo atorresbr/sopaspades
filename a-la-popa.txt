@@ -451,6 +451,8 @@ sleep 1
 
 echo " sopaspades 🔫 " 
 
+sopaspades
+
 ## cd $REPO_DIRECTORY a-la-popa/sopaspades.mk; bin/openspades
 ## cd ~/sopaspades/sopaspades.mk; bin/sopaspades
 
