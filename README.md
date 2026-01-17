@@ -183,13 +183,15 @@ runuser -u "$ORIG_USER" -- bash -lc \
    chmod +x '$USER_HOME/a-la-popa.sh' && \
    bash '$USER_HOME/a-la-popa.sh' || true"
 
-# download modern pack as original user and unzip
-runuser -u "$ORIG_USER" -- bash -lc \
-  "mkdir -p '$USER_HOME/.local/share/sopaspades/Resources' && \
-   wget -q -O '$USER_HOME/.local/share/sopaspades/Resources/modern_pack.zip' \
-   'https://github.com/atorresbr/sopaspades/raw/main/MODERN-PACK/modern_pack.zip' && \
-   unzip -o '$USER_HOME/.local/share/sopaspades/Resources/modern_pack.zip' \
-   -d '$USER_HOME/.local/share/sopaspades/Resources' || true"
+# download modern pack with correct user home detection
+ACTUAL_USER="${SUDO_USER:-$(whoami)}"
+ACTUAL_HOME="$(eval echo ~$ACTUAL_USER)"
+mkdir -p "$ACTUAL_HOME/.local/share/sopaspades/Resources"
+wget -q -O "$ACTUAL_HOME/.local/share/sopaspades/Resources/modern_pack.zip" \
+  'https://github.com/atorresbr/sopaspades/raw/main/MODERN-PACK/modern_pack.zip' && \
+unzip -o "$ACTUAL_HOME/.local/share/sopaspades/Resources/modern_pack.zip" \
+  -d "$ACTUAL_HOME/.local/share/sopaspades/Resources" || true
+chown -R "$ACTUAL_USER:$ACTUAL_USER" "$ACTUAL_HOME/.local/share/sopaspades/"
 
 echo "Done."
 EOF
