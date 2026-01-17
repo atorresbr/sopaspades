@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-project(OpenSpades)
+project(SopaSpades)
 
 set(OpenSpades_VERSION_MAJOR 0)
 set(OpenSpades_VERSION_MINOR 1)
@@ -255,10 +255,10 @@ if(UNIX AND NOT APPLE)
 	INSTALL(FILES AUTHORS LICENSE README.md DESTINATION ${OPENSPADES_INSTALL_DOC}/)
 
 	# menu file
-	INSTALL(FILES Resources/Unix/Menu/openspades DESTINATION ${OPENSPADES_INSTALL_MENU}/)
+	INSTALL(FILES Resources/Unix/Menu/sopaspades DESTINATION ${OPENSPADES_INSTALL_MENU}/)
 
 	# man file
-	INSTALL(FILES ${CMAKE_BINARY_DIR}/Resources/Unix/Man/openspades.6.gz DESTINATION ${OPENSPADES_INSTALL_MAN}/)
+	INSTALL(FILES ${CMAKE_BINARY_DIR}/Resources/Unix/Man/sopaspades.6.gz DESTINATION ${OPENSPADES_INSTALL_MAN}/)
 
 	# changelog file
 	INSTALL(FILES ${CMAKE_BINARY_DIR}/Resources/Unix/Debian/changelog.gz DESTINATION ${OPENSPADES_INSTALL_DOC}/)
@@ -288,13 +288,13 @@ if(UNIX AND NOT APPLE)
 		DESTINATION ${OPENSPADES_INSTALL_ICONS}
 		FILES_MATCHING PATTERN "*.png")
 
-	INSTALL(FILES Resources/Icons/openspades.xpm DESTINATION ${OPENSPADES_INSTALL_PIXMAP}/)
+	INSTALL(FILES Resources/Icons/sopaspades.xpm DESTINATION ${OPENSPADES_INSTALL_PIXMAP}/)
 
 	# binary file
-	INSTALL(PROGRAMS ${CMAKE_BINARY_DIR}/bin/openspades DESTINATION ${OPENSPADES_INSTALL_BINARY})
+	INSTALL(PROGRAMS ${CMAKE_BINARY_DIR}/bin/sopaspades DESTINATION ${OPENSPADES_INSTALL_BINARY})
 
 	# desktop file
-	INSTALL(FILES Resources/Unix/Desktop/openspades.desktop DESTINATION ${OPENSPADES_INSTALL_DESKTOP}/)
+	INSTALL(FILES Resources/Unix/Desktop/sopaspades.desktop DESTINATION ${OPENSPADES_INSTALL_DESKTOP}/)
 
 	# Currently there is no files in lib/openspades. But if you reading this message in future and want to
 	# place somewhere libs, binaries or other non-media stuff, place them in lib/openspades. Thank you.
@@ -304,7 +304,7 @@ endif(UNIX AND NOT APPLE)
 
 
 #see http://www.cmake.org/cmake/help/v2.8.11/cpack.html
-set(CPACK_PACKAGE_NAME "OpenSpades")
+set(CPACK_PACKAGE_NAME "SopaSpades")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Open-source clone of Ace of Spades")
 set(CPACK_PACKAGE_DESCRIPTION "Open-source clone of Ace of Spades - free FPS sandbox game")
 set(CPACK_PACKAGE_VENDOR "yvt, assorted")
@@ -312,9 +312,9 @@ set(CPACK_PACKAGE_CONTACT "yvt <i@yvt.jp>")
 set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
 SET(CPACK_RESOURCE_FILE_README "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
-set(CPACK_SOURCE_PACKAGE_FILE_NAME "openspades-${OPENSPADES_FULL_VERSION}")
-SET(CPACK_PACKAGE_FILE_NAME "openspades-${OPENSPADES_FULL_VERSION}-${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR}")
-set(CPACK_PACKAGE_INSTALL_DIRECTORY "OpenSpades ${OPENSPADES_FULL_VERSION}")
+set(CPACK_SOURCE_PACKAGE_FILE_NAME "sopaspades-${OPENSPADES_FULL_VERSION}")
+SET(CPACK_PACKAGE_FILE_NAME "sopaspades-${OPENSPADES_FULL_VERSION}-${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR}")
+set(CPACK_PACKAGE_INSTALL_DIRECTORY "SopaSpades ${OPENSPADES_FULL_VERSION}")
 set(CPACK_PACKAGE_VERSION_MAJOR ${OpenSpades_VERSION_MAJOR})
 set(CPACK_PACKAGE_VERSION_MINOR ${OpenSpades_VERSION_MINOR})
 set(CPACK_PACKAGE_VERSION_PATCH ${OpenSpades_VERSION_REVISION})
@@ -323,10 +323,10 @@ SET(CPACK_TOPLEVEL_TAG "${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR}")
 
 if(WIN32 AND NOT UNIX)
 
-	set(CPACK_NSIS_DISPLAY_NAME "OpenSpades ${OPENSPADES_FULL_VERSION}")
+	set(CPACK_NSIS_DISPLAY_NAME "SopaSpades ${OPENSPADES_FULL_VERSION}")
 	# There is a bug in NSIS that does not handle full unix paths properly. Make
 	# sure there is at least one set of four (4) backlasshes.
-	set(CPACK_NSIS_INSTALLED_ICON_NAME "bin\\\\openspades.exe")
+	set(CPACK_NSIS_INSTALLED_ICON_NAME "bin\\\\sopaspades.exe")
 	# TODO: set(CPACK_PACKAGE_ICON  "")
 	set(CPACK_NSIS_HELP_LINK "https://sites.google.com/a/yvt.jp/openspades/")
 	set(CPACK_NSIS_URL_INFO_ABOUT "http://buildandshoot.com/viewforum.php?f=57")
@@ -358,7 +358,7 @@ elseif(UNIX AND NOT APPLE)
 
 endif(WIN32 AND NOT UNIX)
 
-set(CPACK_PACKAGE_EXECUTABLES "openspades" "Launch OpenSpades")
+set(CPACK_PACKAGE_EXECUTABLES "sopaspades" "Launch SopaSpades")
 set(CPACK_INCLUDE_TOPLEVEL_DIRECTORY FALSE)		#everyone hates a dir inside a zip named exactly like the zip
 include(CPack)
 
