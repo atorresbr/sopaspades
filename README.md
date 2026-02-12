@@ -8,7 +8,7 @@
 [Original OpenSpades Website](https://openspades.yvt.jp) — [Community](https://buildandshoot.com)
 
 
-🍜 SOPA SPADES ⚔️: Onde o FPS Clássico encontra o Meme Brasileiro. 🍜 SOPA SPADES ⚔️ não é apenas um cliente de jogo; é um movimento de preservação cultural e técnica idealizado por Anderson Torres (atorresbr).
+🍜 SOPA SPADES ⚔️ não é apenas um cliente de jogo estilo COUNTER-STRIKE 🔫 com MINECRAFT 📦 e ROBLOX 🤖; é também um movimento de preservação cultural dos anos de 1990 e anos 2000, idealizado por Anderson Torres (atorresbr), através do estilo dos JOGOs dessas épocas.
 
 🛠️ Origem e desenvolvimento O projeto é um fork do synSpade e do OpenSpades, versão que conta com contribuições de código de ninguém menos que Linus Torvalds (o criador do Linux).
 
