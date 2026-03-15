@@ -321,7 +321,7 @@ namespace spades {
 			audioDevice->RegisterSound("Sounds/Weapons/RestockLocal.opus");
 			audioDevice->RegisterSound("Sounds/Weapons/AimDownSightLocal.opus");
 			// Thunder sound triggered by server night effects (S% thunder)
-			audioDevice->RegisterSound("Sounds/nature/thunder.wav");
+			audioDevice->RegisterSound("Sounds/nature/thunder.opus");
 			renderer->RegisterImage("Gfx/Ball.png");
 			renderer->RegisterModel("Models/Player/Dead.kv6");
 			renderer->RegisterImage("Gfx/Spotlight.png");
@@ -691,7 +691,7 @@ namespace spades {
 
 			// Server-requested sound events (prefix S% )
 			if (msg.rfind("S% thunder", 0) == 0) {
-				Handle<IAudioChunk> chunk = audioDevice->RegisterSound("Sounds/nature/thunder.wav");
+				Handle<IAudioChunk> chunk = audioDevice->RegisterSound("Sounds/nature/thunder.opus");
 				audioDevice->PlayLocal(chunk, AudioParam());
 				return;
 			}
