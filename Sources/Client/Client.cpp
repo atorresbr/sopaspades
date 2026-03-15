@@ -320,6 +320,8 @@ namespace spades {
 			audioDevice->RegisterSound("Sounds/Weapons/Restock.opus");
 			audioDevice->RegisterSound("Sounds/Weapons/RestockLocal.opus");
 			audioDevice->RegisterSound("Sounds/Weapons/AimDownSightLocal.opus");
+			// Thunder sound triggered by server night effects (S% thunder)
+			audioDevice->RegisterSound("Sounds/nature/thunder.wav");
 			renderer->RegisterImage("Gfx/Ball.png");
 			renderer->RegisterModel("Models/Player/Dead.kv6");
 			renderer->RegisterImage("Gfx/Spotlight.png");
@@ -686,6 +688,13 @@ namespace spades {
 		void Client::ServerSentMessage(const std::string &msg) {
 			NetLog("%s", msg.c_str());
 			scriptedUI->RecordChatLog(msg, Vector4::Make(1.f, 1.f, 1.f, 0.8f));
+
+			// Server-requested sound events (prefix S% )
+			if (msg.rfind("S% thunder", 0) == 0) {
+				Handle<IAudioChunk> chunk = audioDevice->RegisterSound("Sounds/nature/thunder.wav");
+				audioDevice->PlayLocal(chunk, AudioParam());
+				return;
+			}
 
 			if (cg_serverAlert) {
 				if (msg.substr(0, 3) == "N% ") {
