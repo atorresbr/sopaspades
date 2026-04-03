@@ -70,7 +70,7 @@ rm -f a-la-popa.sh 2>/dev/null || true
 
    🇧🇷 Se você é iniciante com Linux, copie o comando nos pequenos quadrados na direita dos comandos. Depois de copiar, cole com botão direito no seu terminal e aperte ENTER.
 
-
+<!--
 ```bash
 
 ## removing game folders from the old openspades and sopaspades version
@@ -132,7 +132,7 @@ unzip -o modern_pack.zip && cd ~/ \
 ## starting the game 
 sopaspades
 
-```
+``` -->
 ```
 sudo sudo bash -s <<'EOF'
 # determine original user
