@@ -587,6 +587,18 @@ namespace spades {
 					return src;
 				}
 
+
+                                // All sources busy: steal a 3D positional source first
+                                // (weapon/rocket/grenade) to protect 2D/local sources
+                                // (thunder, UI). src->local is true for PlayLocal().
+                                for (size_t j = 0; j < srcs.size(); j++) {
+                                        ALSrc *steal = srcs[(j + start) % srcs.size()];
+                                        if (!steal->local) {
+                                                steal->Terminate();
+                                                return steal;
+                                        }
+                                }
+                                // Fallback: all sources are 2D/local — steal random.
                 ALSrc *src = SampleRandomElement(srcs);
 				src->Terminate();
 				return src;
