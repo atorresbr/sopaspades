@@ -192,7 +192,6 @@ elif [ -n "$SUDO_USER" ] && [ "$SUDO_USER" != "root" ]; then
   ACTUAL_USER="$SUDO_USER"
   ACTUAL_HOME="$(eval echo ~$ACTUAL_USER)"
 else
-  # Last resort: try logname or who command
   ACTUAL_USER="$(logname 2>/dev/null || who -m 2>/dev/null | awk '{print $1}' || echo "$USER")"
   ACTUAL_HOME="$(eval echo ~$ACTUAL_USER)"
 fi
@@ -205,6 +204,12 @@ if [ -z "$ACTUAL_USER" ] || [ "$ACTUAL_USER" = "root" ]; then
 fi
 
 mkdir -p "$ACTUAL_HOME/.local/share/sopaspades/Resources"
+
+# remove old modern pack before installing new one
+rm -f  "$ACTUAL_HOME/.local/share/sopaspades/Resources/modern_pack.zip"
+rm -rf "$ACTUAL_HOME/.local/share/sopaspades/Resources/Models"
+rm -rf "$ACTUAL_HOME/.local/share/sopaspades/Resources/Skin"
+
 wget -q -O "$ACTUAL_HOME/.local/share/sopaspades/Resources/modern_pack.zip" \
   'https://github.com/atorresbr/sopaspades/raw/main/MODERN-PACK/modern_pack.zip' && \
 unzip -o "$ACTUAL_HOME/.local/share/sopaspades/Resources/modern_pack.zip" \
