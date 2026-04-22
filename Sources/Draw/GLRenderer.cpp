@@ -1063,6 +1063,22 @@ namespace spades {
 					device->BlendFunc(IGLDevice::SrcAlpha, IGLDevice::One);
 
 					modelRenderer->RenderDynamicLightPassVisiblePlayers(visiblePlayers, lights);
+
+					// Re-render weapon skins (playerID == -1) AFTER visible player bodies.
+					// The depth buffer was cleared above, then player bodies were rendered at
+					// their real depth. Without this pass, weapon models (rendered before the
+					// depth clear in RenderSunlightPassNoPlayers) had their depth values
+					// discarded, letting player bodies overwrite the weapon pixels and making
+					// the weapon appear to flicker / disappear behind nearby players.
+					device->Enable(IGLDevice::Blend, false);
+					device->Enable(IGLDevice::DepthTest, true);
+					device->DepthFunc(IGLDevice::LessOrEqual);
+					modelRenderer->Prerender();
+					modelRenderer->RenderSunlightPassNoPlayers();
+					device->Enable(IGLDevice::Blend, true);
+					device->DepthFunc(IGLDevice::LessOrEqual);
+					device->BlendFunc(IGLDevice::SrcAlpha, IGLDevice::One);
+					modelRenderer->RenderDynamicLightPassNoPlayers(lights);
 				}
 
 				// render the occluded players

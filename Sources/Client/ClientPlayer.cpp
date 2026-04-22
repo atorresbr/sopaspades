@@ -807,8 +807,13 @@ namespace spades {
 			}
 
 			auto origin = p->GetOrigin();
+			// Clip box expanded from ±2 to ±4 in X/Y: weapon models are positioned up to
+			// 1 unit forward from the arms matrix (SMG/Shotgun use -1.0 offset), and the
+			// OBB→AABB expansion on a rotated weapon can add another ~1.5 units, bringing
+			// the total to ~3+ units from origin. ±2 caused intermittent AABB cull at
+			// certain player rotation angles ("weapon appearing and disappearing").
 			sandboxedRenderer->SetClipBox(
-			  AABB3(origin - Vector3(2.f, 2.f, 4.f), origin + Vector3(2.f, 2.f, 2.f)));
+			  AABB3(origin - Vector3(4.f, 4.f, 6.f), origin + Vector3(4.f, 4.f, 4.f)));
 			sandboxedRenderer->SetAllowDepthHack(false);
 
 			// ready for tool rendering
