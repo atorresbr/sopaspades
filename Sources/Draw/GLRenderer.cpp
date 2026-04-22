@@ -1064,12 +1064,19 @@ namespace spades {
 
 					modelRenderer->RenderDynamicLightPassVisiblePlayers(visiblePlayers, lights);
 
-					// Re-render weapon skins (playerID == -1) AFTER visible player bodies.
-					// The depth buffer was cleared above, then player bodies were rendered at
-					// their real depth. Without this pass, weapon models (rendered before the
-					// depth clear in RenderSunlightPassNoPlayers) had their depth values
-					// discarded, letting player bodies overwrite the weapon pixels and making
-					// the weapon appear to flicker / disappear behind nearby players.
+					// FIX: SMG weapon model flickering / disappearing behind players in wallhack mode.
+					//
+					// Root cause: In wallhack mode the depth buffer is cleared before rendering
+					// visible player bodies (so they draw on top of walls). Weapon skins use
+					// playerID == -1 and are handled by RenderSunlightPassNoPlayers, which runs
+					// BEFORE the depth clear. After the clear, player bodies are drawn at their
+					// real depth values. Because the weapon depth values were erased by the clear,
+					// the depth test lets player body pixels overwrite weapon pixels wherever a
+					// player stands near/over the weapon — making the weapon flicker or disappear.
+					//
+					// Fix: add a second weapon-skin render pass (sunlight + dynamic light) AFTER
+					// visible player bodies, using DepthFunc LessOrEqual so weapon pixels are
+					// written correctly on top of or flush with the player body surface.
 					device->Enable(IGLDevice::Blend, false);
 					device->Enable(IGLDevice::DepthTest, true);
 					device->DepthFunc(IGLDevice::LessOrEqual);

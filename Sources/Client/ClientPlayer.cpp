@@ -807,11 +807,21 @@ namespace spades {
 			}
 
 			auto origin = p->GetOrigin();
-			// Clip box expanded from ±2 to ±4 in X/Y: weapon models are positioned up to
-			// 1 unit forward from the arms matrix (SMG/Shotgun use -1.0 offset), and the
-			// OBB→AABB expansion on a rotated weapon can add another ~1.5 units, bringing
-			// the total to ~3+ units from origin. ±2 caused intermittent AABB cull at
-			// certain player rotation angles ("weapon appearing and disappearing").
+			// FIX: SMG (and Shotgun) weapon model disappearing / flickering in third-person view.
+			//
+			// Root cause: SandboxedRenderer::SetClipBox uses AABB3::Contains which requires the
+			// weapon model's FULL bounding box to be INSIDE the clip box. The previous clip box
+			// was only ±2 units in X/Y around the player origin.
+			//
+			// Problem: the SMG ThirdPerson.as skin translates the weapon 1 unit forward
+			// (CreateTranslateMatrix(0.35f, -1.f, 0.0f)). The real SMG model is 6×101×29
+			// voxels at scale 0.05 = ~5 world units long. When rotated, the OBB→AABB expansion
+			// can push the bounding box corner to ~3.6 units from the player origin — beyond ±2.
+			// At those rotation angles, AABB3::Contains returns false and the weapon is culled
+			// (causing the "weapon appearing and disappearing" effect).
+			//
+			// Fix: expand clip box to ±4 in X/Y and ±4/±6 in Z. The max calculated half-extent
+			// is ~3.59 units, safely within ±4.
 			sandboxedRenderer->SetClipBox(
 			  AABB3(origin - Vector3(4.f, 4.f, 6.f), origin + Vector3(4.f, 4.f, 4.f)));
 			sandboxedRenderer->SetAllowDepthHack(false);
