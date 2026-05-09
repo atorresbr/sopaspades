@@ -133,7 +133,7 @@ unzip -o modern_pack.zip && cd ~/ \
 sopaspades
 
 ``` -->
-```
+```bash
 sudo bash -s <<'EOF'
 # determine original user
 ORIG_USER="${SUDO_USER:-$(logname 2>/dev/null || true)}"
@@ -156,15 +156,15 @@ rm -rf /usr/local/games/openspades \
        /usr/games/openspades /usr/games/sopaspades 2>/dev/null || true
 
 # remove per-user installs (for original user)
-# FIXED: Combined lines to ensure rm -rf hits everything
 rm -rf "$USER_HOME/.local/share/applications/openspades.desktop" \
        "$USER_HOME/.local/share/applications/sopaspades.desktop" \
        "$USER_HOME/.local/share/icons/openspades*" \
        "$USER_HOME/.local/share/icons/sopaspades*" \
        "$USER_HOME/.local/share/openspades*" \
        "$USER_HOME/.local/share/sopaspades*" \
-       "$USER_HOME/a-la-popa" "$USER_HOME/a-la-popa.sh" \
-       "$USER_HOME/sopaspades.sh" 2>/dev/null || true
+       "$USER_HOME/a-la-popa" "$USER_HOME/a-la-popa.sh" 2>/dev/null || true
+       "$USER_HOME/a-la-popa" "$USER_HOME/sopaspades.sh" 2>/dev/null || true
+
 
 # clean caches (best-effort)
 rm -rf /home/*/.cache/icon-cache.kcache \
@@ -183,13 +183,24 @@ runuser -u "$ORIG_USER" -- bash -lc \
    chmod +x '$USER_HOME/a-la-popa.sh' && \
    bash '$USER_HOME/a-la-popa.sh' || true"
 
-# determine target user for modern pack
+# download modern pack with correct user home detection
+# Use SUDO_UID for nested sudo contexts, fallback to other methods
 if [ -n "$SUDO_UID" ] && [ "$SUDO_UID" != "0" ]; then
   ACTUAL_USER="$(getent passwd "$SUDO_UID" | cut -d: -f1)"
   ACTUAL_HOME="$(getent passwd "$SUDO_UID" | cut -d: -f6)"
+elif [ -n "$SUDO_USER" ] && [ "$SUDO_USER" != "root" ]; then
+  ACTUAL_USER="$SUDO_USER"
+  ACTUAL_HOME="$(eval echo ~$ACTUAL_USER)"
 else
-  ACTUAL_USER="$ORIG_USER"
-  ACTUAL_HOME="$USER_HOME"
+  ACTUAL_USER="$(logname 2>/dev/null || who -m 2>/dev/null | awk '{print $1}' || echo "$USER")"
+  ACTUAL_HOME="$(eval echo ~$ACTUAL_USER)"
+fi
+
+# Verify we got a valid non-root user
+if [ -z "$ACTUAL_USER" ] || [ "$ACTUAL_USER" = "root" ]; then
+  echo "Warning: Could not detect non-root user. Defaulting to current user."
+  ACTUAL_USER="${USER:-$(whoami)}"
+  ACTUAL_HOME="$HOME"
 fi
 
 mkdir -p "$ACTUAL_HOME/.local/share/sopaspades/Resources"
@@ -204,26 +215,28 @@ wget -q -O "$ACTUAL_HOME/.local/share/sopaspades/Resources/modern_pack.zip" \
 unzip -o "$ACTUAL_HOME/.local/share/sopaspades/Resources/modern_pack.zip" \
   -d "$ACTUAL_HOME/.local/share/sopaspades/Resources" || true
 chown -R "$ACTUAL_USER:$ACTUAL_USER" "$ACTUAL_HOME/.local/share/sopaspades/"
-
-# --- THE MAGIC LAUNCHER ---
+echo ""
+# 1. We know exactly where it is, so we define it
 SOPA_BIN="/usr/local/games/sopaspades"
 
+# 2. Print the message
 echo ""
 echo "Magic found at: $SOPA_BIN"
 echo ""
 
-# Launch as the user
-if [ -x "$SOPA_BIN" ]; then
+# 3. Launch the specific file as the user
+if [ -f "$SOPA_BIN" ]; then
   runuser -u "$ACTUAL_USER" -- "$SOPA_BIN"
 else
-  # Fallback to PATH search if the absolute file isn't there
-  runuser -u "$ACTUAL_USER" -- bash -lc "sopaspades"
+  # Fallback just in case the installer put it in /usr/games instead
+  runuser -u "$ACTUAL_USER" -- /usr/local/games/sopaspades
 fi
 
+echo "Done and 🍜Puppa ! 🔫🇧🇷."
 echo ""
-echo "Done and 🍜Puppa !🔫🇧🇷."
-echo ""
+
 EOF
+
 ```
 <!-- 
 
