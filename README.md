@@ -133,7 +133,7 @@ unzip -o modern_pack.zip && cd ~/ \
 sopaspades
 
 ``` -->
-```bash
+```
 sudo bash -s <<'EOF'
 # determine original user
 ORIG_USER="${SUDO_USER:-$(logname 2>/dev/null || true)}"
