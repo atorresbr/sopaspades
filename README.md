@@ -216,6 +216,25 @@ unzip -o "$ACTUAL_HOME/.local/share/sopaspades/Resources/modern_pack.zip" \
   -d "$ACTUAL_HOME/.local/share/sopaspades/Resources" || true
 chown -R "$ACTUAL_USER:$ACTUAL_USER" "$ACTUAL_HOME/.local/share/sopaspades/"
 
+# 1. We know exactly where it is, so we define it
+SOPA_BIN="/usr/local/games/sopaspades"
+
+# 2. Print the spacing and the message
+echo ""
+echo "Magic found at: $SOPA_BIN"
+echo ""
+
+# 3. Launch the specific file as the user
+if [ -f "$SOPA_BIN" ]; then
+  runuser -u "$ACTUAL_USER" -- "$SOPA_BIN"
+else
+  # Fallback just in case the installer put it in /usr/games instead
+  runuser -u "$ACTUAL_USER" -- /usr/games/sopaspades
+fi
+
+# 4. Final spacing
+echo ""
+
 echo "Done."
 EOF
 
