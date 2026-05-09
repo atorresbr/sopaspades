@@ -225,11 +225,20 @@ echo "Magic found at: $SOPA_BIN"
 echo ""
 
 # 3. Launch the specific file as the user
+# XDG_RUNTIME_DIR must be set so OpenAL can find the PulseAudio socket
+# (/run/user/<uid>/pulse/native). Without it runuser inherits root's
+# environment and OpenAL fails with "No such file or directory".
+ACTUAL_UID="$(id -u "$ACTUAL_USER" 2>/dev/null || true)"
 if [ -f "$SOPA_BIN" ]; then
-  runuser -u "$ACTUAL_USER" -- "$SOPA_BIN"
+  runuser -u "$ACTUAL_USER" -- env \
+    XDG_RUNTIME_DIR="/run/user/$ACTUAL_UID" \
+    PULSE_SERVER="unix:/run/user/$ACTUAL_UID/pulse/native" \
+    "$SOPA_BIN"
 else
-  # Fallback just in case the installer put it in /usr/games instead
-  runuser -u "$ACTUAL_USER" -- /usr/local/games/sopaspades
+  runuser -u "$ACTUAL_USER" -- env \
+    XDG_RUNTIME_DIR="/run/user/$ACTUAL_UID" \
+    PULSE_SERVER="unix:/run/user/$ACTUAL_UID/pulse/native" \
+    /usr/local/games/sopaspades
 fi
 
 echo "Done and 🍜Puppa ! 🔫🇧🇷."
