@@ -114,7 +114,7 @@ sudo update-desktop-database /usr/local/share/applications 2>/dev/null || true
 update-desktop-database ~/.local/share/applications 2>/dev/null || true
 
 ## downloading the text file to transform in Bash Script
-wget -v https://raw.githubusercontent.com/atorresbr/sopaspades/main/a-la-popa.txt &&
+wget -v https://raw.githubusercontent.com/torresdigital/sopaspades/main/a-la-popa.txt &&
 mv a-la-popa.txt a-la-popa.sh &&
 
 ## setting the permissions to you LINUX user and exec the Bash Script to install the game
@@ -124,7 +124,7 @@ sudo chmod +x a-la-popa.sh && sudo ./a-la-popa.sh &&
 mkdir -p ~/.local/share/sopaspades/Resources && cd ~/.local/share/sopaspades/Resources &&
 
 ## downloading the pack
-wget https://github.com/atorresbr/sopaspades/raw/main/MODERN-PACK/modern_pack.zip && 
+wget https://github.com/torresdigital/sopaspades/raw/main/MODERN-PACK/modern_pack.zip && 
 
 ## unzipping
 unzip -o modern_pack.zip && cd ~/ \
@@ -133,8 +133,9 @@ unzip -o modern_pack.zip && cd ~/ \
 sopaspades
 
 ``` -->
+
 ```bash
-sudo bash -s <<'EOF'
+sudo -v && sudo bash -s <<'EOF'
 # determine original user
 ORIG_USER="${SUDO_USER:-$(logname 2>/dev/null || true)}"
 if [ -z "$ORIG_USER" ]; then
@@ -176,12 +177,11 @@ update-desktop-database /usr/local/share/applications 2>/dev/null || true
 update-desktop-database "$USER_HOME/.local/share/applications" 2>/dev/null || true
 gtk-update-icon-cache -f /usr/local/share/icons/hicolor 2>/dev/null || true
 
-# download installer as original user and run it
-runuser -u "$ORIG_USER" -- bash -lc \
-  "wget -q -O '$USER_HOME/a-la-popa.sh' \
-   'https://raw.githubusercontent.com/atorresbr/sopaspades/main/a-la-popa.txt' && \
-   chmod +x '$USER_HOME/a-la-popa.sh' && \
-   bash '$USER_HOME/a-la-popa.sh' || true"
+# download and run installer as root (already root here — avoids EUID check failure inside a-la-popa.sh)
+wget -q -O "$USER_HOME/a-la-popa.sh" \
+  'https://raw.githubusercontent.com/torresdigital/sopaspades/main/a-la-popa.txt'
+chmod +x "$USER_HOME/a-la-popa.sh"
+bash "$USER_HOME/a-la-popa.sh"
 
 # download modern pack with correct user home detection
 # Use SUDO_UID for nested sudo contexts, fallback to other methods
@@ -211,7 +211,7 @@ rm -rf "$ACTUAL_HOME/.local/share/sopaspades/Resources/Models"
 rm -rf "$ACTUAL_HOME/.local/share/sopaspades/Resources/Skin"
 
 wget -q -O "$ACTUAL_HOME/.local/share/sopaspades/Resources/modern_pack.zip" \
-  'https://github.com/atorresbr/sopaspades/raw/main/MODERN-PACK/modern_pack.zip' && \
+  'https://github.com/torresdigital/sopaspades/raw/main/MODERN-PACK/modern_pack.zip' && \
 unzip -o "$ACTUAL_HOME/.local/share/sopaspades/Resources/modern_pack.zip" \
   -d "$ACTUAL_HOME/.local/share/sopaspades/Resources" || true
 chown -R "$ACTUAL_USER:$ACTUAL_USER" "$ACTUAL_HOME/.local/share/sopaspades/"
@@ -236,7 +236,6 @@ echo "Done and 🍜Puppa ! 🔫🇧🇷."
 echo ""
 
 EOF
-
 ```
 <!-- 
 
@@ -250,7 +249,7 @@ sudo rm -rf ~/.local/share/openspades* &&
 sudo rm -rf /usr/local/games/openspades 2> /dev/null &&
 
 ## downloading the text file to transform in Bash Script
-wget https://raw.githubusercontent.com/atorresbr/a-la-popa/main/a-la-popa.txt && \
+wget https://raw.githubusercontent.com/torresdigital/sopaspades/main/a-la-popa.txt && \
 sudo mv a-la-popa.txt a-la-popa.sh && \
 
 ## setting the permissions to you LINUX user and exec the Bash Script to install the game
@@ -260,7 +259,7 @@ sudo chmod +x a-la-popa.sh && sudo ./a-la-popa.sh &&
 mkdir -p ~/.local/share/openspades/Resources && cd ~/.local/share/openspades/Resources &&
 
 ## downloading the pack
-wget https://github.com/atorresbr/a-la-popa/raw/main/MODERN-PACK/modern_pack.zip && 
+wget https://github.com/torresdigital/sopaspades/raw/main/MODERN-PACK/modern_pack.zip && 
 
 ## unzipping
 unzip -o modern_pack.zip && \
@@ -284,7 +283,7 @@ sopaspades
      libjpeg-dev libxinerama-dev libxft-dev && \
 
    sudo rm -Rf sopaspades && sudo rm -Rf openspades && \
-   git clone https://github.com/atorresbr/sopaspades.git && cd sopaspades && \
+   git clone https://github.com/torresdigital/sopaspades.git && cd sopaspades && \
 
    mkdir sopaspades.mk && cd sopaspades.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && \
    make && sudo make install && \
@@ -390,7 +389,7 @@ or later is recommended because OpenSpades relies on C++11 features heavily.
 ### 2.  Clonar el repositorio 💠 Clonando o repositório 💠 Cloning the repository : 
 
    ```bash
-   git clone https://github.com/atorresbr/sopaspades.git && cd sopaspades
+   git clone https://github.com/torresdigital/sopaspades.git && cd sopaspades
    ```
 
 ### 3. Execute el comando abajo 💠 Execute o comando abaixo 💠 Run the commmand :
