@@ -207,6 +207,8 @@ sleep 1
 
 echo -ne ${nc}
 
+info "This may take several minutes on a slow connection... ☕"
+
 apt-get install -y \
     build-essential \
     pkg-config \
@@ -227,6 +229,8 @@ apt-get install -y \
     libxft-dev \
     libopenal-dev \
     zlib1g-dev
+
+ok "All dependencies installed."
 
 for pkg in libsdl2-dev libglew-dev libopus-dev libfreetype6-dev; do
     dpkg -s "$pkg" &>/dev/null && ok "$pkg installed" || die "$pkg failed to install."
@@ -295,13 +299,26 @@ runuser -u "$ACTUAL_USER" -- mkdir -p "$BUILD_DIR"
 cd "$BUILD_DIR"
 runuser -u "$ACTUAL_USER" -- cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo
 
+ok "CMake configuration successful."
+info "Build files written to: $BUILD_DIR"
+
 CORES=$(( $(nproc) > 1 ? $(nproc) - 1 : 1 ))
 info "Compiling with $CORES of $(nproc) cores (1 kept free) — please wait ☕ ..."
 runuser -u "$ACTUAL_USER" -- make -j"$CORES"
 
 [ -f "$BUILD_DIR/bin/sopaspades" ] || die "Binary not found after compilation. Check errors above."
 
+ok "Compilation complete!"
+ok "Binary: $BUILD_DIR/bin/sopaspades"
+
 make install
+
+if command -v sopaspades &>/dev/null; then
+    ok "sopaspades is now available system-wide."
+else
+    info "Binary not in PATH yet. You can run it directly:"
+    info "  $BUILD_DIR/bin/sopaspades"
+fi
 
 progress
 
@@ -327,6 +344,13 @@ echo "  ╔═══════════════════════
 echo "  ║  BUILD COMPLETE — Bom jogo! 🍜 Sopa! 🔫🇧🇷  ║"
 echo "  ╚══════════════════════════════════════════════╝"
 echo -e "${nc}"
+echo "  To start the game, run:"
+echo ""
+echo "      sopaspades"
+echo ""
+echo "  If the game crashes on audio, install OpenAL:"
+echo "      sudo apt-get install -y libopenal1"
+echo ""
 
 echo -e " 😘 🇪🇸 Comparte este script ! "
 echo
