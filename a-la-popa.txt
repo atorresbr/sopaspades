@@ -85,32 +85,43 @@ echo "  ╚════██║██║   ██║██╔═══╝ █�
 echo "  ███████║╚██████╔╝██║     ██║  ██║    ███████║██║     ██║  ██║██████╔╝███████╗███████║"
 echo "  ╚══════╝ ╚═════╝ ╚═╝     ╚═╝  ╚═╝    ╚══════╝╚═╝     ╚═╝  ╚═╝╚═════╝ ╚══════╝╚══════╝"
 echo -e "${nc}"
-echo -e "${b_green}"
+echo -ne "${b_green}"
+
 echo -e "
    * * * =============================================== * * *
  *        🇪🇸   Executando los Comandos de Shell                *
    * * * =============================================== * * *
 "
+sleep 2
+clear
+
 echo -e "
    * * * =============================================== * * *
  *        🇧🇷   Executando os Comandos de Shell                 *
    * * * =============================================== * * *
 "
+sleep 2
+clear
+
 echo -e "
    * * * =============================================== * * *
  *        🇺🇸     Executing the Shell commands                  *
    * * * =============================================== * * *
 "
+
+sleep 2
 echo -e "
    * * * =============================================== * * *
  *       🇪🇸 Este script instalará Sopa Spades en tu PC 🍜      *
    * * * =============================================== * * *
 "
+sleep 2
 echo -e "
    * * * =============================================== * * *
  *     🇺🇸 This script will install Sopa Spades on your PC 🍜   *
    * * * =============================================== * * *
 "
+sleep 2
 echo -e "
    * * * =============================================== * * *
  *   🇧🇷 Este script irá instalar o Sopa Spades em seu PC 🍜    *
@@ -124,6 +135,18 @@ echo -e "${nc}"
 step "STEP 1 — 🇪🇸 Eliminando el directorio antiguo para reinstalar el juego ✅"
 info "🇺🇸 Removing the old directory to reinstall the Game ✅"
 info "🇧🇷 Removendo o antigo diretório para reinstalar o Jogo ✅"
+
+echo -ne ${b_yellow}
+sleep 2
+echo -e " sudo rm -rf /usr/local/share/games/openspades "
+sleep 2
+echo
+echo -e " && "
+echo
+sleep 2
+echo -e " sudo rm -rf /usr/local/share/games/sopaspades "
+echo -ne ${nc}
+echo
 
 rm -rf /usr/local/games/openspades   2>/dev/null || true
 rm -rf /usr/local/games/sopaspades   2>/dev/null || true
@@ -153,18 +176,36 @@ progress
 # =============================================================================
 step "STEP 2 — 🇪🇸 Instalando las dependencias | 🇺🇸 Installing the dependencies | 🇧🇷 Instalando as dependências"
 
+echo -ne ${b_green}
+echo " sudo apt-get install "
+echo -ne ${b_yellow}
+
 info "🍺 pkg-config libglew-dev"
+sleep 1
 info "🍺 libcurl4-openssl-dev"
+sleep 1
 info "🍺 libsdl2-dev"
+sleep 1
 info "🍺 libsdl2-image-dev"
+sleep 1
 info "😋 libalut-dev"
+sleep 1
 info "🍺 xdg-utils libfreetype6-dev"
+sleep 1
 info "🍺 libopus-dev"
+sleep 1
 info "🍺 libopusfile-dev"
+sleep 1
 info "🍺 cmake imagemagick"
+sleep 1
 info "🍺 libjpeg-dev"
+sleep 1
 info "😋 🙏 libxinerama-dev"
+sleep 1
 info "🙏 libxft-dev"
+sleep 1
+
+echo -ne ${nc}
 
 apt-get install -y \
     build-essential \
@@ -202,6 +243,18 @@ info "🇪🇸 Clonando el repositorio y instalando"
 info "🇺🇸 Cloning the repository and installing"
 info "🇧🇷 Clonando o repositório e instalando"
 
+echo -ne ${b_yellow}
+echo -e " sudo rm -Rf sopaspades && sudo rm -Rf openspades "
+sleep 1
+echo
+echo -e " && "
+echo
+sleep 1
+echo -e " git clone https://github.com/atorresbr/sopaspades.git && cd sopaspades "
+echo
+echo
+echo -ne ${nc}
+
 ACTUAL_USER="${SUDO_USER:-$(logname 2>/dev/null || echo root)}"
 USER_HOME=$(getent passwd "$ACTUAL_USER" | cut -d: -f6)
 REPO_DIR="$USER_HOME/sopaspades"
@@ -226,6 +279,15 @@ step "STEP 4 — 🇪🇸 instalando | 🇺🇸 installing | 🇧🇷 instalando
 info "mkdir sopaspades.mk && cd sopaspades.mk"
 info "cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo"
 info "make -j\$(nproc) && sudo make install"
+
+echo -ne ${b_yellow}
+echo -e " mkdir sopaspades.mk && cd sopaspades.mk && "
+sleep 1
+echo -e " cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && "
+sleep 1
+echo -e " make && sudo make install "
+sleep 1
+echo -ne ${nc}
 
 BUILD_DIR="$REPO_DIR/sopaspades.mk"
 runuser -u "$ACTUAL_USER" -- mkdir -p "$BUILD_DIR"
