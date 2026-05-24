@@ -49,6 +49,7 @@ die() {
 }
 
 progress() {
+    sleep 1
     echo -ne ${b_green}'🟩🟩🟩🟩🟩    (33%)\r '
     sleep 1
     echo -ne '🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩    (66%)\r '
@@ -65,13 +66,17 @@ progress() {
 if [ "$(whoami)" != "root" ]; then
     echo
     echo -e " 🔴 use the sudo command to run this script "
+    sleep 1
     echo
     echo -e " 🔴 use el comando sudo para usar el script "
+    sleep 1
     echo
     echo -e " 🔴 use o comando sudo para rodar o script de instalação "
     echo
     exit 1
 fi
+
+sleep 2
 
 clear
 
@@ -203,6 +208,17 @@ progress
 step "STEP 2 — 🇪🇸 Instalando las dependencias | 🇺🇸 Installing the dependencies | 🇧🇷 Instalando as dependências"
 
 echo -ne ${b_green}
+sleep 2
+echo -e " 🇪🇸 Instalando las dependencias "
+echo
+sleep 2
+echo -e " 🇺🇸 Installing the dependencies "
+echo
+sleep 2
+echo -e " 🇧🇷 Instalando as dependências "
+echo
+echo
+sleep 1
 echo " sudo apt-get install "
 echo -ne ${b_yellow}
 
@@ -289,6 +305,7 @@ info "🇺🇸 Cloning the repository and installing"
 sleep 2
 info "🇧🇷 Clonando o repositório e instalando"
 sleep 2
+sleep 2
 
 echo -ne ${b_yellow}
 echo -e " sudo rm -Rf sopaspades && sudo rm -Rf openspades "
@@ -300,6 +317,18 @@ sleep 1
 echo -e " git clone https://github.com/atorresbr/sopaspades.git && cd sopaspades "
 echo
 echo
+
+sleep 1
+echo -ne ${b_green}
+echo -ne '🟩🟩🟩🟩🟩    (33%)\r '
+sleep 1
+echo -ne '🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩    (66%)\r '
+sleep 1
+echo -ne '🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩    (100%)\r '
+echo -ne "\n"
+sleep 2
+echo -e "${b_yellow}\n Êxito !\n${nc}"
+sleep 2
 echo -ne ${nc}
 
 ACTUAL_USER="${SUDO_USER:-$(logname 2>/dev/null || echo root)}"
@@ -317,6 +346,8 @@ runuser -u "$ACTUAL_USER" -- git clone https://github.com/atorresbr/sopaspades.g
 ok "Repository cloned to $REPO_DIR"
 
 progress
+
+sleep 2
 
 # =============================================================================
 # STEP 4 — BUILD AND INSTALL
