@@ -50,11 +50,12 @@ die() {
 
 progress() {
     echo -ne ${b_green}'🟩🟩🟩🟩🟩    (33%)\r '
-    sleep 0.5
+    sleep 1
     echo -ne '🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩    (66%)\r '
-    sleep 0.5
+    sleep 1
     echo -ne '🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩    (100%)\r '
     echo -ne "${nc}\n"
+    sleep 2
     echo -e "${b_yellow}\n Êxito !\n${nc}"
 }
 
@@ -155,8 +156,11 @@ ok "Running as: $(whoami)"
 # STEP 1 — REMOVE OLD INSTALLATIONS
 # =============================================================================
 step "STEP 1 — 🇪🇸 Eliminando el directorio antiguo para reinstalar el juego ✅"
+sleep 2
 info "🇺🇸 Removing the old directory to reinstall the Game ✅"
+sleep 2
 info "🇧🇷 Removendo o antigo diretório para reinstalar o Jogo ✅"
+sleep 2
 
 echo -ne ${b_yellow}
 sleep 2
@@ -227,6 +231,20 @@ sleep 1
 info "🙏 libxft-dev"
 sleep 1
 
+echo
+echo
+sleep 1
+echo -ne ${b_green}
+echo -ne '🟩🟩🟩🟩🟩    (33%)\r '
+sleep 1
+echo -ne '🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩    (66%)\r '
+sleep 1
+echo -ne '🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩    (100%)\r '
+echo -ne "\n"
+sleep 2
+echo -e "${b_yellow}\n Êxito !\n${nc}"
+sleep 1
+
 echo -ne ${nc}
 
 info "This may take several minutes on a slow connection... ☕"
@@ -266,8 +284,11 @@ progress
 step "STEP 3 — 🇪🇸 Clonando el repositorio | 🇺🇸 Cloning the repository | 🇧🇷 Clonando o repositório"
 
 info "🇪🇸 Clonando el repositorio y instalando"
+sleep 2
 info "🇺🇸 Cloning the repository and installing"
+sleep 2
 info "🇧🇷 Clonando o repositório e instalando"
+sleep 2
 
 echo -ne ${b_yellow}
 echo -e " sudo rm -Rf sopaspades && sudo rm -Rf openspades "
@@ -302,6 +323,18 @@ progress
 # =============================================================================
 step "STEP 4 — 🇪🇸 instalando | 🇺🇸 installing | 🇧🇷 instalando"
 
+echo -ne ${b_green}
+sleep 2
+echo -e " 🇪🇸 instalando "
+echo
+sleep 2
+echo -e " 🇺🇸 installing "
+echo
+sleep 2
+echo -e " 🇧🇷 instalando "
+echo
+echo -ne ${nc}
+
 info "mkdir sopaspades.mk && cd sopaspades.mk"
 info "cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo"
 info "make -j\$(nproc) && sudo make install"
@@ -312,6 +345,20 @@ sleep 1
 echo -e " cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && "
 sleep 1
 echo -e " make && sudo make install "
+sleep 1
+
+echo
+echo
+sleep 1
+echo -ne ${b_green}
+echo -ne '🟩🟩🟩🟩🟩    (33%)\r '
+sleep 1
+echo -ne '🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩    (66%)\r '
+sleep 1
+echo -ne '🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩    (100%)\r '
+echo -ne "\n"
+sleep 2
+echo -e "${b_yellow}\n Êxito !\n${nc}"
 sleep 1
 echo -ne ${nc}
 
@@ -392,14 +439,20 @@ echo ""
 
 echo -e " 😘 🇪🇸 Comparte este script ! "
 echo
+sleep 1
 echo -e " 😘 🇺🇸 Share this Script ! "
 echo
+sleep 1
 echo -e " 😘 🇧🇷 Compartilhe este Script ! "
 echo
+sleep 1
 
 echo -e "${b_green} 🇪🇸 comenzando el Juego ${nc}"
+sleep 1
 echo -e "${b_green} 🇺🇸 starting the Game ${nc}"
+sleep 1
 echo -e "${b_green} 🇧🇷 iniciando o Jogo ${nc}"
+sleep 1
 echo
 
 echo " sopaspades 🔫 "
