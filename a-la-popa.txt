@@ -311,12 +311,18 @@ runuser -u "$ACTUAL_USER" -- make -j"$CORES"
 ok "Compilation complete!"
 ok "Binary: $BUILD_DIR/bin/sopaspades"
 
+# =============================================================================
+# STEP 4b — INSTALL SYSTEM-WIDE
+# =============================================================================
+step "STEP 4b — 🇪🇸 Instalando sistema | 🇺🇸 Installing system-wide | 🇧🇷 Instalando no sistema"
+
+info "Running sudo make install..."
 make install
 
 if command -v sopaspades &>/dev/null; then
     ok "sopaspades is now available system-wide."
 else
-    info "Binary not in PATH yet. You can run it directly:"
+    info "Binary not found in PATH yet. You can still run it directly:"
     info "  $BUILD_DIR/bin/sopaspades"
 fi
 
@@ -330,9 +336,14 @@ RESOURCES_DIR="$USER_HOME/.local/share/sopaspades/Resources"
 
 if [ -f "$MODERN_PACK" ]; then
     step "BONUS — Installing MODERN-PACK weapon skins"
+    info "Creating resources directory: $RESOURCES_DIR"
     runuser -u "$ACTUAL_USER" -- mkdir -p "$RESOURCES_DIR"
+    info "Extracting modern_pack.zip..."
     runuser -u "$ACTUAL_USER" -- unzip -o "$MODERN_PACK" -d "$RESOURCES_DIR"
     ok "MODERN-PACK installed to $RESOURCES_DIR"
+else
+    info "MODERN-PACK zip not found — skipping."
+    info "You can install it later manually from the repo."
 fi
 
 # =============================================================================
@@ -348,8 +359,13 @@ echo "  To start the game, run:"
 echo ""
 echo "      sopaspades"
 echo ""
+echo "  Or run directly without installing:"
+echo "      $BUILD_DIR/bin/sopaspades"
+echo ""
 echo "  If the game crashes on audio, install OpenAL:"
 echo "      sudo apt-get install -y libopenal1"
+echo ""
+echo "  Source: https://github.com/atorresbr/sopaspades"
 echo ""
 
 echo -e " 😘 🇪🇸 Comparte este script ! "
