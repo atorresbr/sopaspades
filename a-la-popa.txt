@@ -389,7 +389,10 @@ sleep 2
 # =============================================================================
 # STEP 4 — BUILD AND INSTALL
 # =============================================================================
-step "STEP 4 — 🇪🇸 instalando | 🇺🇸 installing | 🇧🇷 instalando"
+step "STEP 4 — 
+| ✨🇪🇸 instalando 
+| ✨🇺🇸 installing 
+| ✨🇧🇷 instalando"
 
 echo -ne ${b_green}
 sleep 2
@@ -451,7 +454,10 @@ ok "Binary: $BUILD_DIR/bin/sopaspades"
 # =============================================================================
 # STEP 4b — INSTALL SYSTEM-WIDE
 # =============================================================================
-step "STEP 4b — 🇪🇸 Instalando sistema | 🇺🇸 Installing system-wide | 🇧🇷 Instalando no sistema"
+step "STEP 4b — 
+| ✨🇪🇸 Instalando sistema 
+| ✨🇺🇸 Installing system-wide 
+| ✨🇧🇷 Instalando no sistema"
 
 info "Running sudo make install..."
 make install
@@ -472,7 +478,10 @@ MODERN_PACK="$REPO_DIR/MODERN-PACK/modern_pack.zip"
 RESOURCES_DIR="$USER_HOME/.local/share/sopaspades/Resources"
 
 if [ -f "$MODERN_PACK" ]; then
-    step "BONUS — 🇪🇸 Instalando armas modernas | 🇺🇸 Installing MODERN-PACK skins | 🇧🇷 Instalando armas modernas"
+    step "BONUS — 
+    | ✨🇪🇸 Instalando armas modernas 
+    | ✨🇺🇸 Installing MODERN-PACK skins 
+    | ✨🇧🇷 Instalando armas modernas"
     info "Creating resources directory: $RESOURCES_DIR"
     runuser -u "$ACTUAL_USER" -- mkdir -p "$RESOURCES_DIR"
     info "Extracting modern_pack.zip..."
@@ -489,7 +498,7 @@ fi
 echo ""
 echo -e "${GREEN}"
 echo "  ╔══════════════════════════════════════════════╗"
-echo "  ║  BUILD COMPLETE — Bom jogo! 🍜 Sopa! 🔫🇧🇷  ║"
+echo "  ║  BUILD COMPLETE — Bom jogo! 🍜 Sopa! 🔫🇧🇷    ║"
 echo "  ╚══════════════════════════════════════════════╝"
 echo -e "${nc}"
 echo "  To start the game, run:"
@@ -505,25 +514,25 @@ echo ""
 echo "  Source: https://github.com/atorresbr/sopaspades"
 echo ""
 
-echo -e " 😘 🇪🇸 Comparte este script ! "
+echo -e " ✨😘🇪🇸 Comparte este script ! "
 echo
 sleep 1
-echo -e " 😘 🇺🇸 Share this Script ! "
+echo -e " ✨😘🇺🇸 Share this Script ! "
 echo
 sleep 1
-echo -e " 😘 🇧🇷 Compartilhe este Script ! "
+echo -e " ✨😘🇧🇷 Compartilhe este Script ! "
 echo
 sleep 1
 
-echo -e "${b_green} 🇪🇸 comenzando el Juego ${nc}"
+echo -e "${b_green} ✨🇪🇸 comenzando el Juego ${nc}"
 sleep 1
-echo -e "${b_green} 🇺🇸 starting the Game ${nc}"
+echo -e "${b_green} ✨🇺🇸 starting the Game ${nc}"
 sleep 1
-echo -e "${b_green} 🇧🇷 iniciando o Jogo ${nc}"
+echo -e "${b_green} ✨🇧🇷 iniciando o Jogo ${nc}"
 sleep 1
 echo
 
-echo " sopaspades 🔫 "
+echo " 🔫🍜✨sopaspades ԅ(≖‿≖ԅ)  "
 echo
 
 if [ "$ACTUAL_USER" != "root" ]; then
