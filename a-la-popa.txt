@@ -71,7 +71,7 @@ show_banner() {
     echo "  ███████║╚██████╔╝██║     ██║  ██║    ███████║██║     ██║  ██║██████╔╝███████╗███████║"
     echo "  ╚══════╝ ╚═════╝ ╚═╝     ╚═╝  ╚═╝    ╚══════╝╚═╝     ╚═╝  ╚═╝╚═════╝ ╚══════╝╚══════╝"
     echo -e "${nc}"
-    echo "  Installer for Ubuntu 20.04 / 22.04"
+    echo "  Installer for Ubuntu 18+ / Debian / Pop!_OS / Zorin / Mint and derivatives"
     echo "  Source: https://github.com/atorresbr/sopaspades"
     echo ""
 }
@@ -125,18 +125,24 @@ echo -e "
 "
 
 sleep 2
+clear
+
 echo -e "
    * * * =============================================== * * *
  *       🇪🇸 Este script instalará Sopa Spades en tu PC 🍜      *
    * * * =============================================== * * *
 "
 sleep 2
+clear
+
 echo -e "
    * * * =============================================== * * *
  *     🇺🇸 This script will install Sopa Spades on your PC 🍜   *
    * * * =============================================== * * *
 "
 sleep 2
+clear
+
 echo -e "
    * * * =============================================== * * *
  *   🇧🇷 Este script irá instalar o Sopa Spades em seu PC 🍜    *
@@ -147,18 +153,22 @@ echo -e "${nc}"
 # =============================================================================
 # STEP 0 — CHECK SYSTEM COMPATIBILITY
 # =============================================================================
-step "STEP 0 — 🇪🇸 Comprobando compatibilidad | 🇺🇸 Checking system compatibility | 🇧🇷 Verificando compatibilidade"
+step "STEP 0 — 
+| ✨🇪🇸 Comprobando compatibilidad 
+| ✨🇺🇸 Checking system compatibility 
+| ✨🇧🇷 Verificando compatibilidade"
 
 DISTRO=$(lsb_release -si 2>/dev/null || echo "Unknown")
 VERSION=$(lsb_release -sr 2>/dev/null || echo "Unknown")
 info "Detected OS: $DISTRO $VERSION"
 
-if [[ "$DISTRO" != "Ubuntu" ]]; then
-    info "This script was written for Ubuntu 20.04/22.04."
-    info "It may still work on Debian or Ubuntu-based distros."
-    info "Continuing anyway..."
+# Detect Debian family via /etc/os-release (ID_LIKE covers all derivatives)
+if grep -qiE '^(ID|ID_LIKE)=.*\b(ubuntu|debian)\b' /etc/os-release 2>/dev/null; then
+    ok "Debian-family OS detected ✅ — fully supported."
+elif command -v apt-get &>/dev/null; then
+    info "Unknown distro but apt-get found — proceeding..."
 else
-    ok "Ubuntu detected — fully supported."
+    die "This script requires a Debian/Ubuntu-based system (apt-get not found)."
 fi
 
 ok "Running as: $(whoami)"
@@ -166,7 +176,10 @@ ok "Running as: $(whoami)"
 # =============================================================================
 # STEP 1 — REMOVE OLD INSTALLATIONS
 # =============================================================================
-step "STEP 1 — 🇪🇸 Eliminando el directorio antiguo | 🇺🇸 Removing the old directory | 🇧🇷 Removendo o antigo diretório ✅"
+step "STEP 1 — 
+| ✨🇪🇸 Eliminando el directorio antiguo
+| ✨🇺🇸 Removing the old directory 
+| ✨🇧🇷 Removendo o antigo diretório ✅"
 sleep 2
 info "🇺🇸 Removing the old directory to reinstall the Game ✅"
 sleep 2
@@ -214,7 +227,10 @@ progress
 # =============================================================================
 # STEP 2 — INSTALL DEPENDENCIES
 # =============================================================================
-step "STEP 2 — 🇪🇸 Instalando las dependencias | 🇺🇸 Installing the dependencies | 🇧🇷 Instalando as dependências"
+step "STEP 2 — 
+| ✨🇪🇸 Instalando las dependencias 
+| ✨🇺🇸 Installing the dependencies 
+| ✨🇧🇷 Instalando as dependências"
 
 echo -ne ${b_green}
 sleep 2
@@ -255,10 +271,18 @@ info "😋 🙏 libxinerama-dev"
 sleep 1
 info "🙏 libxft-dev"
 sleep 1
+info "✨😋🍺🍻 Uma ceva trincando é uma delícia !"
+sleep 1
+info "✨😋🍺🍻 some beer are so Belicious"
+sleep 1
+info "✨😋🍺🍻 Una cerbeza mui geladita és una Belícia ! Que rica !"
+
+sleep 1
 
 echo
 echo
 sleep 1
+
 echo -ne ${b_green}
 echo -ne '🟩🟩🟩🟩🟩    (33%)\r '
 sleep 1
@@ -266,6 +290,7 @@ echo -ne '🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩    (66%)\r '
 sleep 1
 echo -ne '🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩    (100%)\r '
 echo -ne "\n"
+
 sleep 2
 echo -e "${b_yellow}\n Êxito !\n${nc}"
 sleep 1
@@ -306,7 +331,10 @@ progress
 # =============================================================================
 # STEP 3 — CLONE REPOSITORY
 # =============================================================================
-step "STEP 3 — 🇪🇸 Clonando el repositorio | 🇺🇸 Cloning the repository | 🇧🇷 Clonando o repositório"
+step "STEP 3 — 
+| ✨🇪🇸 Clonando el repositorio 
+| ✨🇺🇸 Cloning the repository 
+| ✨🇧🇷 Clonando o repositório"
 
 info "🇪🇸 Clonando el repositorio y instalando"
 sleep 2
