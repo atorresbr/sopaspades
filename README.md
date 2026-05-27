@@ -62,13 +62,17 @@ command -v wget >/dev/null 2>&1 || {
 }
 ```
 <!-- -->
-## (｡◕‿‿◕｡)🇺🇸🪄✨compile and install |🇧🇷☉ ‿ ⚆🪄✨compilar e instalar |ヽ༼ຈل͜ຈ༽ﾉ🇪🇸🪄✨conpilar y instalar el juego
+## (｡◕‿‿◕｡)🇺🇸🪄✨compile and install
 
-   🇪🇸 Eres principiante  con Linux ?, copie el comando en los cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
+If you are a extremelly benginer, just copy the command on two squares on right, and use the right click mouse to past in you terminal and press ENTER to install the game.
 
-   🇺🇸 If you are a extremelly benginer, just copy the command on two squares on right, and use the right click mouse to past in you terminal and press ENTER to install the game.
+## 🇧🇷☉ ‿ ⚆🪄✨compilar e instalar
 
-   🇧🇷 Se você é iniciante com Linux, copie o comando nos pequenos quadrados na direita dos comandos. Depois de copiar, cole com botão direito no seu terminal e aperte ENTER.
+Se você é iniciante com Linux, copie o comando nos pequenos quadrados na direita dos comandos. Depois de copiar, cole com botão direito no seu terminal e aperte ENTER.
+
+## ヽ༼ຈل͜ຈ༽ﾉ🇪🇸🪄✨conpilar y instalar el juego
+
+Eres principiante con Linux ?, copie el comando en los cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
 
 <!--
 ```bash
@@ -499,28 +503,80 @@ P    →  "¡PALMEIRAS NO TIENE MUNDIAL!"
 O    →  "AMARÁS A TU PRÓJIMO COMO A TI MISMO"
 ```
 
-## 🧮🇺🇸 the basic settings your PC needs | 🇧🇷 as configurações básicas que o seu PC precisa | 🇪🇸 la configuración básica que necesita tu PC
+## 🧮🇺🇸 the basic settings your PC needs
 
-### Minimum - Mínimo
+### 🔻🇺🇸 Minimum
 
- Linux, OS X, or Windows Vista or later.<br><br>
+Linux, OS X, or Windows Vista or later.<br><br>
 
-1GHz dual-core processor<br>
-GPU: 512MB or more VRAM<br>
-GPU (Intel): Intel HD Graphics 3000 or better<br>
-GPU (NVIDIA): GeForce 9 Series or better<br>
-GPU (AMD): Radeon HD 7350<br>
-1GB RAM<br>
-800x600 display<br>
-Broadband network connection<br>
-Keyboard and pointing device<br>
+⚙️ 1GHz dual-core processor<br>
+🎮 GPU: 512MB or more VRAM<br>
+🔵 GPU (Intel): Intel HD Graphics 3000 or better<br>
+🟢 GPU (NVIDIA): GeForce 9 Series or better<br>
+🔴 GPU (AMD): Radeon HD 7350<br>
+🧠 1GB RAM<br>
+📺 800x600 display<br>
+🌐 Broadband network connection<br>
+⌨️ Keyboard and pointing device<br>
 
-## Recommended - Recomendado
+### ⭐🇺🇸 Recommended
 
-3GHz quad-core processor<br>
-Stereo audio output<br>
-GPU: 1GB or more VRAM<br>
-GPU (NVIDIA): GeForce GTX 680<br>
-GPU (AMD): Radeon R9 280X<br>
-2GB RAM<br>
-Mouse input<br>
+⚙️ 3GHz quad-core processor<br>
+🔊 Stereo audio output<br>
+🎮 GPU: 1GB or more VRAM<br>
+🟢 GPU (NVIDIA): GeForce GTX 680<br>
+🔴 GPU (AMD): Radeon R9 280X<br>
+🧠 2GB RAM<br>
+🖱️ Mouse input<br>
+
+## 🇧🇷 as configurações básicas que o seu PC precisa
+
+### 🔻🇧🇷 Mínimo
+
+Linux, OS X ou Windows Vista ou posterior.<br><br>
+
+⚙️ Processador dual-core 1GHz<br>
+🎮 GPU: 512MB de VRAM ou mais<br>
+🔵 GPU (Intel): Intel HD Graphics 3000 ou melhor<br>
+🟢 GPU (NVIDIA): GeForce série 9 ou melhor<br>
+🔴 GPU (AMD): Radeon HD 7350<br>
+🧠 1GB de RAM<br>
+📺 Resolução 800x600<br>
+🌐 Conexão de rede banda larga<br>
+⌨️ Teclado e dispositivo apontador<br>
+
+### ⭐🇧🇷 Recomendado
+
+⚙️ Processador quad-core 3GHz<br>
+🔊 Saída de áudio estéreo<br>
+🎮 GPU: 1GB de VRAM ou mais<br>
+🟢 GPU (NVIDIA): GeForce GTX 680<br>
+🔴 GPU (AMD): Radeon R9 280X<br>
+🧠 2GB de RAM<br>
+🖱️ Entrada de mouse<br>
+
+## 🇪🇸 la configuración básica que necesita tu PC
+
+### 🔻🇪🇸 Mínimo
+
+Linux, OS X o Windows Vista o posterior.<br><br>
+
+⚙️ Procesador de doble núcleo a 1GHz<br>
+🎮 GPU: 512MB de VRAM o más<br>
+🔵 GPU (Intel): Intel HD Graphics 3000 o mejor<br>
+🟢 GPU (NVIDIA): GeForce serie 9 o mejor<br>
+🔴 GPU (AMD): Radeon HD 7350<br>
+🧠 1GB de RAM<br>
+📺 Pantalla 800x600<br>
+🌐 Conexión de red de banda ancha<br>
+⌨️ Teclado y dispositivo señalador<br>
+
+### ⭐🇪🇸 Recomendado
+
+⚙️ Procesador de cuatro núcleos a 3GHz<br>
+🔊 Salida de audio estéreo<br>
+🎮 GPU: 1GB de VRAM o más<br>
+🟢 GPU (NVIDIA): GeForce GTX 680<br>
+🔴 GPU (AMD): Radeon R9 280X<br>
+🧠 2GB de RAM<br>
+🖱️ Entrada de ratón<br>
