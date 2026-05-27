@@ -41,7 +41,7 @@ Divirta-se com seus amigos e com toda a comunidade!
 
 https://github.com/atorresbr/a-la-popa/assets/13744483/1b71f093-dc32-4bd9-a0cf-2dfdc1c10408
 
-## 🍜SAY PUPPA(ﾉ☉ヮ⚆)ﾉ🪄⌒*:･ﾟ✧🔥🌟✨ ✨ԅ(≖‿≖✨ԅ)PUPPA‼️
+## 🍜SAY PUPPA‼🍜(ﾉ☉ヮ⚆)ﾉ🪄⌒*:･ﾟ✧🔥🌟✨ ✨ԅ(≖‿≖✨ԅ)PUPPA‼️
 
 <!-- -->
 ## 🧲⚡ wget
@@ -62,7 +62,7 @@ command -v wget >/dev/null 2>&1 || {
 }
 ```
 <!-- -->
-## (｡◕‿‿◕｡)🇺🇸🪄✨compile and install  ☉ ‿ ⚆🇧🇷🪄✨compilar e instalar ヽ༼ຈل͜ຈ༽ﾉ🇪🇸*🪄✨conpilar y instalar el juego
+### (｡◕‿‿◕｡)🇺🇸🪄✨compile and install  ☉ ‿ ⚆🇧🇷🪄✨compilar e instalar ヽ༼ຈل͜ຈ༽ﾉ🇪🇸*🪄✨conpilar y instalar el juego
 
    🇪🇸 Eres principiante  con Linux ?, copie el comando en los cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
 
