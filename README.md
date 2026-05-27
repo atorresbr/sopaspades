@@ -450,14 +450,14 @@ Na aba **AVANÇADO** das opções do seu cliente SOPA SPADES, você terá 4 opç
 
 Para ver suas mensagens e opções disponíveis, pressione **T** no jogo e digite `/sopa_m` no chat.
 
-**PRA QUE SERVE ISSO?** Se você quiser provocar alguém ou elogiar seu time no JOGO, você simplesmente não precisa digitar uma frase inteira — basta inserir na configuração e apertar a tecla correspondente:
+**PRA QUE SERVE ISSO?** Se você quiser provocar alguém ou elogiar seu time no JOGO, você simplesmente não precisa digitar uma frase inteira — basta inserir na configuração e apertar a tecla correspondente.
 
-```
-MS4  →  "DEUS ABENÇOE A FAMÍLIA!"
-MS5  →  "ABENÇOADO SEJA QUEM RESPEITA PAI E MÃE"
-P    →  "PALMEIRAS NÃO TEM MUNDIAL!"
-O    →  "AMARÁS o TEU PRÓXIMO como a ti mesmo"
-```
+> 💡 **Exemplo:** frases que você pode colocar na aba **AVANÇADO** do seu cliente de jogo:
+>
+> MS4  →  "DEUS ABENÇOE A FAMÍLIA!"\
+> MS5  →  "ABENÇOADO SEJA QUEM RESPEITA PAI E MÃE"\
+> P    →  "PALMEIRAS NÃO TEM MUNDIAL!"\
+> O    →  "AMARÁS o TEU PRÓXIMO como a ti mesmo"
 
 ## 🇺🇸 Automatic chat messages
 
@@ -472,14 +472,14 @@ In the **ADVANCED** tab of your SOPA SPADES client settings, you have 4 auto-mes
 
 To see your messages and available options, press **T** in-game and type `/sopa_m` in chat.
 
-**WHAT IS THIS FOR?** If you want to troll someone or praise your team in the GAME, you don't need to type a full sentence — just set it in the settings and press the corresponding key:
+**WHAT IS THIS FOR?** If you want to troll someone or praise your team in the GAME, you don't need to type a full sentence — just set it in the settings and press the corresponding key.
 
-```
-MS4  →  "GOD BLESS THE FAMILY!"
-MS5  →  "BLESSED IS HE WHO RESPECTS HIS PARENTS"
-P    →  "PALMEIRAS HAS NO MUNDIAL!"
-O    →  "LOVE YOUR NEIGHBOR AS YOURSELF"
-```
+> 💡 **Example:** phrases you can add in the **ADVANCED** tab of your game client:
+>
+> MS4  →  "GOD BLESS THE FAMILY!"\
+> MS5  →  "BLESSED IS HE WHO RESPECTS HIS PARENTS"\
+> P    →  "PALMEIRAS HAS NO MUNDIAL!"\
+> O    →  "LOVE YOUR NEIGHBOR AS YOURSELF"
 
 ## 🇪🇸 Mensajes automáticos en el chat del Juego
 
@@ -494,14 +494,14 @@ En la pestaña **AVANZADO** de las opciones de tu cliente SOPA SPADES, tendrás 
 
 Para ver tus mensajes y opciones disponibles, presiona **T** en el juego y escribe `/sopa_m` en el chat.
 
-**¿PARA QUÉ SIRVE ESTO?** Si quieres provocar a alguien o elogiar a tu equipo en el JUEGO, no necesitas escribir una frase entera — simplemente configúrala en los ajustes y presiona la tecla correspondiente:
+**¿PARA QUÉ SIRVE ESTO?** Si quieres provocar a alguien o elogiar a tu equipo en el JUEGO, no necesitas escribir una frase entera — simplemente configúrala en los ajustes y presiona la tecla correspondiente.
 
-```
-MS4  →  "¡DIOS BENDIGA A LA FAMILIA!"
-MS5  →  "¡BENDITO SEA QUIEN RESPETA A SUS PADRES!"
-P    →  "¡PALMEIRAS NO TIENE MUNDIAL!"
-O    →  "AMARÁS A TU PRÓJIMO COMO A TI MISMO"
-```
+> 💡 **Ejemplo:** frases que puedes agregar en la pestaña **AVANZADO** de tu cliente de juego:
+>
+> MS4  →  "¡DIOS BENDIGA A LA FAMILIA!"\
+> MS5  →  "¡BENDITO SEA QUIEN RESPETA A SUS PADRES!"\
+> P    →  "¡PALMEIRAS NO TIENE MUNDIAL!"\
+> O    →  "AMARÁS A TU PRÓJIMO COMO A TI MISMO"
 
 ## 🧮🇺🇸 the basic settings your PC needs
 
