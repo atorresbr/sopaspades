@@ -22,6 +22,7 @@
 
 ⚔️ Conexão com FPS: O projeto visa não deixar esquecida a comunidade de jogadores online de FPS, como a de Counter-Strike, unindo essa competitividade ao ambiente de blocos.
 
+
 🎮 Sobre o Jogo: CS + Minecraft
 
 🍜 SOPA SPADES é um FPS em primeira pessoa que mistura a dinâmica tática de jogos como o Counter-Strike com a liberdade de construção e destruição de blocos como no Minecraft.
@@ -36,18 +37,16 @@ projeto é aberto a toda e qualquer boa contribuição de código ou ideias que 
 
 Divirta-se com seus amigos e com toda a comunidade!
 
-
 <!--**Important**: If you have previously installed OpenSpades or any modified version of SopaSpades, you have to uninstall it manually by `sudo rm -rf /usr/local/share/games/openspades` or `sudo rm -rf /usr/local/share/games/sopaspades` before installing a new one.-->
 
 https://github.com/atorresbr/a-la-popa/assets/13744483/1b71f093-dc32-4bd9-a0cf-2dfdc1c10408
 
-## 🍜 🇪🇸 Para los Principiantes | 🇧🇷 Para os iniciantes | 🇺🇸 To Benginners
+## 🍜SAY PUPPA(ﾉ☉ヮ⚆)ﾉ🪄⌒*:･ﾟ✧🔥🌟✨ ✨ԅ(≖‿≖✨ԅ)PUPPA‼️
 
+<!-- -->
+## 🧲⚡ wget
 
-
-## 🧲⚡ wget 
-
-
+<!-- -->
    🇪🇸 Primero, verifique si wget está instalado en su PC, simplemente copie el comando haciendo clic en los dos pequeños cuadrados en el lado derecho del comando.
 
    🇺🇸 Firs, verify if wget alread installed on your machine, just click on two lil squares on the right side from the command.
@@ -56,13 +55,14 @@ https://github.com/atorresbr/a-la-popa/assets/13744483/1b71f093-dc32-4bd9-a0cf-2
 
 ```bash
 ## If your system doesn't have wget, this command will install it
-command -v wget >/dev/null 2>&1 || sudo apt install wget -y &&
-sudo rm -rf sopaspades 2>/dev/null || true &&
-sudo rm -rf a-la-popa 2>/dev/null || true &&
-rm -f a-la-popa.sh 2>/dev/null || true
+command -v wget >/dev/null 2>&1 || {
+  sudo apt-get update &&
+  sudo apt-get upgrade -y &&
+  sudo apt-get install -y wget
+}
 ```
-   
-## 🪄✨ install * 🪄✨ instalando * 🪄✨ instalando el juego
+<!-- -->
+## (｡◕‿‿◕｡)🇺🇸🪄✨compile and install  ☉ ‿ ⚆🇧🇷🪄✨compilar e instalar ヽ༼ຈل͜ຈ༽ﾉ🇪🇸*🪄✨conpilar y instalar el juego
 
    🇪🇸 Eres principiante  con Linux ?, copie el comando en los cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
 
@@ -163,8 +163,8 @@ rm -rf "$USER_HOME/.local/share/applications/openspades.desktop" \
        "$USER_HOME/.local/share/icons/sopaspades*" \
        "$USER_HOME/.local/share/openspades*" \
        "$USER_HOME/.local/share/sopaspades*" \
-       "$USER_HOME/a-la-popa" "$USER_HOME/a-la-popa.sh" 2>/dev/null || true
-       "$USER_HOME/a-la-popa" "$USER_HOME/sopaspades.sh" 2>/dev/null || true
+       "$USER_HOME/a-la-popa" "$USER_HOME/a-la-popa.sh" \
+       "$USER_HOME/sopaspades.sh" 2>/dev/null || true
 
 
 # clean caches (best-effort)
@@ -176,6 +176,66 @@ update-desktop-database /usr/share/applications 2>/dev/null || true
 update-desktop-database /usr/local/share/applications 2>/dev/null || true
 update-desktop-database "$USER_HOME/.local/share/applications" 2>/dev/null || true
 gtk-update-icon-cache -f /usr/local/share/icons/hicolor 2>/dev/null || true
+
+# ── install build dependencies ────────────────────────────────────────────────
+# Detect the package manager and install all libraries required by CMakeLists.txt.
+# This block runs as root (we are inside sudo bash -s), so no sudo prefix needed.
+#
+# Key fixes vs older README:
+#   libcurl4-openssl-dev  — replaces obsolete libcurl3-openssl-dev (Ubuntu 18.04+)
+#   zlib1g-dev            — required by FindZLIB in CMakeLists.txt (was missing)
+#   libopenal-dev         — 3D audio; libalut-dev alone does not guarantee it
+#   libglu1-mesa-dev      — satisfies OPENGL_GLU_FOUND check in CMakeLists.txt
+#   build-essential       — provides g++/make needed to compile from source
+#
+# References:
+#   https://packages.ubuntu.com/
+#   https://packages.fedoraproject.org/
+if command -v apt-get >/dev/null 2>&1; then
+  apt-get update -qq
+  # Prefer libcurl4-openssl-dev (Ubuntu 18.04+/Debian 10+); fall back to libcurl4-dev
+  CURL_PKG="libcurl4-openssl-dev"
+  apt-cache show "$CURL_PKG" >/dev/null 2>&1 || CURL_PKG="libcurl4-dev"
+  apt-get install -y \
+    build-essential git wget unzip pkg-config cmake \
+    libglew-dev "$CURL_PKG" \
+    libsdl2-dev libsdl2-image-dev \
+    libalut-dev libopenal-dev libglu1-mesa-dev \
+    xdg-utils libfreetype6-dev \
+    libopus-dev libopusfile-dev \
+    imagemagick \
+    libjpeg-dev libxinerama-dev libxft-dev \
+    zlib1g-dev
+elif command -v dnf >/dev/null 2>&1; then
+  # RHEL / Fedora — enable EPEL for packages not in the base repos
+  dnf install -y epel-release 2>/dev/null || true
+  dnf install -y \
+    gcc-c++ make git wget unzip pkgconf-pkg-config cmake \
+    glew-devel libcurl-devel openssl-devel \
+    SDL2-devel SDL2_image-devel \
+    freealut-devel openal-soft-devel \
+    mesa-libGL-devel mesa-libGLU-devel \
+    xdg-utils freetype-devel \
+    opus-devel opusfile-devel \
+    ImageMagick \
+    libjpeg-turbo-devel libXinerama-devel libXft-devel \
+    zlib-devel
+elif command -v yum >/dev/null 2>&1; then
+  # Older RHEL / CentOS 7
+  yum install -y epel-release 2>/dev/null || true
+  yum install -y \
+    gcc-c++ make git wget unzip pkgconfig cmake \
+    glew-devel libcurl-devel openssl-devel \
+    SDL2-devel SDL2_image-devel \
+    freealut-devel openal-soft-devel \
+    mesa-libGL-devel mesa-libGLU-devel \
+    xdg-utils freetype-devel \
+    opus-devel opusfile-devel \
+    ImageMagick \
+    libjpeg-turbo-devel libXinerama-devel libXft-devel \
+    zlib-devel
+fi
+# ──────────────────────────────────────────────────────────────────────────────
 
 # download and run installer as root (already root here — avoids EUID check failure inside a-la-popa.sh)
 wget -q -O "$USER_HOME/a-la-popa.sh" \
@@ -246,71 +306,21 @@ echo ""
 
 EOF
 ```
-<!-- 
 
-```
-## if you sytem don't have wget, this command will install it
-sudo apt install wget && clear && 
+<!---->
+## :: 🇪🇸 Para los Maestros - Si quieres comprender el proceso de instalación y reinstalación para mejorar tus habilidades con los comandos de Linux, esta sección es para ti
 
-## removing game folders from the old openspades version
-sudo rm -rf a-la-popa && rm a-la-popa.sh 2> /dev/null &&
-sudo rm -rf ~/.local/share/openspades* && 
-sudo rm -rf /usr/local/games/openspades 2> /dev/null &&
+## :: 🇧🇷 Para os Experientes - se você deseja entender o processo de instalação e reinstalação para se aperfeiçoar com comandos Linux, essa seção é para você
 
-## downloading the text file to transform in Bash Script
-wget https://raw.githubusercontent.com/torresdigital/sopaspades/main/a-la-popa.txt && \
-sudo mv a-la-popa.txt a-la-popa.sh && \
+## :: 🇺🇸 To Masters - If you want to understand the installation and reinstallation process to improve your Linux command skills, this section is for you
 
-## setting the permissions to you LINUX user and exec the Bash Script to install the game
-sudo chmod +x a-la-popa.sh && sudo ./a-la-popa.sh &&
+<!-- --> ### Limpar e Instalar / Limpiar y instalar / Clean and Install 
 
-## creating the folder (( directory )) to receive the ModernWar skin pack for Sopaspades
-mkdir -p ~/.local/share/openspades/Resources && cd ~/.local/share/openspades/Resources &&
-
-## downloading the pack
-wget https://github.com/torresdigital/sopaspades/raw/main/MODERN-PACK/modern_pack.zip && 
-
-## unzipping
-unzip -o modern_pack.zip && \
-
-## starting the game 
-sopaspades
-
-```
-
-
-
-
--->
-
-<!--
-
-```bash
-  sudo apt-get install pkg-config libglew-dev libcurl3-openssl-dev libsdl2-dev \
-     libsdl2-image-dev libalut-dev xdg-utils libfreetype6-dev libopus-dev \
-     libopusfile-dev cmake imagemagick \
-     libjpeg-dev libxinerama-dev libxft-dev && \
-
-   sudo rm -Rf sopaspades && sudo rm -Rf openspades && \
-   git clone https://github.com/torresdigital/sopaspades.git && cd sopaspades && \
-
-   mkdir sopaspades.mk && cd sopaspades.mk && cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && \
-   make && sudo make install && \
-
-   openspades
-
-```
--->
-
-## 🇪🇸 Para los Maestros | 🇧🇷 Para os Experientes | 🇺🇸 To Masters 
-
- ### Limpar e Instalar / Limpiar y instalar / Clean and Install 
-
-🇪🇸 **Importante**: 
+🇪🇸 **Importante**:
 
 Si ya tiene una instalación antigua en su PC con Linux, debe eliminarla usando este comando a continuación. Copie el comando en los dos pequeños cuadrados de la derecha, péguelo en su terminal con el botón derecho del mouse y presione ENTER.
 
-🇧🇷 **Importante**: 
+🇧🇷 **Importante**:
 
 Se você já tem uma instalação antiga no seu PC com Linux, você precisa remover, usando este comando abaixo. Copie o comando nos dois pequenos quadradinhos à direita, e cole no seu terminal com o botão direiro do Mouse, e aperte ENTER.
 
@@ -318,7 +328,7 @@ Se você já tem uma instalação antiga no seu PC com Linux, você precisa remo
 
  If you have previously installed OpenSpades or any modified version of OpenSpades on you PC. Just copy the comando bellow on the two little squares on right, and use right click to past the command in you terminal and press ENTER.
 
-
+<!-- -->
 El Comando / O Comando / The Command 👇
 
 ```bash
@@ -331,9 +341,9 @@ sudo rm -rf /usr/games/sopaspades &&
 sudo apt purge openspades -y
 ```
 
-
-
-
+<!-- -->
+<!-- -->
+<!-- -->
 ## Cómo instalar | How to Install | Como instalar 
 
 ### En Linux 💠 On Linux 💠 No Linux
@@ -349,7 +359,7 @@ ou posterior é recomendado porque o OpenSpades depende muito dos recursos do C+
 🇺🇸 GCC 4.9 - Clang 3.2 <br>
 or later is recommended because OpenSpades relies on C++11 features heavily.
 
-
+   <!-- -->
 ### 🇧🇷 Comandos e instalação | 🇺🇸 Commands to instaltion | 🇪🇸 Los comandos y instalacion
 
 ## Dependências | Dependences:
@@ -364,24 +374,37 @@ or later is recommended because OpenSpades relies on C++11 features heavily.
 
 💠 click on the small squares to copy the commands. After copying, paste into your terminal with the right mouse button and press Enter.
 
+   ```bash
+   sudo apt-get install -y \
+     build-essential pkg-config cmake git wget unzip \
+     libglew-dev libcurl4-openssl-dev \
+     libsdl2-dev libsdl2-image-dev \
+     libalut-dev libopenal-dev libglu1-mesa-dev \
+     xdg-utils libfreetype6-dev \
+     libopus-dev libopusfile-dev \
+     imagemagick \
+     libjpeg-dev libxinerama-dev libxft-dev \
+     zlib1g-dev
    ```
-   sudo apt-get install pkg-config libglew-dev libcurl3-openssl-dev libsdl2-dev \
-     libsdl2-image-dev libalut-dev xdg-utils libfreetype6-dev libopus-dev \
-     libopusfile-dev cmake imagemagick \
-     libjpeg-dev libxinerama-dev libxft-dev
-   ```
-   
+   <!-- -->
    💠 On Fedora or RHEL-derived distributions
 
-   💠 Fedora e outras distribuições en RHEL 
+   💠 Fedora e outras distribuições en RHEL
 
    💠 En Fedora y distribuciones derivadas RHEL
 
-   ```
-   sudo dnf install pkgconf-pkg-config glew-devel openssl-devel \
-     libcurl-devel SDL2-devel SDL2_image-devel \
-     freealut-devel xdg-utils freetype-devel opus-devel opusfile-devel \
-     libjpeg-devel libXinerama-devel libXft-devel cmake ImageMagick
+   ```bash
+   sudo dnf install -y \
+     gcc-c++ make pkgconf-pkg-config cmake git wget unzip \
+     glew-devel libcurl-devel openssl-devel \
+     SDL2-devel SDL2_image-devel \
+     freealut-devel openal-soft-devel \
+     mesa-libGL-devel mesa-libGLU-devel \
+     xdg-utils freetype-devel \
+     opus-devel opusfile-devel \
+     ImageMagick \
+     libjpeg-turbo-devel libXinerama-devel libXft-devel \
+     zlib-devel
    ```
 
    ## Instalando el Juego 💠 Instalando o Jogo 💠 Installing the Game
@@ -403,7 +426,7 @@ or later is recommended because OpenSpades relies on C++11 features heavily.
 
 ### 3. Execute el comando abajo 💠 Execute o comando abaixo 💠 Run the commmand :
 
-   ```
+   ```bash
    mkdir sopaspades.mk && cd sopaspades.mk && \
    cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && make
    ```
@@ -416,27 +439,31 @@ or later is recommended because OpenSpades relies on C++11 features heavily.
 
 ### 5. Iniciar el cliente del juego 💠 Iniciando o Cliente do Jogo 💠 Starting the Game :  <!-- (if installed) -->  
 
-💠 To start the game, type the command below on you TERMINAL, o just copy and past the command . <br>
-💠 Para iniciar el juego, escriba el comando en tu TERMINAL, o simplemente copie y colar. <br>
-💠 Para iniciar o jogo, digite o comando abaixo em seu terminal ou copie e cole. <br>
+💠 To start the game, type the command below on you TERMINAL, o just copy and past the command. <!-- -->
+💠 Para iniciar el juego, escriba el comando en tu TERMINAL, o simplemente copie y colar. <!-- -->
+💠 Para iniciar o jogo, digite o comando abaixo em seu terminal ou copie e cole. <!-- -->
 
+<!-- -->
 
-   ``` bash
+  ``` bash
    sopaspades
-  ``` 
+  ```
 
    or `cd $REPO_DIRECTORY/sopaspades.mk; bin/sopaspades` and enjoy
 
-
+<!-- -->
 ### Windows
+
 <!-- Windows is currently not supported, if anyone wants to go through the pain of building it for Windows, you're more than welcome to.
 If you have built for Windows please send me it on Discord: synth#0420 (I am going to lose the custom tag soon though) -->
 
 ### macOS
+
 Same goes for Windows. Although I've yet to meet anyone playing OpenSpades or B&S on macOS
 
-
+<!-- -->
 ### Network usage during building
+
 OpenSpades' build process automatically downloads prebuilt game assets and libraries as needed. Specifically:
 
 - `pak000-Nonfree.pak` and `font-uniform.pak` from <https://github.com/yvt/openspades-paks>. Can be disabled by passing `-D SOPASPADES_NONFREE_RESOURCES=NO` to CMake.
@@ -445,21 +472,23 @@ OpenSpades' build process automatically downloads prebuilt game assets and libra
 
 In addition, vcpkg (sort of package manager only used for Windows and macOS builds) [collects and sends telemetry data to Microsoft](https://vcpkg.readthedocs.io/en/latest/about/privacy/). You can opt out of this behavior by passing `-disableMetrics` option when running `vcpkg/bootstrap-vcpkg.sh` command.
 
-
+<!-- -->
 ## Troubleshooting
-We will try to help you resolve any issues or resolve any concerns about installing the game on your Linux system.
 
+ We will try to help you resolve any issues or resolve any concerns about installing the game on your Linux system.
 
+<!-- -->
 ## Licensing
+
 Please see the file named LICENSE.
 
-## 🍜 SOPA SPADES.
+## 🍜 SOPA SPADES
 
 SOPA SPADES is a modified version from 😒synSpades and 🤫OpenSpades.
 
  synSpades are a version from openspades with changes by Doctor Dank and Ixve  (( synth )), including a bigger color palette thanks to Liza & other smaller changes such as macros (Totally didn't steal the macros from [this dude](https://www.github.com/yusufcardinal/openspades)).
 
-## Automatic mensages * mensajes automáticas *  Mensagens automáticas ( /_sup_instant ).
+## Automatic mensages * mensajes automáticas *  Mensagens automáticas ( /_sup_instant )
 
 <!-- Write `/sopa_macro_` in chat and it'll essentially explain itself to you. There's currently only a macro for the P key & the Mouse Button 4 & 5 keys.
 If someone can, please implement a macro menu where you can set macro keys yourself, as right now you have to add lines to the code to have another bind. -->
@@ -473,7 +502,7 @@ Puedes configurar tus mensajes instantáneos como un eslogan para usar en el JUE
 Para ver tus mensajes instantáneas y usarlos en el juego, simplemente, presiona la tecla "T" y escribe `/_sup` en el chat del juego y elige tus mensajes instantáneas.
 
 Para usar en el juego, simplemente presione la tecla correspondiente: para usar el eslogan en "p", presione la tecla "p".
-
+<!-- -->
 
 ### 🇺🇸 Instant messages 
 
