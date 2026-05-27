@@ -341,10 +341,9 @@ If you have built for Windows please send me it on Discord: synth#0420 (I am goi
 Same goes for Windows. Although I've yet to meet anyone playing OpenSpades or B&S on macOS
 
 <!-- -->
-### 🇺🇸 Network usage during building | 🇧🇷 Uso de rede durante a compilação | 🇪🇸 Uso de red durante la compilación
+### 🇺🇸 ( •͡˘ _•͡˘)ノDownload and Upload data during building ( installation of the SOPA SPADES game client )
 
-🇺🇸
-> ✅ **SOPA SPADES does NOT need to download game packs during installation.**
+> ✅ **SOPA SPADES does NOT need to download game packs during installation, unlike synSpades and OpenSpades** — both required downloading these files from the network during the build process.
 > The packs are already bundled in this repository under `Resources/Assets` and are automatically unzipped into the correct folders during the install process — exactly as if they had been downloaded from the original sources.
 
 The original OpenSpades build process would download these assets from the network:
@@ -352,12 +351,19 @@ The original OpenSpades build process would download these assets from the netwo
 - `pak000-Nonfree.pak` and `font-uniform.pak` — originally from <https://github.com/yvt/openspades-paks>. **In SOPA SPADES these are already present in `Resources/Assets` and unpacked locally by the installer.**
 - The prebuilt binaries of YSRSpades (audio engine) — originally from <https://github.com/yvt/openspades-media>. **In SOPA SPADES these are bundled in the repo and do not require a separate download.**
 
-In addition, vcpkg (package manager used only for Windows and macOS builds) [collects and sends telemetry data to Microsoft](https://vcpkg.readthedocs.io/en/latest/about/privacy/). You can opt out by passing `-disableMetrics` when running `vcpkg/bootstrap-vcpkg.sh`.
+> ⚠️ **Linux users: this does NOT affect you.** On Linux, dependencies are installed via `apt`/`dnf` — vcpkg is never used.
 
----
+**vcpkg** is Microsoft's C++ package manager. On Windows and macOS, it is used during the source build to automatically download and compile C++ libraries such as SDL2 and OpenAL. When you run `bootstrap-vcpkg.sh`, vcpkg silently sends telemetry data to Microsoft — including information about your build environment and which packages were installed — by default, without asking.
 
-🇧🇷
-> ✅ **O SOPA SPADES NÃO precisa baixar pacotes do jogo durante a instalação.**
+To opt out, pass `-disableMetrics` when bootstrapping vcpkg. Run this command **from the root of the source directory, before running `cmake`**, only when building from source on Windows or macOS:
+
+```sh
+bash vcpkg/bootstrap-vcpkg.sh -disableMetrics
+```
+
+### 🇧🇷 ( •͡˘ _•͡˘)ノDownload e Upload de dados durante a compilação ( instalação do cliente de jogo SOPA SPADES )
+
+> ✅ **O SOPA SPADES NÃO precisa baixar pacotes do jogo durante a instalação, como acontecia com o synSpades e o OpenSpades** — ambos precisavam baixar esses arquivos da rede durante a compilação.
 > Os pacotes já estão incluídos neste repositório em `Resources/Assets` e são descompactados automaticamente nas pastas corretas durante o processo de instalação — exatamente como se tivessem sido baixados das fontes originais.
 
 O processo de compilação original do OpenSpades baixava estes arquivos da rede:
@@ -365,12 +371,19 @@ O processo de compilação original do OpenSpades baixava estes arquivos da rede
 - `pak000-Nonfree.pak` e `font-uniform.pak` — originalmente de <https://github.com/yvt/openspades-paks>. **No SOPA SPADES estes arquivos já estão presentes em `Resources/Assets` e são descompactados localmente pelo instalador.**
 - Os binários pré-compilados do YSRSpades (motor de áudio) — originalmente de <https://github.com/yvt/openspades-media>. **No SOPA SPADES estes binários estão incluídos no repositório e não precisam ser baixados separadamente.**
 
-Além disso, o vcpkg (gerenciador de pacotes usado apenas em compilações para Windows e macOS) [coleta e envia dados de telemetria para a Microsoft](https://vcpkg.readthedocs.io/en/latest/about/privacy/). Para desativar, passe `-disableMetrics` ao executar `vcpkg/bootstrap-vcpkg.sh`.
+> ⚠️ **Usuários Linux: isso NÃO te afeta.** No Linux, as dependências são instaladas via `apt`/`dnf` — o vcpkg nunca é usado.
 
----
+**vcpkg** é o gerenciador de pacotes C++ da Microsoft. No Windows e macOS, ele é usado durante a compilação do código-fonte para baixar e compilar automaticamente bibliotecas C++ como SDL2 e OpenAL. Ao executar `bootstrap-vcpkg.sh`, o vcpkg envia silenciosamente dados de telemetria para a Microsoft — incluindo informações sobre seu ambiente de compilação e quais pacotes foram instalados — por padrão, sem avisar.
 
-🇪🇸
-> ✅ **SOPA SPADES NO necesita descargar paquetes del juego durante la instalación.**
+Para desativar, passe `-disableMetrics` ao inicializar o vcpkg. Execute este comando **na raiz do diretório de código-fonte, antes de executar o `cmake`**, apenas ao compilar o código-fonte no Windows ou macOS:
+
+```sh
+bash vcpkg/bootstrap-vcpkg.sh -disableMetrics
+```
+
+### 🇪🇸 ( •͡˘ _•͡˘)ノDescarga y carga de datos durante la compilación ( instalación del cliente de juego SOPA SPADES )
+
+> ✅ **SOPA SPADES NO necesita descargar paquetes del juego durante la instalación, a diferencia de synSpades y OpenSpades** — ambos requerían descargar estos archivos de la red durante el proceso de compilación.
 > Los paquetes ya están incluidos en este repositorio en `Resources/Assets` y se descomprimen automáticamente en las carpetas correctas durante el proceso de instalación — exactamente como si hubieran sido descargados de las fuentes originales.
 
 El proceso de compilación original de OpenSpades descargaba estos archivos de la red:
@@ -378,37 +391,51 @@ El proceso de compilación original de OpenSpades descargaba estos archivos de l
 - `pak000-Nonfree.pak` y `font-uniform.pak` — originalmente de <https://github.com/yvt/openspades-paks>. **En SOPA SPADES estos archivos ya están presentes en `Resources/Assets` y son descomprimidos localmente por el instalador.**
 - Los binarios precompilados de YSRSpades (motor de audio) — originalmente de <https://github.com/yvt/openspades-media>. **En SOPA SPADES estos binarios están incluidos en el repositorio y no requieren una descarga separada.**
 
-Además, vcpkg (gestor de paquetes usado solo para compilaciones en Windows y macOS) [recopila y envía datos de telemetría a Microsoft](https://vcpkg.readthedocs.io/en/latest/about/privacy/). Para desactivarlo, pase `-disableMetrics` al ejecutar `vcpkg/bootstrap-vcpkg.sh`.
+> ⚠️ **Usuarios de Linux: esto NO les afecta.** En Linux, las dependencias se instalan mediante `apt`/`dnf` — vcpkg nunca se usa.
+
+**vcpkg** es el gestor de paquetes C++ de Microsoft. En Windows y macOS, se usa durante la compilación del código fuente para descargar y compilar automáticamente bibliotecas C++ como SDL2 y OpenAL. Al ejecutar `bootstrap-vcpkg.sh`, vcpkg envía silenciosamente datos de telemetría a Microsoft — incluyendo información sobre su entorno de compilación y qué paquetes fueron instalados — de forma predeterminada, sin avisar.
+
+Para desactivarlo, pase `-disableMetrics` al inicializar vcpkg. Ejecute este comando **desde la raíz del directorio de código fuente, antes de ejecutar `cmake`**, solo al compilar el código fuente en Windows o macOS:
+
+```sh
+bash vcpkg/bootstrap-vcpkg.sh -disableMetrics
+```
 
 <!-- -->
-## Troubleshooting | Solução de Problemas | Resolución de Problemas
+## (｡◕‿‿◕｡)🇺🇸🪄✨ Troubleshooting: compile and install
 
-🇧🇷 Se você tiver qualquer problema de instalação com a sua distro ou sistema Windows / Mac, você pode entrar em contato diretamente comigo que eu irei resolver e inserir as correções posteriormente no repositório.
+If you have any installation issue with your distro or Windows / Mac system, you can contact me directly and I will fix it and add the corrections to the repository afterwards.
 
-🇺🇸 If you have any installation issue with your distro or Windows / Mac system, you can contact me directly and I will fix it and add the corrections to the repository afterwards.
+## 🇧🇷☉ ‿ ⚆🪄✨ Solução de Problemas: compilar e instalar
 
-🇪🇸 Si tiene algún problema de instalación con su distro o sistema Windows / Mac, puede contactarme directamente y lo resolveré e insertaré las correcciones en el repositorio posteriormente.
+Se você tiver qualquer problema de instalação com a sua distro ou sistema Windows / Mac, você pode entrar em contato diretamente comigo que eu irei resolver e inserir as correções posteriormente no repositório.
+
+## ヽ༼ຈل͜ຈ༽ﾉ🇪🇸🪄✨ Resolución de Problemas: conpilar y instalar el juego
+
+Si tiene algún problema de instalación con su distro o sistema Windows / Mac, puede contactarme directamente y lo resolveré e insertaré las correcciones en el repositorio posteriormente.
 
 <!-- -->
 ## Licensing
 
-Please see the file named LICENSE.
+🇧🇷 Consulte o arquivo de licença aqui: [LICENSE](LICENSE)
+
+🇺🇸 Please see the license file here: [LICENSE](LICENSE)
+
+🇪🇸 Consulte el archivo de licencia aquí: [LICENSE](LICENSE)
 
 ## 🍜 SOPA SPADES
 
-🇺🇸 SOPA SPADES is a modified version from 😒synSpades and 🤫OpenSpades. It includes changes by LINUS TORVALDS, Doctor Dank, and Ixve (AKA synth), a BEAUTIFUL color palette — thanks to Liza ( i dont know who is a Liza 😆 ) — and other IMPORTANT changes, such as the catchphrase option in the GAME client, that were added by this [beloved BRU!, called yusufcardinal](https://www.github.com/yusufcardinal/openspades).
+🇺🇸 SOPA SPADES is a modified version from 😒synSpades and 🤫OpenSpades. It includes changes by LINUS TORVALDS, Doctor Dank, and Ixve (AKA synth), The Game client has a BEAUTIFUL color palette — thanks to Liza ( i dont know who is a Liza 😆 ) — and other IMPORTANT changes, such as the catchphrase option in the GAME client, that were added by this [beloved BRU!, called yusufcardinal](https://www.github.com/yusufcardinal/openspades).
 
-🇧🇷 SOPA SPADES é uma versão modificada do 😒synSpades e do 🤫OpenSpades. Inclui alterações de LINUS TORVALDS, Doctor Dank e Ixve (também conhecido como synth), uma BELA paleta de cores — graças à Liza ( eu não sei quem é essa Liza 😆 ) — e outras mudanças IMPORTANTES, como a opção de frase personalizadas no cliente de JOGO, que foram adicionadas por este [amado BRU!, chamado yusufcardinal](https://www.github.com/yusufcardinal/openspades).
+🇧🇷 SOPA SPADES é uma versão modificada do 😒synSpades e do 🤫OpenSpades. Inclui alterações de LINUS TORVALDS, Doctor Dank e Ixve (também conhecido como synth), O cliente de Jogo tem uma BELA paleta de cores — graças à Liza ( eu não sei quem é essa Liza 😆 ) — e outras mudanças IMPORTANTES, como a opção de frase personalizadas no cliente de JOGO, que foram adicionadas por este [amado BRU!, chamado yusufcardinal](https://www.github.com/yusufcardinal/openspades).
 
-🇪🇸 SOPA SPADES es una versión modificada de 😒synSpades y 🤫OpenSpades. Incluye cambios de LINUS TORVALDS, Doctor Dank e Ixve (también conocido como synth), una paleta de colores HERMOSA — gracias a Liza ( no sé quién es esa Liza 😆 ) — y otros cambios IMPORTANTES, como la opción de frase personalizada en el cliente de JUEGO, que fueron añadidos por este [querido BRU!, llamado yusufcardinal](https://www.github.com/yusufcardinal/openspades).
+🇪🇸 SOPA SPADES es una versión modificada de 😒synSpades y 🤫OpenSpades. Incluye cambios de LINUS TORVALDS, Doctor Dank e Ixve (también conocido como synth), El cliente de Juego tiene una paleta de colores HERMOSA — gracias a Liza ( no sé quién es esa Liza 😆 ) — y otros cambios IMPORTANTES, como la opción de frase personalizada en el cliente de JUEGO, que fueron añadidos por este [querido BRU!, llamado yusufcardinal](https://www.github.com/yusufcardinal/openspades).
 
-## 🇧🇷 Mensagens automáticas no chat do Jogo | 🇺🇸 Automatic chat messages | 🇪🇸 Mensajes automáticos en el chat del Juego
+<!-- Original synSpades used `/syn_macro_` — in SOPA SPADES this command is `/sopa_m` -->
 
-<!-- Original synSpades used `/syn_macro_` — in SOPA SPADES this command is `/sopa_prasse` -->
+## 🇧🇷 Mensagens automáticas no chat do Jogo
 
----
-
-🇧🇷 Na aba **AVANÇADO** das opções do seu cliente SOPA SPADES, você terá 4 opções de mensagem automática:
+Na aba **AVANÇADO** das opções do seu cliente SOPA SPADES, você terá 4 opções de mensagem automática:
 
 | Configuração | Tecla / Botão | Descrição |
 |---|---|---|
@@ -417,7 +444,7 @@ Please see the file named LICENSE.
 | `_sup_mensage_P` | Tecla **P** | mensagem automática com a tecla P |
 | `_sup_mensage_O` | Tecla **O** | frase especial SOPA — padrão: *"SOPA are so delicious <3"* |
 
-Para ver suas mensagens e opções disponíveis, pressione **T** no jogo e digite `/sopa_prasse` no chat.
+Para ver suas mensagens e opções disponíveis, pressione **T** no jogo e digite `/sopa_m` no chat.
 
 **PRA QUE SERVE ISSO?** Se você quiser provocar alguém ou elogiar seu time no JOGO, você simplesmente não precisa digitar uma frase inteira — basta inserir na configuração e apertar a tecla correspondente:
 
@@ -428,9 +455,9 @@ P    →  "PALMEIRAS NÃO TEM MUNDIAL!"
 O    →  "AMARÁS o TEU PRÓXIMO como a ti mesmo"
 ```
 
----
+## 🇺🇸 Automatic chat messages
 
-🇺🇸 In the **ADVANCED** tab of your SOPA SPADES client settings, you have 4 auto-message options:
+In the **ADVANCED** tab of your SOPA SPADES client settings, you have 4 auto-message options:
 
 | Setting | Key / Button | Description |
 |---|---|---|
@@ -439,7 +466,7 @@ O    →  "AMARÁS o TEU PRÓXIMO como a ti mesmo"
 | `_sup_mensage_P` | **P** key | auto message with the P key |
 | `_sup_mensage_O` | **O** key | special SOPA phrase — default: *"SOPA are so delicious <3"* |
 
-To see your messages and available options, press **T** in-game and type `/sopa_prasse` in chat.
+To see your messages and available options, press **T** in-game and type `/sopa_m` in chat.
 
 **WHAT IS THIS FOR?** If you want to troll someone or praise your team in the GAME, you don't need to type a full sentence — just set it in the settings and press the corresponding key:
 
@@ -450,9 +477,9 @@ P    →  "PALMEIRAS HAS NO MUNDIAL!"
 O    →  "LOVE YOUR NEIGHBOR AS YOURSELF"
 ```
 
----
+## 🇪🇸 Mensajes automáticos en el chat del Juego
 
-🇪🇸 En la pestaña **AVANZADO** de las opciones de tu cliente SOPA SPADES, tendrás 4 opciones de mensaje automático:
+En la pestaña **AVANZADO** de las opciones de tu cliente SOPA SPADES, tendrás 4 opciones de mensaje automático:
 
 | Configuración | Tecla / Botón | Descripción |
 |---|---|---|
@@ -461,7 +488,7 @@ O    →  "LOVE YOUR NEIGHBOR AS YOURSELF"
 | `_sup_mensage_P` | Tecla **P** | mensaje automático con la tecla P |
 | `_sup_mensage_O` | Tecla **O** | frase especial SOPA — predeterminado: *"SOPA are so delicious <3"* |
 
-Para ver tus mensajes y opciones disponibles, presiona **T** en el juego y escribe `/sopa_prasse` en el chat.
+Para ver tus mensajes y opciones disponibles, presiona **T** en el juego y escribe `/sopa_m` en el chat.
 
 **¿PARA QUÉ SIRVE ESTO?** Si quieres provocar a alguien o elogiar a tu equipo en el JUEGO, no necesitas escribir una frase entera — simplemente configúrala en los ajustes y presiona la tecla correspondiente:
 
@@ -472,7 +499,7 @@ P    →  "¡PALMEIRAS NO TIENE MUNDIAL!"
 O    →  "AMARÁS A TU PRÓJIMO COMO A TI MISMO"
 ```
 
-## 🧮 Requirements - Requisitos
+## 🧮🇺🇸 the basic settings your PC needs | 🇧🇷 as configurações básicas que o seu PC precisa | 🇪🇸 la configuración básica que necesita tu PC
 
 ### Minimum - Mínimo
 
