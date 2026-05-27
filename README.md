@@ -55,11 +55,7 @@ https://github.com/atorresbr/a-la-popa/assets/13744483/1b71f093-dc32-4bd9-a0cf-2
 
 ```bash
 ## If your system doesn't have wget, this command will install it
-command -v wget >/dev/null 2>&1 || {
-  sudo apt-get update &&
-  sudo apt-get upgrade -y &&
-  sudo apt-get install -y wget
-}
+command -v wget >/dev/null 2>&1 || sudo apt-get update && sudo apt-get install -y wget
 ```
 <!-- -->
 ## (｡◕‿‿◕｡)🇺🇸🪄✨compile and install
