@@ -62,7 +62,7 @@ command -v wget >/dev/null 2>&1 || {
 }
 ```
 <!-- -->
-#### (｡◕‿‿◕｡)🇺🇸🪄✨compile and install  | ☉ ‿ ⚆🇧🇷🪄✨compilar e instalar | ヽ༼ຈل͜ຈ༽ﾉ🇪🇸🪄✨conpilar y instalar el juego
+### (｡◕‿‿◕｡)🇺🇸🪄✨compile and install |🇧🇷☉ ‿ ⚆🪄✨compilar e instalar |ヽ༼ຈل͜ຈ༽ﾉ🇪🇸🪄✨conpilar y instalar el juego
 
    🇪🇸 Eres principiante  con Linux ?, copie el comando en los cuadrados a la derecha y use el botón derecho del mouse para pegarlo en su terminal y presione ENTER para instalar el juego.
 
