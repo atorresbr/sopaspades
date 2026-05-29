@@ -174,7 +174,6 @@ rm -rf /usr/local/games/openspades \
        /usr/local/share/man/man6/sopaspades.6.gz \
        /usr/local/share/menu/openspades \
        /usr/local/share/menu/sopaspades \
-       /usr/local/lib/openspades \
        /usr/games/openspades /usr/games/sopaspades \
        /usr/share/games/openspades /usr/share/games/sopaspades \
        /usr/share/applications/openspades.desktop \
@@ -189,6 +188,7 @@ rm -rf /usr/local/games/openspades \
        /usr/share/man/man6/sopaspades.6.gz \
        /usr/share/menu/openspades \
        /usr/share/menu/sopaspades 2>/dev/null || true
+# note: lib/openspades is listed in CMakeLists.txt but marked "Currently not used" — never populated
 # remove hicolor icons (all sizes) — installed by synSpades / openSpades / sopaspades
 for _size in 16x16 24x24 32x32 48x48 64x64 96x96 128x128 256x256; do
   rm -f /usr/local/share/icons/hicolor/${_size}/apps/openspades.png \
