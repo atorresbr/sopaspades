@@ -141,7 +141,6 @@ unzip -o modern_pack.zip && cd ~/ \
 
 ## starting the game 
 sopaspades
-
 ``` -->
 
 ```bash
